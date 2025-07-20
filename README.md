@@ -47,7 +47,7 @@ Version: 0.0.5 Dev
 > 本人的Debian配置  
 
 <!-- hilevel -->
-> 3. 高阶
+> 3. 高阶  
 > [APT离线更新软件](hilevel/apt_update_offline.md)  
 > [GCC-15](hilevel/gcc.md)  
 > Desktop启动器  
