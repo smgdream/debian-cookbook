@@ -74,9 +74,9 @@ sudo tar -xvf gcc-15.1.0_debian-amd64.tar.xz -C /
 将gcc可执行文件所在目录添加到中PATH（如：编辑/etc/profile将`/opt/gcc-15/bin:`添加至PATH变量对应字符串的开头）  
 
 ## 参考资料
-\[1\][Installing GCC](https://gcc.gnu.org/install/)
-\[2\][Installing GCC: Configuration](https://gcc.gnu.org/install/configure.html)
-\[3\][Installing GCC: Final installation](https://gcc.gnu.org/install/finalinstall.html)
+\[1\][Installing GCC](https://gcc.gnu.org/install/)  
+\[2\][Installing GCC: Configuration](https://gcc.gnu.org/install/configure.html)  
+\[3\][Installing GCC: Final installation](https://gcc.gnu.org/install/finalinstall.html)  
 
 ---
 Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8 | Date: 2025-07-20
