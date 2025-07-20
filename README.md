@@ -14,7 +14,7 @@ Version: 0.0.5 Dev
 ## 2 内容索引
 
 <!-- intro -->
-> 0. 何为Debian
+> 0. 何为Debian  
 > 0.0 Linux介绍  
 > 0.1 何为Debian  
 > 0.2 Unix家族  
