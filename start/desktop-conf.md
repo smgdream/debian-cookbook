@@ -24,7 +24,7 @@
 | malcontent | 家长控制 |
 | shotwell | gnome相片管理器 |
 | simple-scan | gnome文档扫描 |
-| totem | gnome媒体播放器（卸载该软件会导致部分媒体文件缩略图无法生成，有关该问题的修补见：[自定义文件缩略图生成](hilevel/thumbnail.md)） |
+| totem | gnome媒体播放器（卸载该软件会导致部分媒体文件缩略图无法生成，有关该问题的修补见：[自定义文件缩略图生成](../hilevel/thumbnail.md)） |
 | yelp | gnome帮助 |
 卸载完毕后建议使用`apt autoremove`命令卸载依赖，然后使用`aptitude purge "~c"`命令移除已卸载软件的配置文件。  
 
