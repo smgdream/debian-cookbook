@@ -65,6 +65,9 @@ libelf-dev：ELF文件处理开发库
 ```sh
 apt install python3 perl
 ```
+说明：  
+python3：python脚本解释器  
+perl：perl脚本解释器  
 
 ## git版本管理
 安装git进行项目版本管理，命令如下：  
