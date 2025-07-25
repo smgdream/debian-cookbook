@@ -157,4 +157,4 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 \[3\] [Getting started - Rust Programming Language](https://www.rust-lang.org/learn/get-started)
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5 | Date: 2025-07-25
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7 | Date: 2025-07-25
