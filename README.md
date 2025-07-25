@@ -1,14 +1,14 @@
 # Debian cookbook
 
 Debian食用手册  
-License: CC BY-NC-SA 4.0
-Version: 0.0.5 Dev  
+License: CC BY-NC-SA 4.0  
+Version: 0.1.0 Dev  
 
 ---
 
 ## 1 适用范围
 
-本手册旨在提供适用于Debian系统的使用说明和配置说明。  
+本手册旨在提供适用于Debian系统的使用说明和配置说明，该手册适合有简单linux基础的人阅读。  
 限制：本手册内容适用于Debian13，因本人能力所限，当前手册桌面环境相关内容主要局限于gnome桌面环境。（注：本人也欢迎各位为本手册添砖加瓦）  
 
 ## 2 内容索引
@@ -24,24 +24,26 @@ Version: 0.0.5 Dev
 > 1. 启程  
 > 1.0 当前Debian适合我吗  
 > 1.1 [Debian安装](start/install-deb.md)  
-> 1.2 Debian初步配置  
-> 1.3 Debian基本环境配置  
-> 1.4 Gnome基本桌面环境配置  
-> 1.5 简易开发环境配置  
-> 1.6 不访看看Debian官方资料  
-> 1.7 [当前Debian的部分bugs](start/bugs.md)
+> 1.2 [Debian初步配置](start/init-conf.md)  
+> 1.3 [Debian基本环境配置](start/base-conf.md)  
+> 1.4 [Gnome基本桌面环境配置](start/desktop-conf.md)  
+> 1.5 [基本开发环境配置](start/dev-conf.md)  
+> 1.6 [不访看看Debian官方资料](start/deb-docs.md)  
+> 1.7 [当前Debian的部分bugs](start/bugs.md)  
 
 > 2. 进阶  
+> Debina系统备份  
 > Debian+windows  
+> Debian To Go  
 > 显卡相关  
 > Deal late no more NVIDIA  
 > NVIDIA驱动使用wayland显示服务  
 > 常用软件介绍  
 > 常用图形软件介绍  
 > Linux多媒体工作站  
-> 动态壁纸  
 > 国产软件  
-> Gnome拓展  
+> Gnome调教与美化  
+> 动态壁纸  
 > Wine  
 > Linux游戏  
 > 本人的Debian配置  
@@ -62,7 +64,7 @@ Version: 0.0.5 Dev
 > 其它软件使用教程  
 
 > 5. 官方资料何处寻  
-> Debian官网  
+> Debian官网简单指引  
 > Debian用户社区  
 > Debian软件包相关信息  
 > Linux用户社区  
@@ -70,7 +72,7 @@ Version: 0.0.5 Dev
 > 部分开源软件官网及ftp  
 > 其它资料源  
 
-> 6. 软件编译专题
-> 7. 知识杂物房
-> 8. 书籍推荐
-> 9. 其它
+> 6. 软件编译专题  
+> 7. 知识杂物房  
+> 8. 书籍推荐  
+> 9. 其它  

@@ -9,7 +9,7 @@
 ## 2. 较差的NTFS文件系统支持
 问题描述：Debian trixie的NTFS文件驱动由ntfs-3g更换为了ntfs3，导致的NTFS文件系统较易出现因superblock存在问题而无法挂载。  
 问题定位：问题应该来自于ntfs3驱动。  
-缓兵之计：所有Windows或Windows PE的磁盘检查工具扫描并修复磁盘。
+缓兵之计：所有Windows或Windows PE的磁盘检查工具扫描并修复磁盘。  
 修复状态：未修复  
 
 ## 3. 应用文件夹偶尔无法正常关闭
@@ -18,4 +18,4 @@
 修复状态：似乎已于rc2中修复（不确定是上游提供的修复还是debian提供的修复）  
 
 ---
-License: CC0 | Version: 0.6.5 | Date: 2025-07-19
+License: CC0 | Version: 0.6.6 | Date: 2025-07-20
