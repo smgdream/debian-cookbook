@@ -11,9 +11,11 @@
 | ranger | 控制台文件管理器 |
 | fastfetch | 系统信息展示工具（建议安装） |
 | htop | 交互式进程监视器 |
+| btop | 强大的交互式进程监视器 |
 | nvtop | GPU监视器 |
 | iotop | io占用查看器 |
 | ncdu | 磁盘占用查看器 |
+| curl | 通过URL传输数据的命令行工具（建议安装） |
 | wget | 极为常用的下载器（建议安装） |
 | wget2 | wget的重写版，支持多线程等现代特性 |
 | aria2 | 强大的高速下载器，还支持bt资源下载 |
@@ -50,4 +52,4 @@ Debian中默认笔记本合上盖子的行为为挂起计算机，而有时我�
 编辑`/etc/systemd/logind.conf`文件，取消`HandleLidSwitch`行的`#`注释。任何将`HandleLidSwitch`的对应值修改为合上笔记本盖子所需的行为（如：ignore，无操作）。最后重启计算机应用配置（注意：请勿相信网上说的重启`systemd-logind`服务的操作，否则可能导致桌面环境卡死）。  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6 | Date: 2025-07-25
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.2 | Date: 2025-08-02

@@ -43,6 +43,11 @@
 | deadbeef | 专业本地音乐播放器（需前往[DeaDBeeF官网](https://deadbeef.sourceforge.io/)下载deb包并安装） |
 | helvum | 图形化pipewire音频路由控制器 |
 | missioncenter | 现代化的gtk4系统监视器（需通过[flathub安装](https://flathub.org/apps/io.missioncenter.MissionCenter)或使用GitLab发布页提供的[appimage构建](https://gitlab.com/mission-center-devs/mission-center/-/releases)） |
+| Motrix  | 基于aria2的通用下载器（需前往[官网](.)下载） |
+| qBittorrent | 著名的bittorrent客户端，用于下载bt资源 |
 
 ## gnome拓展安装与美化
 关于此部分内容见：[Gnome调教与美化](../todo.md)
+
+---
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5 | Date: 2025-07-27

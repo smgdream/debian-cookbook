@@ -82,6 +82,11 @@ apt install linux-headers-$(uname -r | sed 's/.*-//g')
 ```
 注：`uname -r | sed 's/.*-//g'`子命令用于获取合适格式的机器架构。  
 
+## 安装deb包开发工具
+该软件用于将现有软件打包成deb包及用于修改deb包。安装命令如下：  
+```sh
+apt install dpkg-dev
+```
 ## Linux图形服务器开发库
 安装命令：  
 ```sh
@@ -154,10 +159,16 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 **离线安装**  
 从[Other Rust Installation Methods页面](https://forge.rust-lang.org/infra/other-installation-methods.html)下载适用于linux系统的对应机器架构的最新稳定版独立安装包。然后使用`tar -xvf rust-*.tar.xz`解压安装包，然后进入安装包目录以root用户执行`./install.sh`安装脚本即可完成rust开发环境的安装（可通过设置安装脚本的参数来调整rust的安装，有关参数的详细信息可通过`./install.sh --help`查看）。  
 
+## 安卓设备调试环境
+通过以下命令安装调试安卓设备所需工具：  
+```sh
+apt install adb fastboot
+```
+
 ## 参考资料
 \[1\] [Install the .NET SDK or the .NET Runtime on Debian](https://learn.microsoft.com/en-us/dotnet/core/install/linux-debian?tabs=dotnet8)  
 \[2\] [Install .NET on Linux by using an install script or by extracting binaries](https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual#manual-install)  
 \[3\] [Getting started - Rust Programming Language](https://www.rust-lang.org/learn/get-started)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7 | Date: 2025-07-25
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.2 | Date: 2025-07-31

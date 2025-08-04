@@ -2,7 +2,7 @@
 
 Debian食用手册  
 License: CC BY-NC-SA 4.0  
-Version: 0.1.0 Dev  
+Version: 0.2.5 Dev  
 
 ---
 
@@ -15,42 +15,42 @@ Version: 0.1.0 Dev
 
 <!-- intro -->
 > 0. 何为Debian  
-> 0.0 Linux介绍  
-> 0.1 何为Debian  
-> 0.2 Unix家族  
-> 0.3 我与Debian  
+> Linux介绍  
+> 何为Debian  
+> Unix家族  
+> 我与Debian  
 
 <!-- start -->
 > 1. 启程  
-> 1.0 当前Debian适合我吗  
-> 1.1 [Debian安装](start/install-deb.md)  
-> 1.2 [Debian初步配置](start/init-conf.md)  
-> 1.3 [Debian基本环境配置](start/base-conf.md)  
-> 1.4 [Gnome基本桌面环境配置](start/desktop-conf.md)  
-> 1.5 [基本开发环境配置](start/dev-conf.md)  
-> 1.6 [不访看看Debian官方资料](start/deb-docs.md)  
-> 1.7 [当前Debian的部分bugs](start/bugs.md)  
+> 当前Debian适合我吗  
+> [Debian安装](start/install-deb.md)  
+> [Debian初步配置](start/init-conf.md)  
+> [Debian基本环境配置](start/base-conf.md)  
+> [Gnome基本桌面环境配置](start/desktop-conf.md)  
+> [基本开发环境配置](start/dev-conf.md)  
+> [不访看看Debian官方资料](start/deb-docs.md)  
+> [当前Debian的部分bugs](start/bugs.md)  
 
+<!-- improve -->
 > 2. 进阶  
-> Debina系统备份  
-> Debian+windows  
-> Debian To Go  
-> 显卡相关  
-> Deal late no more NVIDIA  
-> NVIDIA驱动使用wayland显示服务  
-> 常用软件介绍  
-> 常用图形软件介绍  
-> Linux多媒体工作站  
-> 国产软件  
-> Gnome调教与美化  
-> 动态壁纸  
-> Wine  
-> Linux游戏  
+> [Debina系统备份](improve/sys-backup.md)  
+> [Debian+windows](improve/deb+win.md)  
+> [显卡相关](improve/graphics-card.md)  
+> [Deal late no more NVIDIA](improve/install-nv.md)  
+> [NVIDIA驱动使用wayland显示服务](improve/nv-wayland.md)  
+> [Gnome调教与美化](improve/gnome-conf.md)  
+> [动态壁纸](improve/live-wp.md)  
+> [Linux多媒体工作站](improve/media-workstation.md)  
+> [国产软件的支持说明](improve/cn-software.md)  
+> [Wine](improve/wine.md)    
+> [Linux游戏](improve/linux-game.md)  
+> [Debian系统升级](improve/deb-full-upgrade.md)  
 > 本人的Debian配置  
 
 <!-- hilevel -->
 > 3. 高阶  
-> [APT离线更新软件](hilevel/apt_update_offline.md)  
+> [APT离线更新软件](hilevel/apt-update-offline.md)  
+> [Debian To Go](hilevel/deb-togo.md)  
 > [GCC-15](hilevel/gcc.md)  
 > Desktop启动器  
 > [自定义文件缩略图生成](hilevel/thumbnail.md)  

@@ -29,6 +29,9 @@ dd if=debian.iso of=/dev/TARGET_DEV_NAME
 通过UltarISO或其他刻录软件iso映像刻录到光碟。  
 通过Rufus或其他U盘烧录软件将iso映像烧录到U盘。  
 
+## 关闭安全启动和TPM（可选）
+安装和使用linux建议关闭安全启动和TPM（虽然linux系统支持安全启动和TPM），这是因为开启这两个功能将会导致部分linux系统的设置变得复杂，而且这两个功能在大部分情况下防己不防人。在关闭这两个功能之前需要在windows的设置中关闭磁盘的BitLocker功能。然后关闭计算机再启动计算机并通过快捷键进入UEFI设置菜单，之后找到并关闭这两个功能。最后按F10保存设置并重启计算机。  
+
 ## 启动安装程序
 请确保计算机已处于关机状态。  
 插入安装媒介，启动计算机，通过启动项选择或BIOS设置选择安装媒介作为启动引导设备以启动安装程序（[电脑开机启动项快捷键参考](https://www.cnblogs.com/idreamo/p/10495343.html)）。进入grub菜单后选择Graphical install（图形化安装）或Install（文本模式安装）。这两种安装方式大同小异，只是操控方式略有不同（在grub中还存在Advanced options（高级选项）选项，在其子菜单中还提供了专家模式和自动安装选项，本文不对其进行讨论）。下文以图形化安装来讲解安装过程。  
@@ -136,8 +139,8 @@ root用户下无法正常显示ASCII字符以外的字符，这是因为root用�
 ## 手动分区
 手动分区的主界面如下
 ![](images/install-deb/part-exp.png)
-双击设备名条目可以创建新的空白分区表。双击空闲空间可以创建新分区。双击已有分区可以设置该分区。  
-**创建新分区**
+双击设备名条目可以创建新的空白分区表（创建空白分区表时可能会询问分区表类型，对于使用UEFI引导的机器则选择gpt分区表）。双击空闲空间可以创建新分区。双击已有分区可以设置该分区。  
+**创建新分区*
 双击空闲空间然后选择创建新分区之后输入分区大小，在这之后如果分区大小不足以填满空闲分区则还需要设置分区位置，然后将会进入分区设置界面。  
 **分区设置**  
 分区设置界面如下  
@@ -174,4 +177,4 @@ mount /dev/INSTALLATION_MEDIA_PARTITION_DEVICE_NAME /cdrom
 \[2\] [sudo - Debian Wiki](https://wiki.debian.org/sudo)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.6 | Date: 2025-07-21
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.9 | Date: 2025-07-27
