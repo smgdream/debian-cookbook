@@ -67,7 +67,7 @@ rm -rv gcc-15.1.0
 ## 安装第三方编译二进制GCC15
 
 注意：安装第三方编译的gcc具有一定的安全风险！  
-这是本人自己编译的gcc15：[gcc-15.1.0_debian-amd64.tar.xz](pool/gcc-15.1.0_debian-amd64~b1.tar.xz)  
+这是本人自己编译的gcc15：[gcc-15.1.0_debian-amd64~b1.tar.xz](https://github.com/smgdream/debian-file/releases/download/0/gcc-15.1.0_debian-amd64.b1.tar.xz)  
 安装依赖  
 ```sh
 apt install libc6-dev binutils
