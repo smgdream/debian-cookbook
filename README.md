@@ -1,28 +1,31 @@
 # Debian cookbook
 
-Debian食用手册  
-License: CC BY-NC-SA 4.0  
-Version: 0.2.5 Dev  
+**Debian食用手册**  
+[License: CC BY-NC-SA 4.0](./LICENSE)  
+Version: 0.3.0 Preview  
 
----
 
 ## 1 适用范围
 
 本手册旨在提供适用于Debian系统的使用说明和配置说明，该手册适合有简单linux基础的人阅读。  
-限制：本手册内容适用于Debian13，因本人能力所限，当前手册桌面环境相关内容主要局限于gnome桌面环境。（注：本人也欢迎各位为本手册添砖加瓦）  
 
-## 2 内容索引
+限制：本手册内容适用于Debian13，因本人能力所限，当前手册桌面环境相关内容主要局限于GNOME桌面环境。  
+
+## 2 贡献说明
+
+本人欢迎各位为本手册添砖加瓦，但必须以CC BY-NC-SA 4.0协议发布。  
+
+## 3 内容索引
 
 <!-- intro -->
 > 0. 何为Debian  
-> Linux介绍  
+> [本手册的食用方法](intro/eat.md)  
 > 何为Debian  
-> Unix家族  
 > 我与Debian  
 
 <!-- start -->
 > 1. 启程  
-> 当前Debian适合我吗  
+> [当前Debian适合我吗](start/deb-suit4me.md)  
 > [Debian安装](start/install-deb.md)  
 > [Debian初步配置](start/init-conf.md)  
 > [Debian基本环境配置](start/base-conf.md)  
@@ -40,12 +43,13 @@ Version: 0.2.5 Dev
 > [NVIDIA驱动使用wayland显示服务](improve/nv-wayland.md)  
 > [Gnome调教与美化](improve/gnome-conf.md)  
 > [动态壁纸](improve/live-wp.md)  
+> [Debian多媒体源](improve/deb-mmedia.md)
 > [Linux多媒体工作站](improve/media-workstation.md)  
 > [国产软件的支持说明](improve/cn-software.md)  
 > [Wine](improve/wine.md)    
 > [Linux游戏](improve/linux-game.md)  
 > [Debian系统升级](improve/deb-full-upgrade.md)  
-> 本人的Debian配置  
+> [本人的Debian初始化配置](improve/mydeb-oobe.md)  
 
 <!-- hilevel -->
 > 3. 高阶  

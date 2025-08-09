@@ -1,10 +1,10 @@
 # Debian To Go
-注意：安装debian to go方法相对复杂，对用户的Linux功底有一定要求。
 
-Debian to go即为装在u盘（移动存储）设备里的Debian系统，主打一个说走就走即插即用。  
-Debian to go的安装方式和正常安装大同小异，但要做一些额外操作。
+**注意：** 安装debian to go方法相对复杂，对用户的Linux功底有一定要求。
 
-存储设备要求：推荐使用移动固态存储设备，最低要求顺序读写>=50MiB/s的高速USB3.0存储设备。
+Debian to go即为装在u盘（移动存储）设备里的Debian系统，主打一个说走就走即插即用。Debian to go的安装方式和正常安装大同小异，但要做一些额外操作。
+
+存储设备要求：推荐使用移动固态存储设备，最低要求顺序读写>=50MiB/s且4K Write>=2MiB/s的高速USB3.0存储设备。
 
 ## 安装Debian to go要注意的点
 

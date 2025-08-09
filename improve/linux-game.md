@@ -31,7 +31,8 @@ wine explorer /desktop=name,WIDTHxHEIGHT GAME_PROGRAM
 
 ### 部分windows游戏在wine中运行的方法
 
-注：以下命令均假设你已将当前目录切换至游戏顶层目录。  
+注1：以下命令均假设你已将当前目录切换至游戏顶层目录。  
+注2：以下版本要求仅代表经笔者测试可运行游戏的wine版本，而非最低wine版本要求。  
 
 **GRIS**  
 wine版本要求：>= 6.0  
@@ -39,6 +40,7 @@ wine版本要求：>= 6.0
 ```sh
 wine GRIS.exe
 ```
+bug: 从主界面中退出游戏时可能会GC错误无法结束关闭界面（强制结束游戏进程即可，不影响游戏存档）。
 <br>
 
 **NieR:Automata（尼尔：机械纪元）**  
@@ -73,6 +75,14 @@ wine版本要求：>= 7.0
 wine 'Monument Valley 2.exe'
 ```
 第一次执行游戏时如果无法进入游戏游玩界面则强制结束游戏进程并再次启动。  
+<br>
+
+**Monument Valley III（纪念碑谷  III）**  
+wine版本要求：>= 10.0  
+运行方法：  
+```sh
+wine 'Monument Valley 3exe'
+```
 <br>
 
 **ENDER LILIES（终焉的莉莉丝）**  
@@ -133,4 +143,4 @@ steam早已原生支持linux，而Valve在2022年推出了steam desk，steam des
 \[1\] [repo - steampowered](https://repo.steampowered.com/)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.2 | Date: 2025-08-04
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.4 | Date: 2025-08-04

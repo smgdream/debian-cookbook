@@ -3,14 +3,17 @@
 以下内容基于Debian trixie（常规离线映像）展开，其他版本的安装方法可能有所有出入。  
 ## 1. 下载ISO映像
 Debian提供了各种ISO安装镜像类型，其中cd版均为网络安装镜像安装过程依赖于网络连接。dvd版可用于离线安装debian其包含了常用软件，常用桌面环境及常用图形界面程序。bd版亦可用于离线安装debian其包含了常用桌面环境，常用图形界面程序及大量常用软件（注：以上描述仅限于只有Disk1的情况，如果下载了所有镜像集合则可以离线安装官方软件集中的大部分软件）。  
+
 Debian提供了三种下载ISO映像的方式：常规下载、bt种子和jigdo。常规下载方式可通过浏览器或下载器直接下载链接所定位的ISO文件，下载速度易受到多方面的影响。bt种子需通过bt客户端下载，下载体验较好。jigdo需通过jigdo客户端下载，下载速度可能不稳定但是下载完整ISO集合的唯一方法（注：本文不对jigdo下载进行讨论，有相关需求者自行查看[相应官方资料](https://www.debian.org/CD/jigdo-cd/)）。  
+
 笔者建议优先采用bt方式下载iso映像文件，既可获得良好的下载体验，也可以减轻官方服务器的压力，还可以提升他人的下载体验（常用bt客户端：qbittorrent，aria2, motrix）。如果使用常规方式进行下载，选择离当前地区较近的服务器可获得相对好一些的下载体验。  
+
 ### 快速链接
 [Debian 下载页](https://www.debian.org/distrib/)  
 [Debian 测试版下载页](https://www.debian.org/devel/debian-installer/)  
 [官方Debian trixie DVD ISO映像种子文件](https://cdimage.debian.org/cdimage/trixie_di_rc2/amd64/bt-dvd/debian-trixie-DI-rc2-amd64-DVD-1.iso.torrent)  
-[官方Debian trixie RC2 DVD ISO映像下载链接](https://cdimage.debian.org/cdimage/trixie_di_rc2/amd64/iso-dvd/debian-trixie-DI-rc2-amd64-DVD-1.iso)  
-[中科大镜像站Debian trixie RC2 DVD ISO镜像下载链接](https://mirrors.ustc.edu.cn/debian-cdimage/trixie_di_rc2/amd64/iso-dvd/debian-trixie-DI-rc2-amd64-DVD-1.iso)  
+[官方Debian trixie DVD ISO映像下载链接](../todo.md)  
+[中科大镜像站Debian trixie RC2 DVD ISO镜像下载链接](../todo.md)  
 
 后续内容主要围绕dvd disk1展开。  
 
@@ -177,4 +180,4 @@ mount /dev/INSTALLATION_MEDIA_PARTITION_DEVICE_NAME /cdrom
 \[2\] [sudo - Debian Wiki](https://wiki.debian.org/sudo)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.9 | Date: 2025-07-27
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.9.1 | Date: 2025-08-06

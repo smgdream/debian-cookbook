@@ -32,7 +32,7 @@ apt install meson libgtk-4-media-gstreamer
 
 **注意：** Hanabi还存在一些小Bug（如：手动停止动态壁纸播放后锁屏并重新进入gnome后无法重新恢复动态壁纸的播放），虽然较少影响使用，笔者还是希望作者可以积极修复这些小bug。  
 
-吐槽：为了找到这三个拓展一起使用造成的Bug的解决方案真的花了好长时间。一开始发现进入gnome（锁屏再登录进入也算）后Dash to Dock部分没有动态效果，后面研究出来可以通过重启Dash to Dock来使其底下正常显示动态壁纸效果，但是每次都手动操作明显不方便，也不想为了这碟醋而专门写个程序用来自动重启扩展。后来我发现所有Dash to Dock自带的透明化效果就没有问题了，但是在overview和app picker中两个插件的透明效果叠加将会导致Dash to Dock额外的黑（界面显得不统一很难看）。后来笔者机缘巧合下看了Blur my shell的README发现其中提了一句"static blur uses a static image of the wallpaper, and applies the effects that are part of a pipeline on it"（“静态模糊使用壁纸的静态图像，并且对其应用管线（部分）的效果”），然后README还提了一句"dynamic blur makes the component translucent, and blur directly what is behind it"（“动态模糊让组件半透明化，并直接模糊其背后的东西”），于是我猜测动态模糊可以根据其底下的图像实时更新其显示（但是，gnome-shell其他组件使用静态模糊也可以看到背后的动态壁纸效果呀，和readme中的描述不太对的上）。但我想：“不管了，死马当活马医算了。”，然后我单独将Dash的模糊类型改成动态模糊（并关闭了Dash to Dock自带的透明化效果）。然后发现成了，但是我发现在overview和app picker还是存在Dash叠加情况，后来我试了一下调节一些可疑的设置，然后发现开启“在overview中禁用”开关效果就没问题了。后面我又发现一些音频应用无法独占ALSA，然后经过我的一番分析和尝试也解决了该问题，见：上文的“注意事项2”。  
+吐槽：为了找到这三个拓展一起使用造成的Bug的解决方案真的花了好长时间。一开始发现进入gnome（锁屏再登录进入也算）后Dash to Dock部分没有动态效果，后面研究出来可以通过重启Dash to Dock来使其底下正常显示动态壁纸效果，但是每次都手动操作明显不方便，我也不想为了这碟醋而专门写个程序用来自动重启扩展。后来我发现使用Dash to Dock自带的透明化效果就没有问题了，但是在overview和app picker中两个插件的透明效果叠加将会导致Dash to Dock额外的黑（界面显得不统一很难看）。后来笔者机缘巧合下看了Blur my shell的README发现其中提了一句"static blur uses a static image of the wallpaper, and applies the effects that are part of a pipeline on it"（“静态模糊使用壁纸的静态图像，并且对其应用管线（部分）的效果”），然后README还提了一句"dynamic blur makes the component translucent, and blur directly what is behind it"（“动态模糊让组件半透明化，并直接模糊其背后的东西”），于是我猜测动态模糊可以根据其底下的图像实时更新其显示（但是，gnome-shell其他组件使用静态模糊也可以看到背后的动态壁纸效果呀？和readme中的描述不太对的上）。但我想：“不管了，死马当活马医算了。”，于是我单独将Dash的模糊类型改成动态模糊（并关闭了Dash to Dock自带的透明化效果）。然后成了。但是我发现在overview和app picker还是存在Dash叠加情况，后来我试了一下调节一些可疑的设置，然后发现开启“在overview中禁用”的开关后Dash的效果就没问题了。后来我又发现一些音频应用无法独占ALSA，然后经过我的一番分析和尝试也解决了该问题，见：上文的“注意事项2”。  
 
 ## Hidamari（向日葵）
 [Hidamari](https://github.com/jeffshee/hidamari)与Hanabi是同一个作者开发的但Hidamari不是Gnome扩展而是一个独立的软件。Hidamari支持将本地视频、视频流和网页作为动态壁纸，但不支持图形程序。该软件的动态壁纸效果仅在桌面可见，在overview和app picker中则没有动态效果。且对于桌面透明组件的支持也没有Hanabi好。  
@@ -69,4 +69,4 @@ apt install KOMOREBI_PATH
 \[4\] [hidamari/README.md at master · jeffshee/hidamari](https://github.com/jeffshee/hidamari/blob/master/README.md)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.7 | Date: 2025-07-31
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.8 | Date: 2025-08-04

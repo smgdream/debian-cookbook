@@ -7,7 +7,7 @@
 创意设计基本上使用的显卡都是NVIDIA的显卡，而NVIDIA直接提供了官方Linux驱动，[安装驱动](install-nv.md)后用起来肯定是没问题的。  
 
 **声卡**  
-当前大部分声卡在Linux上都可以即插即用，其基本的使用是没问题的。但只有部分国际声卡大厂的部分产品提供了专门的控制台程序。  
+当前大部分声卡在Linux上都可以即插即用，其基本的使用是没问题的。但只有部分国际声卡大厂的部分产品提供了用于Linux的控制台程序。  
 
 **数位板和数位屏**  
 当前绝大多数数位板在Linux中都可以即插即用。Wacom可以使用一些非官方软件或创意软件的功能来对数位板进行设置。而国内友基系和绘王系两大厂商均为其产品提供了专门的Linux数位板控制面板程序。  
@@ -22,4 +22,4 @@ DAW：[REAPER](https://www.reaper.fm)（部分闭源部分专有）、[Ardour](h
 动画制作：[OpenToonz](https://opentoonz.github.io)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5 | Date: 2025-07-31
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5。1 | Date: 2025-08-04

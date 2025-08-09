@@ -56,8 +56,8 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 Trusted: yes
 Check-Valid-Until: no
 ```
-根据实际情况来看deb822似乎没有要求注意选项关键词的大小写。  
-`Trusted: yes`表示信任该源故不再检查密钥，`Check-Valid-Until: no`表示关闭对该源的有效时间检查。尽管在以上两个示例中同时使用了两个选项，但部分实际环境中只使用其中一个选项就可以了。  
+注1：根据实际情况来看deb822似乎没有要求区分选项键名的大小写。  
+注2：`Trusted: yes`表示信任该源故不再检查密钥，`Check-Valid-Until: no`表示关闭对该源的有效时间检查。尽管在以上两个示例中同时使用了两个选项，但部分实际环境中只使用其中一个选项就可以了。  
 
 ## 实践
 
@@ -85,7 +85,7 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 Trusted: yes
 Check-Valid-Until: no
 ```
-在以上两种格式中，如果是其他系统版本需要根据实际情况更改Suites字段的值（即光碟中dists目录中的目录名，根据需求选一个），还需要根据实际情况设置Components字段的内容（通常为即光碟中dists/SUITES/目录中的目录名）。  
+在以上两种格式中，如果是其他系统版本需要根据实际情况更改Suites字段的值（即光碟中dists目录中的目录名，根据需求选一个），还需要根据实际情况设置Components字段的内容（通常为即光碟中dists/SUITES/目录下的子目录名）。  
 
 最后通过以下命令更新源数据并更新软件  
 ```sh
@@ -104,4 +104,4 @@ apt upgrade
 \[2\][Upgrades from Debian 12 (bookworm)](https://www.debian.org/releases/trixie/release-notes/upgrading.en.html)
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.2 | Date: 2025-08-03
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.3 | Date: 2025-08-09

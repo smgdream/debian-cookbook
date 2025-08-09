@@ -9,7 +9,7 @@
 
 ## 安装官方驱动
 
-安装官方驱动可以及时支持新的显卡以及体验新的图形特性。Debian Wiki不建议用户安装nvidia的官方驱动说是可能会存在不兼容问题。但依据我的实际经验来看安装官方驱动是完全没问题的，笔者使用的就是官方驱动（我遇到的唯一一次问题是有一次内核小版本更新后驱动在新内核上编译出错，回到老内核就可以了。而且很快就有大佬提供了解决方案（要改几行代码），然后没过多久nvidia也发布了小版本驱动更新，在新驱动在新内核上就没有安装编译报错了）。官方nvidia驱动的安装方式如下：  
+安装官方驱动可以及时支持新的显卡以及体验新的图形特性。Debian Wiki不建议用户安装nvidia的官方驱动说是可能会存在兼容性问题。但依据我的实际经验来看安装官方驱动是基本没问题的，笔者使用的就是官方驱动（我遇到的唯一一次问题是有一次内核小版本更新后驱动在新内核上编译出错，回到老内核就可以了。而且很快就有大佬提供了解决方案（要改几行代码），然后没过多久nvidia也发布了小版本驱动更新，在新驱动在新内核上就没有安装编译报错了）。官方nvidia驱动的安装方式如下：  
 
 从[nvidia驱动下载页面](https://www.nvidia.com/en-us/drivers/)选择适用于当前机器显卡的较新<sup>注1</sup>驱动并下载。然后登出图形界面并停止显示管理器（如：对于使用gdm3作为显示管理器的用户，可通过`systemctl stop gdm3`命令结束显示管理器）。之后执行以下命令安装依赖工具、依赖文件、依赖库和DKMS框架。  
 ```sh
@@ -17,7 +17,7 @@ apt install build-essential linux-headers-$(uname -r | sed 's/.*-//g') pkg-confi
 ```
 注：DKMS框架用于在内核更新时自动构建新的驱动模块。  
 
-然后通过`chmod +x NVIDIA_DRIVEN_NAME`命令授予驱动安装包可执行权限并执行（如：`./NVIDIA-Linux-x86_64-575.57.08.run`）。之后可能会显示是否同意用户协议，同意即可。然后可能会询问要安装的内核模组驱动类型。  
+然后通过`chmod +x NVIDIA_DRIVEN_NAME`命令授予驱动安装包可执行权限并执行（如：`./NVIDIA-Linux-x86_64-575.57.08.run`）。之后可能会显示是否同意用户协议，同意即可。然后可能会询问要安装的内核模块驱动类型。  
 ![](images/install-nv/ktype.jpg)  
 Turing及更新架构（20系以及之后的显卡）选择“NVIDIA Proprietary”（专有内核驱动），Turing之前的架构（20系之前的显卡）选择“MIT/GPL”（开源内核驱动）（以上规则已经笔者本人简化，关于不同内核模块选择的详细信息见：[Driver types - NvidiaGraphicsDrivers - Debian Wiki](https://wiki.debian.org/NvidiaGraphicsDrivers#Driver_types)）。  
 然后将会开始安装过程，中途可能会询问是否安装32位库，如果不清楚或没有这类需求则不用安装。后面可能还会询问是否启用DKMS通常选择"Yes"。  
@@ -28,7 +28,7 @@ Turing及更新架构（20系以及之后的显卡）选择“NVIDIA Proprietary
 ![Finish](images/install-nv/finish.jpg)  
 最后重启计算机即可使用nvidia驱动。  
 
-**注意：** 据[可靠消息](https://forums.developer.nvidia.com/t/unix-graphics-feature-deprecation-schedule/60588)主版本为580的驱动将是最后一版支持Maxwell、Pascal和Volta架构的驱动（大概就是GTX10系列及之前的系列和Titan V之前的Titan显卡最后能用的驱动为580驱动）。  
+**注意：** 据[可靠消息](https://forums.developer.nvidia.com/t/unix-graphics-feature-deprecation-schedule/60588)主版本为580的驱动将是最后一版支持Maxwell、Pascal和Volta架构的驱动（大概就是GTX10系列及之前的系列和Titan V及之前的Titan显卡最后能用的驱动为580驱动）。  
 
 **锁定内核**  
 设置了DKMS后当内核更新时驱动模块也会随着内核的更新自动构建更新，但构建新的模块也确实有小概率导致驱动崩掉、内核崩掉或驱动出现问题。也可能并没有设置DKMS，如果不小心更新了内核则会导致驱动无法使用。面对这种情况部分用户追求稳定（胜过安全）则需要保留内核禁止其更新以确保稳定性。  
@@ -57,7 +57,7 @@ apt-mark unhold linux-headers-$(uname -r)
 
 ## 通过apt安装驱动
 
-**注意：** Debian Trixie当前的nvidia驱动主版本为535，该版本不支持50系及更新显卡。如果你使用的是50系及更新显卡请**安装官方驱动**。  
+**注意：** Debian Trixie当前的nvidia驱动主版本为550，该版本不支持50系及更新显卡（50系显卡要求的驱动最低版本为570.133.07）。如果你使用的是50系及更新显卡请**安装官方驱动**。  
 
 在Debian中可以通过apt安装nvidia驱动，但不同显卡的安装命令有所不同。Turing及更新架构（20系以及之后的显卡）使用“开源内核模块的nvidia驱动安装命令”，Turing之前的架构（20系之前的显卡）使用“专有内核模块的nvidia驱动安装命令”（以上规则已经笔者本人简化，关于不同内核模块选择的详细信息见：[Driver types - NvidiaGraphicsDrivers - Debian Wiki](https://wiki.debian.org/NvidiaGraphicsDrivers#Driver_types)）。  
 开源内核模块的nvidia驱动安装命令如下：  
@@ -83,4 +83,4 @@ apt install firmware-misc-nonfree nvidia-driver nvidia-kernel-dkms
 \[6\] [如何在 Debian/Ubuntu 中阻止包和内核更新](https://cn.linux-console.net/?p=3649)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.1 | Date: 2025-07-30
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.4 | Date: 2025-08-09
