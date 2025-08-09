@@ -4,6 +4,8 @@
 [License: CC BY-NC-SA 4.0](./LICENSE)  
 Version: 0.3.0 Preview  
 
+注：本手册AI 0添加  
+
 
 ## 1 适用范围
 
