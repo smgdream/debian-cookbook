@@ -43,7 +43,7 @@ Version: 0.3.0 Preview
 > [NVIDIA驱动使用wayland显示服务](improve/nv-wayland.md)  
 > [Gnome调教与美化](improve/gnome-conf.md)  
 > [动态壁纸](improve/live-wp.md)  
-> [Debian多媒体源](improve/deb-mmedia.md)
+> [Debian多媒体源](improve/deb-mmedia.md)  
 > [Linux多媒体工作站](improve/media-workstation.md)  
 > [国产软件的支持说明](improve/cn-software.md)  
 > [Wine](improve/wine.md)    
