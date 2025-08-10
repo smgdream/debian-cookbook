@@ -1,11 +1,11 @@
 # 本人的Debian初始化配置
 
-首先按照[Debian初步配置](../start/init-conf.md)配置好后执行以下改进了4年的oobe脚本（至于为什么较oobe因为我以前是捣鼓Windows的）。  
+首先按照[Debian初步配置](../start/init-conf.md)配置好后执行以下改进了4年的oobe脚本（至于为什么叫oobe，因为我以前是捣鼓Windows的）。  
 
 ```sh
 #!/bin/bash
 # readly for debian 13
-# Version: 2025-08-09
+# Version: 2025-08-10
 
 echo user:
 read USER_NAME
@@ -17,6 +17,7 @@ apt update --fix-missing
 apt remove baobab \
 	   evince \
 	   evolution \
+	   fcitx5 \
 	   gnome-calculator \
 	   gnome-calendar \
 	   gnome-characters \
@@ -87,7 +88,7 @@ apt install sassc
 wget https://mirrors.ustc.edu.cn/deb-multimedia/pool/main/d/deb-multimedia-keyring/deb-multimedia-keyring_2024.9.1_all.deb
 apt install ./deb-multimedia-keyring_2024.9.1_all.deb
 rm ./deb-multimedia-keyring_2024.9.1_all.deb
-cat > cat /etc/apt/sources.list.d/dmo.sources << EOF
+cat > /etc/apt/sources.list.d/dmo.sources << EOF
 Types: deb
 URIs: https://mirrors.ustc.edu.cn/debian-multimedia/
 Suites: trixie
@@ -96,7 +97,7 @@ Signed-By: /usr/share/keyrings/deb-multimedia-keyring.pgp
 EOF
 # apt modernize-sources
 apt update
-apt upgrade
+apt dist-upgrade
 
 # install multimedia software
 apt install ffmpeg vlc nomacs
@@ -177,7 +178,7 @@ rm /usr/share/applications/nvtop.desktop
 ln -s /bin/fbterm /sbin/chshell
 cat > /bin/nvrun << EOF
 #!/bin/bash
-__NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia "$@"
+__NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia \$@
 EOF
 chmod +x /bin/nvrun
 
@@ -228,4 +229,4 @@ echo OK
 然后重启计算机，再安装NVIDIA官方驱动并重启计算机，最后安装Hanabi动态壁纸。  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5 | Date: 2025-08-09
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.3 | Date: 2025-08-10

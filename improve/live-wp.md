@@ -1,7 +1,7 @@
 # 动态壁纸
 动态壁纸是常用的桌面环境美化方法。下面介绍一些Gnome常用的动态壁纸软件。
 
-## Gnome Shell Extention - Hanabi（花火）  
+## Gnome Shell Extention - Hanabi（花火）
 Hanabi是一个Gnome扩展，该动态壁纸软件是对gnome支持最完善的动态壁纸软件。其可以让Overview窗口和Application picker界面上方的窗口也具有动态壁纸效果，甚至搭配支持gnome-shell组件透明化的gnome扩展使用还能透过半透明的组件看到底下的动态效果。
 ![](images/live-wp/.png)
 ![](images/live-wp/hanabi-1.png)
@@ -26,7 +26,7 @@ apt install meson libgtk-4-media-gstreamer
 
 如果将以上三个扩展一起使用而且Dash to Dock的透明效果由Blur my shell提供的话，将会导致进入Gnome桌面环境时Dash to Dock底下缺少动态壁纸效果，且其下方显示的是原来的静态壁纸。而如果Dash to Dock的透明效果由自己提供，则在概览和应用菜单中Dock两层效果叠加而导致Dock背景色较暗，界面看起来效果不统一。解决方法如下：  
 
-该方法将会导致透明渲染管线只能使用高斯模糊效果（如果你追求各处透明效果和谐统一的话）。首先确保Dash to Dock的外观设置选项卡中自定义不透明度的选项为“默认”。然后将Blur my shell的Dash模糊类型设置为动态并且打开“在overview中禁用”开关以防重新Dash区域效果叠加的情况。  
+该方法将会导致透明渲染管线只能使用高斯模糊效果（如果你追求各处透明效果和谐统一的话）。首先确保Dash to Dock的外观设置选项卡中自定义不透明度的选项为“默认”，还需要关闭“智能隐藏”（否则在部分场景中会重新Dash闪烁的情况）。然后将Blur my shell的Dash模糊类型设置为动态并且打开“在overview中禁用”开关以防重新Dash区域效果叠加的情况。  
 
 如果要追求透明效果的和谐统一，则要将其它gnome-shell组件的模糊类型设为静态透明效果且管线设为“Default”（正常“Default”应该只有一个高斯模糊效果）（使用动态也不是不行，但会占用较多的计算机资源）。然后将Dash的模糊亮度设置成和“Defualt”管线的高斯模糊亮度一致，之后调节Dash的模糊强度至看起来和其他组件模糊强度一致（因为静态管线高斯模糊的强度映射曲线和动态高斯模糊的强度映射曲线是不一样的）。  
 
@@ -69,4 +69,4 @@ apt install KOMOREBI_PATH
 \[4\] [hidamari/README.md at master · jeffshee/hidamari](https://github.com/jeffshee/hidamari/blob/master/README.md)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.8 | Date: 2025-08-04
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.9 | Date: 2025-08-10

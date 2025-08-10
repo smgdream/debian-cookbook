@@ -30,7 +30,7 @@ apt install gnome-shell-extension-user-theme
 ```
 注解1：Debian源中提供了部分常用扩展（但可能不是最新版本），对于源中没提供的扩展则要通过Gnome扩展商店安装或手动下载安装。  
 注解2：安装完扩展后如果“扩展”应用没有显示扩展则需要重新登出再登录桌面环境或重启计算机。  
-注解3：  
+  
 **类任务栏拓展**  
 
 Gnome原生提供了类似任务栏的组件"Dash"但是它默认不会出现在界面上而要点击界面右上角的按钮进入action界面才会出现，要进入应用菜单还要在此界面再点击"Dash"的应用抽屉按钮，操作起来相当别扭。所以安装一个能将"Dash"钉在gnome界面上的类任务栏拓展就显得十分必要了。  
@@ -112,7 +112,10 @@ if [ -d ./extmp/schemas ]; then
 fi
 
 EXT_UUID=$(cat ./extmp/metadata.json | grep "uuid" | sed -e 's/.*"uuid":."//g' | sed -e 's/",//')
-sudo mv -v ./extmp ${GNOME_EXT_DIR}/${EXT_UUID}
+echo extention uuid: ${EXT_UUID}
+
+echo "moved ./extmp -> ${GNOME_EXT_DIR}/${EXT_UUID}"
+sudo mv  ./extmp ${GNOME_EXT_DIR}/${EXT_UUID}
 
 exit
 ```
@@ -163,4 +166,4 @@ exit
 \[7\] [Teams / Design / os-mockups · GitLab](https://gitlab.gnome.org/Teams/Design/os-mockups)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6 | Date: 2025-07-30
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.2 | Date: 2025-08-10
