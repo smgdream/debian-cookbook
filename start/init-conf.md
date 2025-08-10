@@ -9,12 +9,17 @@ root用户下无法正常显示ASCII字符以外的字符，这是因为root用�
 只有在sudo用户组中的用户才可以使用sudo命令，而Debian安装程序不会将其创建的普通用户添加到sudo用户组。  
 配置方法：以root用户执行`usermod -a -G sudo USER_NAME`，然后彻底登出用户或重启计算机。  
 
+## 允许普通用户执行更多命令
+在/sbin目录中的命令普通用户无法直接执行即使普通用户拥有执行权限且命令非特权命令，如：`reboot`。这是因为普通用户的默认PATH中没有/sbin。  
+编辑`/etc/profile`将普通用户的`PATH`变量对应的值的末尾添加上`:/sbin`，然后彻底登出用户或重启计算机。  
+
 ## 设置用户目录下的文件夹为英文
 如果安装Debian的默认语言是中文，则用户目录下的“文档”、“音乐”、“图片”、“视频”等文件夹名会被设置为中文名。而部分软件对中文路径的支持存在问题，所以用户目录下的文件夹为中文名可能会导致部分软件出错。因此建议将用户目录下的文件夹名设置为英文。  
 配置方法：要修改目录名的用户执行以下命令  
 ```sh
 LANGUAGE=C.UTF-8 xdg-user-dirs-update --force
 ```
+然后删除原来以中文名命名的目录并重新添加书签。  
 
 ## 重新配置语言环境
 配置方法：执行以下命令  
@@ -25,7 +30,7 @@ dpkg-reconfigure locales
 
 ## 配置常规软件源
 Debian很多时候安装软件都通过apt从网络源中下载并安装软件，而想要这么做得预先配置好软件源。  
-配置方法：新建`/etc/apt/source.list.d/debian.sources`然后写入以下内容并保存。  
+配置方法：新建`/etc/apt/sources.list.d/debian.sources`然后写入以下内容并保存。  
 ```
 Types: deb
 URIs: https://deb.debian.org/debian/
@@ -39,7 +44,7 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 ## 配置安全源
 及时获取安全更新修复系统漏洞是极为重要的事，而想要及时获得安全修复更新则要配置好安全源。  
 注：在配置安全源之前请先配置好常规软件源。  
-配置方法：在`/etc/apt/source.list.d/debian.sources`添加以下内容并保存。  
+配置方法：在`/etc/apt/sources.list.d/debian.sources`添加以下内容并保存。  
 ```
 Types: deb
 URIs: https://security.debian.org/debian-security/
@@ -60,4 +65,4 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 \[7\] [Debian 软件仓库镜像使用帮助 - 校园网联合镜像站](https://help.mirrors.cernet.edu.cn/debian/)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.4 | Date: 2025-08-09
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.6 | Date: 2025-08-10
