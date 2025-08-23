@@ -2,7 +2,7 @@
 
 **Debian食用手册**  
 [License: CC BY-NC-SA 4.0](./LICENSE)  
-Version: 0.3.1 Preview  
+Version: 0.5.5 Dev
 
 
 ## 1 适用范围
@@ -13,7 +13,7 @@ Version: 0.3.1 Preview
 
 ## 2 贡献说明
 
-本人欢迎各位为本手册添砖加瓦，但必须以CC BY-NC-SA 4.0协议发布。  
+本人欢迎各位为本手册添砖加瓦，但必须以CC BY-NC-SA 4.0协议或CC0协议发布。  
 
 ## 3 内容索引
 
@@ -21,6 +21,8 @@ Version: 0.3.1 Preview
 > 0. 何为Debian  
 > [本手册的食用方法](intro/eat.md)  
 > 何为Debian  
+> Debian Trixie的新特性  
+> Debian的硬件支持情况  
 > 我与Debian  
 
 <!-- start -->
@@ -60,23 +62,23 @@ Version: 0.3.1 Preview
 > [自定义文件缩略图生成](hilevel/thumbnail.md)  
 
 > 4. 软件使用简要教程  
-> 无法退出的VIM  
-> 配置VIM  
-> 输入法介绍  
-> 中州韻輸入法 RIME  
-> 雾凇拼音 rime-ice  
-> 其它软件使用教程  
+> [无法退出的VIM](usage/vim-q.md)  
+> [配置VIM](usage/vim-conf.md)  
+> [输入法介绍](usage/im-intro.md)  
+> [中州韻輸入法 RIME](usage/rime.md)  
+> [雾凇拼音 rime-ice](usage/rime-ice.md)  
+> [其它软件使用说明](usage/other.md)  
 
 > 5. 官方资料何处寻  
-> Debian官网简单指引  
-> Debian用户社区  
-> Debian软件包相关信息  
+> [Debian官网简单指引](where/deb-web-index.md)  
+> [Debian用户社区](where/deb-com.md)  
+> [Debian软件包相关信息](where/pkg-info.md)  
 > Linux用户社区  
-> Linux Wiki  
-> 部分开源软件官网及ftp  
-> 其它资料源  
+> [Linux Wiki](where/linux-wiki.md)  
+> [部分开源软件官网及ftp](where/software-web.md)  
+> [其他资料源](where/other-doc.md)  
 
 > 6. 软件编译专题  
 > 7. 知识杂物房  
 > 8. 书籍推荐  
-> 9. 其它  
+> 9. 其他  

@@ -67,7 +67,8 @@ rm -rv gcc-15.1.0
 ## 安装第三方编译二进制GCC15
 
 注意：安装第三方编译的gcc具有一定的安全风险！  
-这是本人自己编译的gcc15：[gcc-15.1.0_debian-amd64~b1.tar.xz](https://github.com/smgdream/debian-file/releases/download/0/gcc-15.1.0_debian-amd64.b1.tar.xz)  
+
+这是本人自己编译的gcc15：[gcc-15.1.0_debian-amd64~b1.tar.xz](pool/gcc-15.1.0_debian-amd64~b1.tar.xz)  
 安装依赖  
 ```sh
 apt install libc6-dev binutils
@@ -76,7 +77,7 @@ apt install libc6-dev binutils
 ```sh
 sudo tar -xvf /path/to/GCC_15_TARBALL.tar.xz -C /
 ```
-将gcc可执行文件所在目录添加到中PATH（编辑/etc/profile将`/opt/gcc-15/bin:`添加至PATH变量对应字符串的开头）  
+将gcc可执行文件所在目录添加到中PATH（编辑/etc/profile将`/opt/gcc-15/bin:`添加至PATH变量对应字符串的**开头**）  
 
 ## 参考资料
 
@@ -85,4 +86,4 @@ sudo tar -xvf /path/to/GCC_15_TARBALL.tar.xz -C /
 \[3\][Installing GCC: Final installation](https://gcc.gnu.org/install/finalinstall.html)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.2 | Date: 2025-08-09
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.3 | Date: 2025-08-10

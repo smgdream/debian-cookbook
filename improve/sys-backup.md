@@ -18,7 +18,7 @@ apt install timeshift
 之后设置计划备份，按照需求勾选需要的计划备份节奏，还可以进一步调整相应计划备份方式保存的备份数量，当然全部计划备份方式都不勾选仅使用手动备份也可以。（"Stop corn emails for schedulet tasks"选项用于设置“停止定时任务的邮件通知”）  
 ![Select Levels](images/backup/levels.png)  
 然后设置用户目录文件的选择与排除  
-![Home Dir](images/backup/home-dir.png)
+![Home Dir](images/backup/home-dir.png)  
 然后即可完成初始化配置。  
 ![Finish Setup](images/backup/finish-setup.png)  
 
@@ -38,5 +38,6 @@ apt install timeshift
 在Settings的Filters选项卡中可以设置备份时目录和文件的排除。  
 ![Filters](images/backup/filters.png)  
 
+<!-- 命令行备份与恢复 -->
 ---
 Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6 | Date: 2025-07-25

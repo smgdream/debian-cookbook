@@ -4,16 +4,16 @@
 ## 1. 下载ISO映像
 Debian提供了各种ISO安装镜像类型，其中cd版均为网络安装镜像安装过程依赖于网络连接。dvd版可用于离线安装debian其包含了常用软件，常用桌面环境及常用图形界面程序。bd版亦可用于离线安装debian其包含了常用桌面环境，常用图形界面程序及大量常用软件（注：以上描述仅限于只有Disk1的情况，如果下载了所有镜像集合则可以离线安装官方软件集中的大部分软件）。  
 
-Debian提供了三种下载ISO映像的方式：常规下载、bt种子和jigdo。常规下载方式可通过浏览器或下载器直接下载链接所定位的ISO文件，下载速度易受到多方面的影响。bt种子需通过bt客户端下载，下载体验较好。jigdo需通过jigdo客户端下载，下载速度可能不稳定但是下载完整ISO集合的唯一方法（注：本文不对jigdo下载进行讨论，有相关需求者自行查看[相应官方资料](https://www.debian.org/CD/jigdo-cd/)）。  
+Debian提供了三种下载ISO映像的方式：常规下载、Bittorrent种子和jigdo。常规下载方式可通过浏览器或下载器直接下载链接所定位的ISO文件，下载速度易受到多方面的影响。BT种子需通过BT客户端下载，下载体验较好。jigdo需通过jigdo客户端下载，下载速度可能不稳定但是下载完整ISO集合的唯一方法（注：本文不对jigdo下载进行讨论，有相关需求者自行查看[相应官方资料](https://www.debian.org/CD/jigdo-cd/)）。  
 
-笔者建议优先采用bt方式下载iso映像文件，既可获得良好的下载体验，也可以减轻官方服务器的压力，还可以提升他人的下载体验（常用bt客户端：qbittorrent，aria2, motrix）。如果使用常规方式进行下载，选择离当前地区较近的服务器可获得相对好一些的下载体验。  
+笔者建议优先采用Bittorrent方式下载iso映像文件，既可获得良好的下载体验，也可以减轻官方服务器的压力，还可以提升他人的下载体验（常用Bittorrent客户端：qbittorrent，aria2, motrix）。如果使用常规方式进行下载，选择离当前地区较近的服务器可获得相对好一些的下载体验。  
 
 ### 快速链接
 [Debian 下载页](https://www.debian.org/distrib/)  
 [Debian 测试版下载页](https://www.debian.org/devel/debian-installer/)  
-[官方Debian trixie DVD ISO映像种子文件](https://cdimage.debian.org/cdimage/trixie_di_rc2/amd64/bt-dvd/debian-trixie-DI-rc2-amd64-DVD-1.iso.torrent)  
-[官方Debian trixie DVD ISO映像下载链接](../todo.md)  
-[中科大镜像站Debian trixie RC2 DVD ISO镜像下载链接](../todo.md)  
+[官方Debian trixie DVD ISO映像种子文件](https://cdimage.debian.org/debian-cd/current/amd64/bt-dvd/debian-13.0.0-amd64-DVD-1.iso.torrent)  
+[官方Debian trixie DVD ISO映像下载链接](https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/debian-13.0.0-amd64-DVD-1.iso)  
+[兰州大学镜像站Debian trixie DVD ISO镜像下载链接](https://mirror.lzu.edu.cn/debian-cd/13.0.0/amd64/iso-dvd/debian-13.0.0-amd64-DVD-1.iso)  
 
 后续内容主要围绕dvd disk1展开。  
 
@@ -37,7 +37,9 @@ dd if=debian.iso of=/dev/TARGET_DEV_NAME
 
 ## 启动安装程序
 请确保计算机已处于关机状态。  
-插入安装媒介，启动计算机，通过启动项选择或BIOS设置选择安装媒介作为启动引导设备以启动安装程序（[电脑开机启动项快捷键参考](https://www.cnblogs.com/idreamo/p/10495343.html)）。进入grub菜单后选择Graphical install（图形化安装）或Install（文本模式安装）。这两种安装方式大同小异，只是操控方式略有不同（在grub中还存在Advanced options（高级选项）选项，在其子菜单中还提供了专家模式和自动安装选项，本文不对其进行讨论）。下文以图形化安装来讲解安装过程。  
+插入安装媒介，启动计算机，通过启动项选择或BIOS设置选择安装媒介作为启动引导设备以启动安装程序（[电脑开机启动项快捷键参考](https://www.cnblogs.com/idreamo/p/10495343.html)）。进入grub菜单后选择Graphical install（图形化安装）或Install（TUI模式安装）。这两种安装方式大同小异，只是操控方式略有不同（在grub中还存在Advanced options（高级选项）选项，在其子菜单中还提供了专家模式和自动安装选项，本文不对其进行讨论）。下文以图形化安装来讲解安装过程。  
+
+注：图形化安装程序可能存在bug，使用TUI模式安装可以尽量避免安装程序的bug。  
 
 ## 设定语言及键盘映射
 自此正式开始安装过程，笔者建议安装过程全程断网，中途可能遇到的部分问题在“问题处理”段落提供了解决方案。  
@@ -180,4 +182,4 @@ mount /dev/INSTALLATION_MEDIA_PARTITION_DEVICE_NAME /cdrom
 \[2\] [sudo - Debian Wiki](https://wiki.debian.org/sudo)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.9.1 | Date: 2025-08-06
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.9.3 | Date: 2025-08-22

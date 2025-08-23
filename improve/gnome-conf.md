@@ -164,6 +164,7 @@ exit
 \[5\] [Icons - ArchWiki](https://wiki.archlinux.org/title/Icons)  
 \[6\] [Projects/GnomeShell/Design – GNOME Wiki Archive](https://wiki.gnome.org/Projects/GnomeShell/Design)  
 \[7\] [Teams / Design / os-mockups · GitLab](https://gitlab.gnome.org/Teams/Design/os-mockups)  
+\[8\] [Red Hat Enterprise Linux 9 Getting started with the GNOME desktop environment](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/pdf/getting_started_with_the_gnome_desktop_environment/Red_Hat_Enterprise_Linux-9-Getting_started_with_the_GNOME_desktop_environment-en-US.pdf)
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.2 | Date: 2025-08-10
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.5 | Date: 2025-08-21

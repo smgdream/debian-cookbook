@@ -178,7 +178,7 @@ rm /usr/share/applications/nvtop.desktop
 ln -s /bin/fbterm /sbin/chshell
 cat > /bin/nvrun << EOF
 #!/bin/bash
-__NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia \$@
+__NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia "\$@"
 EOF
 chmod +x /bin/nvrun
 
@@ -229,4 +229,4 @@ echo OK
 然后重启计算机，再安装NVIDIA官方驱动并重启计算机，最后安装Hanabi动态壁纸。  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.3 | Date: 2025-08-10
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.4 | Date: 2025-08-11

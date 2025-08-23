@@ -138,7 +138,7 @@ apt install dotnet-sdk-8.0 -y
 ```sh
 #! /bin/sh
 
-export PATH=$PATH:DOTNET_DIR:$DOTNET_DIR/tools
+export PATH="$PATH:DOTNET_DIR:$DOTNET_DIR/tools"
 ```
 注：请将DOTNET_DIR替换为dotnet安装目录的绝对路径。  
 然后授予目录中的`dotnet-path.sh`脚本以可执行权限（通过命令 `chmod +x dotnet-path.sh`）。最后通过命令`ln -s /DOTNET_DIR/dotnet-path.sh/etc/profile.d/dotnet.sh`创建软链接以设置dotnet的PATH变量（彻底登出用户或重启计算机即可生效）。  
@@ -165,10 +165,16 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 apt install adb fastboot
 ```
 
+## 安装QEMU
+通过以下命令安装QEMU虚拟机：
+```sh
+apt install qemu-system
+```
+
 ## 参考资料
 \[1\] [Install the .NET SDK or the .NET Runtime on Debian](https://learn.microsoft.com/en-us/dotnet/core/install/linux-debian?tabs=dotnet8)  
 \[2\] [Install .NET on Linux by using an install script or by extracting binaries](https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual#manual-install)  
 \[3\] [Getting started - Rust Programming Language](https://www.rust-lang.org/learn/get-started)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.2 | Date: 2025-07-31
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.3 | Date: 2025-08-21

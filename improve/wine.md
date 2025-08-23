@@ -130,6 +130,12 @@ tar -xvf PATH_TO_GECKO_TARBALL -C /opt/wine/gecko/
 ```sh
 wine msiexec /i PATH_TO_GECKO_MSI
 ```
+## 安装中文字体
+安装部分软件依赖于专门的中文字体，如果不安装中文字体，文本将显示为方框。中文字体的安装方法如下：  
+
+将命名为`msyh.ttc`的微软雅黑字体文件复制到wine安装目录下的`share/wine/fonts`目录中即可。安装完后新建的wine示例将包含该字体。
+
+[微软雅黑字体下载](pool/msyh.ttc)
 
 <!-- vxdk 3d11? -->
 
@@ -182,6 +188,9 @@ wine PROGRAM [ARGS...]
 WINEPREFIX=~/.wine-game wine PROGRAM [ARGS...]
 ```
 
+## Wine版本使用报告
+经本人测试Wine 10.0存在较多bug，许多应用无法正常运行（部分游戏运行出错，甚至从源代码编译安装的wine无法运行）。而当前最新开发版Wine 10.12运行windows应用的问题少得多。
+
 ## Wine游戏
 见[Linux游戏](linux-game.md)的“Wine游戏”段落。  
 
@@ -200,4 +209,4 @@ WINEPREFIX=~/.wine-game wine PROGRAM [ARGS...]
 \[8\] [Wine User's Guide  Wine - Wine Wiki](https://gitlab.winehq.org/wine/wine/-/wikis/Wine-User's-Guide)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.2 | Date: 2025-08-04
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.8 | Date: 2025-08-21
