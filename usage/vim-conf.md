@@ -11,15 +11,16 @@
 | `"comment` | 注释 |
 | `syntax on` | 开启语法高亮 |
 | `set tabstop=N` | 设置TAB缩进相当于N个空格 |
+| `set shiftwidth=N` | 设置自动缩进对应的格数 |
 | `set number` | 显示行号 |
 | `set autoindent` | 自动缩进（缩进与上一行保持一致） |
 | `set showcmd` | 在底部显示当前键入的命令 |
 | `set encoding=utf-8` | 使用UTF-8编码 |
 | `set showmatch` | （默认）高亮与当前括号匹配的另一个括号 |
 | `filetype on` | 自动检测文件类型 |
-| `colorscheme THEME_NAME` | 使用名为THEME_NAME的主题 |
 | `filetype indent no` | 自动检测文件类型使用相应缩进规则 |
 | `filetype plugin on` | 自动检测文件类型使用相应插件 |
+| `colorscheme THEME_NAME` | 使用名为THEME_NAME的主题 |
 
 **更多关于vim配置项的资料源**  
 https://ruanyifeng.com/blog/2018/09/vimrc.html
@@ -110,4 +111,4 @@ autocmd EVENTS PATTERN COMMAND
 \[10\] [使用 oh-my-bash 和 Nightfly 美化 Bash 和 Vim](https://cn.linux-console.net/?p=16191)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.1 | Date: 2025-08-16
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.2 | Date: 2025-08-29

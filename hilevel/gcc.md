@@ -54,8 +54,9 @@ make distclean
 make -j$(nproc)
 sudo make install-strip
 ```
+<!-- make DESTDIR=/home/USERNAME/compile/gcc-15.2 install-strip -->
 注1：`-jN`选项用于设置参与编译的CPU物理线程数，`nproc`用于获取CPU的总物理线程数。  
-注2：make子命令`install-strip`指明安装程序与库并剥离调试信息与符号信息（可大幅减少安装占用的磁盘空间）  
+注2：make子命令`install-strip`用于安装程序与库，并剥离调试信息与符号信息（可大幅减少安装占用的磁盘空间）。  
 
 收尾工作  
 ```sh
@@ -68,7 +69,8 @@ rm -rv gcc-15.1.0
 
 注意：安装第三方编译的gcc具有一定的安全风险！  
 
-这是本人自己编译的gcc15：[gcc-15.1.0_debian-amd64~b1.tar.xz](pool/gcc-15.1.0_debian-amd64~b1.tar.xz)  
+这是笔者编译的gcc15：[gcc-15_15.2.0-1_trixie_amd64.tar.xz](../pool/gcc-15_15.2.0-1_trixie_amd64.tar.xz)，其安装方法如下：  
+
 安装依赖  
 ```sh
 apt install libc6-dev binutils
@@ -77,7 +79,12 @@ apt install libc6-dev binutils
 ```sh
 sudo tar -xvf /path/to/GCC_15_TARBALL.tar.xz -C /
 ```
-将gcc可执行文件所在目录添加到中PATH（编辑/etc/profile将`/opt/gcc-15/bin:`添加至PATH变量对应字符串的**开头**）  
+随后在`/etc/profile.d`中创建脚本`gcc-15.sh`并在该文件中写入以下内容并授予该文件可执行权限，以将gcc可执行文件所在目录添加到PATH中。  
+```sh
+#! /bin/sh
+export PATH="/opt/gcc-15/bin:${PATH}"
+```
+重启计算机后即可使用GCC 15。  
 
 ## 参考资料
 
@@ -86,4 +93,4 @@ sudo tar -xvf /path/to/GCC_15_TARBALL.tar.xz -C /
 \[3\][Installing GCC: Final installation](https://gcc.gnu.org/install/finalinstall.html)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.3 | Date: 2025-08-10
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.6 | Date: 2025-09-01
