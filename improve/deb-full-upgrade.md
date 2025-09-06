@@ -1,4 +1,5 @@
 # Debian系统升级
+升级的注意事项：升级不能跳跃式升级，即只能从上一个大版本更新到该版本的下一个大版本。如果系统大版本存在间隔则需要逐版本升级。Debian虽然是众非滚动更新发行版中大版本更新成功率较高的发行版，但仍有小概率更新失败。对于Debian Bookworm升级到Debian Trixie为了确保更新成功的几率建议先将Debian Bookworm升级到12.12再更新到Debian Trixie。  
 
 ## 在线升级
 
@@ -32,4 +33,4 @@ apt autoremove
 \[1\][Upgrades from Debian 12 (bookworm)](https://www.debian.org/releases/trixie/release-notes/upgrading.en.html)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5 | Date: 2025-08-04
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6 | Date: 2025-09-05

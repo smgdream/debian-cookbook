@@ -51,14 +51,6 @@ wine NieRAutomata.exe
 ```
 <br>
 
-**Ruina（废都物语）**  
-wine版本要求：>= 8.0  
-运行方法：  
-```sh
-wine Ruina.exe
-```
-<br>
-
 **Monument Valley I（纪念碑谷  I）**  
 wine版本要求：>= 6.0  
 运行方法：  
@@ -122,8 +114,6 @@ wine explorer
 ```
 然后在explorer中打开游戏目录并双击运行游戏。  
 
-
-
 ## steam
 
 steam早已原生支持linux，而Valve在2022年推出了steam desk，steam desk的Steam OS操作系统是基于linux发行版二次开发的（目前Steam OS属于Arch Linux的衍生版）。  
@@ -137,10 +127,18 @@ steam早已原生支持linux，而Valve在2022年推出了steam desk，steam des
 **安装Proton**  
 安装Proton要通过steam，所以需要先安装并登录steam，然后点击steam主页左上角的steam进入设置->“兼容性”菜单，之后选择一个合适的Proton版本将其启用。  
 
+## 其他游戏运行方案
+部分游戏可以通过模拟器运行，如可以通过DosBox运行支持DOS的游戏。  
 
+还有一部分游戏因为其游戏引擎设计的原因其游戏运行时程序和库是固定的，且其运行时、游戏逻辑、美术资源是完全分离的。对于这类游戏引擎制作的游戏，如果有大佬们开发了支持Linux的兼容游戏运行时则可以在Linux游玩该引擎的游戏。如EasyRPG Player即为RPG Maker 2000/2003的兼容游戏运行时。  
+
+**Ruina (废都物语)**  
+笔者打包了一个Linux和Windows通用的Ruina，解压后执行对应系统的脚本即可运行游戏。  
+[下载通用版Ruian](../pool/ruina_universal.tar.xz)  
 ## 参考资料
 
 \[1\] [repo - steampowered](https://repo.steampowered.com/)  
+\[2\] [EasyRPG Player - GAMUX](https://www.linuxgame.cn/easyrpg-player)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.4 | Date: 2025-08-04
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6 | Date: 2025-09-02

@@ -38,6 +38,24 @@ apt install timeshift
 在Settings的Filters选项卡中可以设置备份时目录和文件的排除。  
 ![Filters](images/backup/filters.png)  
 
-<!-- 命令行备份与恢复 -->
+## 命令行备份与恢复
+有时因为意外可能出现无法进入图形界面。但不用怛心，timeshift提供了cli操作命令，在终端通过命令也可以使用timeshift回滚系统。  
+
+首先可以通过以下命令查看当前存在的快照，并确定所要恢复到的快照的快照名。  
+```sh
+timeshift --list
+```
+然后执行以下命令即可还原备份。  
+timeshift --restore --snapshot 'SNAPSHIOT_NAME'
+注：SNAPSHIOT_NAME为相应快照的快照名  
+
+当然也可以执行命令`timeshift --restore`并在接下来的界面选择备份进行还原。  
+
+更多与timeshitf命令相关的信息可通过timeshift --help查阅。  
+
+## 参考资料
+
+\[1\] `timeshift --help`  
+
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6 | Date: 2025-07-25
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.5 | Date: 2025-08-30

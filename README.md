@@ -2,7 +2,7 @@
 
 **Debian食用手册**  
 [License: CC BY-NC-SA 4.0](./LICENSE)  
-Version: 0.5.5 Dev
+Version: 0.8 Preview
 
 
 ## 1 适用范围
@@ -11,19 +11,22 @@ Version: 0.5.5 Dev
 
 限制：本手册内容适用于Debian13，因本人能力所限，当前手册桌面环境相关内容主要局限于GNOME桌面环境。  
 
-## 2 贡献说明
+## 2 微社区
+如果有关于使用Debian和其他Linux相关的的问题或有关于本手册的建议与勘误可在[Discussions](https://github.com/smgdream/debian-cookbook/discussions)讨论区进行讨论和说明。  
+
+## 3 贡献说明
 
 本人欢迎各位为本手册添砖加瓦，但必须以CC BY-NC-SA 4.0协议或CC0协议发布。  
 
-## 3 内容索引
+## 4 内容索引
 
 <!-- intro -->
 > 0. 何为Debian  
 > [本手册的食用方法](intro/eat.md)  
-> 何为Debian  
-> Debian Trixie的新特性  
-> Debian的硬件支持情况  
-> 我与Debian  
+> [何为Debian](intro/debian.md)  
+> [Debian Trixie的新特性](intro/trixie.md)  
+> [Debian的硬件兼容性](intro/deb-hcp.md)  
+> [我与Debian](intro/i-and-linux.md)  
 
 <!-- start -->
 > 1. 启程  
@@ -40,7 +43,7 @@ Version: 0.5.5 Dev
 > 2. 进阶  
 > [Debina系统备份](improve/sys-backup.md)  
 > [Debian+windows](improve/deb+win.md)  
-> [显卡相关](improve/graphics-card.md)  
+> [Debian对各家显卡的支持](improve/graphics-card.md)  
 > [Deal late no more NVIDIA](improve/install-nv.md)  
 > [NVIDIA驱动使用wayland显示服务](improve/nv-wayland.md)  
 > [Gnome调教与美化](improve/gnome-conf.md)  
@@ -52,13 +55,14 @@ Version: 0.5.5 Dev
 > [Linux游戏](improve/linux-game.md)  
 > [Debian系统升级](improve/deb-full-upgrade.md)  
 > [本人的Debian初始化配置](improve/mydeb-oobe.md)  
+> [在Debian中配置打印机](improve/deb-printer.md)  
 
 <!-- hilevel -->
 > 3. 高阶  
 > [APT离线更新软件](hilevel/apt-update-offline.md)  
 > [Debian To Go](hilevel/deb-togo.md)  
 > [GCC-15](hilevel/gcc.md)  
-> Desktop启动器  
+> [Desktop启动器](hilevel/desktop.md)  
 > [自定义文件缩略图生成](hilevel/thumbnail.md)  
 
 > 4. 软件使用简要教程  
@@ -73,7 +77,6 @@ Version: 0.5.5 Dev
 > [Debian官网简单指引](where/deb-web-index.md)  
 > [Debian用户社区](where/deb-com.md)  
 > [Debian软件包相关信息](where/pkg-info.md)  
-> Linux用户社区  
 > [Linux Wiki](where/linux-wiki.md)  
 > [部分开源软件官网及ftp](where/software-web.md)  
 > [其他资料源](where/other-doc.md)  
@@ -82,3 +85,6 @@ Version: 0.5.5 Dev
 > 7. 知识杂物房  
 > 8. 书籍推荐  
 > 9. 其他  
+
+## 相关仓库
+**[debian-file](https://github.com/smgdream/debian-file)**: 跟debian-cookbook相关的一些代码、脚本、软件、文件的存储仓库。  

@@ -32,6 +32,7 @@ apt dist-upgrade
 
 \[1\] [How to use the Debian multimedia repository](https://deb-multimedia.org/)  
 \[2\] [Deb Multimedia - USTC Mirror Help](https://mirrors.ustc.edu.cn/help/deb-multimedia.html)  
+\[3\] [Debian - Wikipedia](https://en.wikipedia.org/wiki/Debian)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5 | Date: 2025-08-09
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.1 | Date: 2025-09-06

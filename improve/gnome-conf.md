@@ -70,7 +70,8 @@ apt install gnome-shell-extension-blur-my-shell
 **其他扩展推荐**  
 | 扩展名称 | 是否在Debian源中 | 描述 |
 | --- | --- | --- |
-| Net speed Simplified | 否 | 在顶栏显示当前网速及开机后总使用流量 |
+| [Net speed Simplified](https://extensions.gnome.org/extension/3724/net-speed-simplified/) | 否 | 在顶栏显示当前网速及开机后总使用流量 |
+| [Lunar Calendar 农历](https://extensions.gnome.org/extension/675/lunar-calendar/) | 否 | 在顶栏时钟及时钟菜单中显示农历 |
 
 ### 浏览器安装Gnome扩展
 Debian的源中只提供了一小部分常用Gnome扩展，如果需要安装其他扩展则需要通过Gnome扩展商店安装。方法如下：  
@@ -129,6 +130,8 @@ exit
 
 可在独立主题发布页（如：github仓库页面）或[GTK3/4 Themes - Gnome-look.org](https://www.gnome-look.org/browse?cat=135&ord=latest)下载主题压缩文件。  
 
+注：部分主题的安装需要`sassc`，可通过命令`apt install sassc`安装。  
+
 然后解压文件。如果主题文件夹内提供了安装脚本则可以直接使用安装脚本安装主题。如果没有提供安装脚本则要将主题文件夹复制到主题目录（系统Gnome主题目录：`/usr/share/themes`，用户Gnome主题目录：`~/.themes`）。  
 
 注意：部分下载下来的主题压缩档可能不单是一个主题而是一个系列的风格相似颜色不同的主题，其中包含了多个主题文件夹，需要复制的是主题文件夹（主题文件夹的判别方法：主题目录下直接存放着`index.theme`文件）。如果将整个系列的总文件夹复制过去将导致无法使用这些主题。笔者建议将系列所有主题文件夹全部复制到主题目录中。  
@@ -167,4 +170,4 @@ exit
 \[8\] [Red Hat Enterprise Linux 9 Getting started with the GNOME desktop environment](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/pdf/getting_started_with_the_gnome_desktop_environment/Red_Hat_Enterprise_Linux-9-Getting_started_with_the_GNOME_desktop_environment-en-US.pdf)
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.5 | Date: 2025-08-21
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.7 | Date: 2025-09-04

@@ -17,6 +17,12 @@ apt install build-essential linux-headers-$(uname -r | sed 's/.*-//g') pkg-confi
 ```
 注：DKMS框架用于在内核更新时自动构建新的驱动模块。  
 
+支持安装32位NVIDIA兼容库：如果需要在安装驱动时安装32位NVIDIA库需要在启动安装驱动前需要通过以下命令添加i386架构支持并安装相应基础依赖库。
+```sh
+dpkg --add-architecture i386
+apt install libc6:i386
+```
+
 然后通过`chmod +x NVIDIA_DRIVEN_NAME`命令授予驱动安装包可执行权限并执行（如：`./NVIDIA-Linux-x86_64-575.57.08.run`）。之后可能会显示是否同意用户协议，同意即可。然后可能会询问要安装的内核模块驱动类型。  
 ![](images/install-nv/ktype.jpg)  
 Turing及更新架构（20系以及之后的显卡）选择“NVIDIA Proprietary”（专有内核驱动），Turing之前的架构（20系之前的显卡）选择“MIT/GPL”（开源内核驱动）（以上规则已经笔者本人简化，关于不同内核模块选择的详细信息见：[Driver types - NvidiaGraphicsDrivers - Debian Wiki](https://wiki.debian.org/NvidiaGraphicsDrivers#Driver_types)）。  
@@ -72,6 +78,7 @@ apt install firmware-misc-nonfree nvidia-driver nvidia-kernel-dkms
 
 ## NVIDIA驱动使用wayland显示服务
 可见：[NVIDIA驱动使用wayland显示服务](nv-wayland.md)  
+注意：如果不重新启用wayland的话则无法在显示器上使用分数缩放，对于高分辨率显示器这将会导致较差的显示效果。  
 
 ## 参考资料
 
@@ -83,4 +90,4 @@ apt install firmware-misc-nonfree nvidia-driver nvidia-kernel-dkms
 \[6\] [如何在 Debian/Ubuntu 中阻止包和内核更新](https://cn.linux-console.net/?p=3649)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.4 | Date: 2025-08-09
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.8 | Date: 2025-09-06

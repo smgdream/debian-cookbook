@@ -117,6 +117,16 @@ apt install vulkan-dev
 
 从vulkan sdk下载页的Linux下载项的SDK Tarball选项卡下载最新版的vulkan sdk xz压缩档。然后解压到一个合适的目录（如：/opt，通过命令`tar -xvf vulkan-sdk-linux-*.tar.xz -C /opt`）。之后将解压出来的以版本号命名的目录重命名成一个合适的名字（如：vulkansdk，通过命令`mv x.x.xxx.x vulkansdk`）。然后授予目录中的`setup-env.sh`脚本以可执行权限（通过命令 `chmod +x setup-env.sh`）。最后通过命令`ln -s /VULKAN_SDK_DIR/setup-env.sh /etc/profile.d/vulkansdk.sh`创建软链接以设置vulkan sdk的环境变量（彻底登出用户或重启计算机即可生效）。  
 
+## 安装SDL2与SDL3开发环境
+通过以下命令安装SDL2开发环境。  
+```
+apt install libsdl2-dev
+```
+通过以下命令安装SDL3开发环境。  
+```
+apt install libsdl3-dev
+```
+
 ## dotnet开发环境
 想在Linux在进行C#程序开发需要安装dotnet开发环境，安装方法如下（以net8举例）：  
 
@@ -166,7 +176,7 @@ apt install adb fastboot
 ```
 
 ## 安装QEMU
-通过以下命令安装QEMU虚拟机：
+通过以下命令安装QEMU虚拟机：  
 ```sh
 apt install qemu-system
 ```
@@ -177,4 +187,4 @@ apt install qemu-system
 \[3\] [Getting started - Rust Programming Language](https://www.rust-lang.org/learn/get-started)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.3 | Date: 2025-08-21
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.5 | Date: 2025-09-02
