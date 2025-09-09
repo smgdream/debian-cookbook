@@ -134,7 +134,7 @@ steam早已原生支持linux，而Valve在2022年推出了steam desk，steam des
 
 **Ruina (废都物语)**  
 笔者打包了一个Linux和Windows通用的Ruina，解压后执行对应系统的脚本即可运行游戏。  
-[下载通用版Ruian](https://github.com/smgdream/debian-file/releases/download/2/ruina_universal.tar.xz)  
+[下载通用版Ruian](../pool/ruina_universal.tar.xz)  
 ## 参考资料
 
 \[1\] [repo - steampowered](https://repo.steampowered.com/)  

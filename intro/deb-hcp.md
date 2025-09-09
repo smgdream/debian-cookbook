@@ -40,7 +40,7 @@ NVIDIA显卡的情况较为特殊，在按照前文提到的方法安装完驱�
 
 ## 参考资料
 
-\[\] [LinuxVersions - Linux Kernel Newbies](https://kernelnewbies.org/LinuxVersions)  
+\[1\] [LinuxVersions - Linux Kernel Newbies](https://kernelnewbies.org/LinuxVersions)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.3 | Date: 2025-09-06
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.3.1 | Date: 2025-09-07

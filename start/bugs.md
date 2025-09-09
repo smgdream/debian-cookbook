@@ -21,5 +21,9 @@
 ![error icon missing](images/bug-icon-missing.png)  
 修复状态：未修复
 
+## 5. 部分图形界面程序关闭时会稍微卡顿
+问题描述：部分图形界面程序有时关闭时会稍微卡顿。  
+修复状态：未修复  
+
 ---
-License: CC0 | Version: 0.6.7 | Date: 2025-07-31
+License: CC0 | Version: 0.6.8 | Date: 2025-09-07

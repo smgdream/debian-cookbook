@@ -12,8 +12,8 @@ Debian Trixie移除了i386架构的支持但仍提供i386软件源（但没有i3
 2. glibc更新到了2.41  
 3. GCC更新到了14.2（如需安装gcc15见：[GCC-15](../hilevel/gcc.md)）  
 4. systemd更新到了257  
-5. GNOME更新到了48.3  
-6. KDE更新到了6.3.6  
+5. GNOME更新到了48  
+6. KDE更新到了6.3  
 除此之外还有许多软件进行了更新，并移除了许多过时的软件添加了许多新的软件。  
 
 ## 内核及驱动
@@ -44,5 +44,5 @@ GNOME42到GNOME48经历了6次更新，其中包含了许多各种各样的的�
 \[7\] [Introducing GNOME 43, “Guadalajara”](https://release.gnome.org/43/)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA | Version: 0.5.1 | Date: 2025-09-01
+Author: smgdream | License: CC BY-NC-SA | Version: 0.5.2 | Date: 2025-09-07
 

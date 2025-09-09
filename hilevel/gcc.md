@@ -1,10 +1,10 @@
 # 安装gcc-15
 
-C23引入了许多新特性，而有的人已经迫不及待地想使用C23进行程序开发了。这时有一个完整支持C23特性的编译器显得尤为重要，而GCC15是第一个完整支持C23特性的GCC版本。但可惜的是GCC15刚好错过了Debian Trixie的软冻结，故GCC15没有收录到常规软件源。但天无绝人之路，我们仍有三种安装GCC15的方法：使用experimental(试制)源、从源码编译或安装第三方编译二进制包，第一种方法比较简单本文不作介绍。  
+C23引入了许多新特性，而有的人已经迫不及待地想使用C23进行程序开发了。这时有一个完整支持C23特性的编译器显得尤为重要，而GCC15是第一个完整支持C23特性的GCC版本。但可惜的是GCC15刚好错过了Debian Trixie的软冻结，故GCC15没有收录到常规软件源。但天无绝人之路，我们仍有两种安装GCC15的方法：从源码编译或安装第三方编译二进制包。  
 
 ## 二进制编译安装GCC15
 
-要求：至少8GiB空闲空间
+要求：至少8GiB空闲空间  
 编译编译器要编译器，所以我们需要先安装一个编译器。  
 ```sh
 apt install gcc-14 make gettext build-essential
@@ -64,12 +64,13 @@ make distclean
 cd ..
 rm -rv gcc-15.1.0
 ```
+注：以上命令用于清理并删除gcc编译目录。  
 
 ## 安装第三方编译二进制GCC15
 
 注意：安装第三方编译的gcc具有一定的安全风险！  
 
-这是笔者编译的gcc15：[gcc-15_15.2.0-1_trixie_amd64.tar.xz](https://github.com/smgdream/debian-file/releases/download/1/gcc-15_15.2.0-1_trixie_amd64.tar.xz)，其安装方法如下：  
+这是笔者编译的gcc15：[gcc-15_15.2.0-1_trixie_amd64.tar.xz](../pool/gcc-15_15.2.0-1_trixie_amd64.tar.xz)，其安装方法如下：  
 
 安装依赖  
 ```sh
@@ -93,4 +94,4 @@ export PATH="/opt/gcc-15/bin:${PATH}"
 \[3\][Installing GCC: Final installation](https://gcc.gnu.org/install/finalinstall.html)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.6 | Date: 2025-09-01
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.8 | Date: 2025-09-07

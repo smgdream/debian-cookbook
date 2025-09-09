@@ -2,7 +2,7 @@
 
 **Debian食用手册**  
 [License: CC BY-NC-SA 4.0](./LICENSE)  
-Version: 0.8 Preview
+Version: 0.8.1 Preview
 
 
 ## 1 适用范围
