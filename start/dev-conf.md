@@ -22,7 +22,7 @@ apt install gawk
 ```sh
 apt install gcc-14
 ```
-注：Debian trixie没有提供GCC 15，如果需要使用GCC 15可参考[GCC-15](hilevel/gcc15.md)。  
+注：Debian trixie没有提供GCC 15，如果需要使用GCC 15可参考[GCC-15](hilevel/gcc-15.md)。  
 
 安装GNU程序编译可能依赖的程序，命令如下：  
 ```sh

@@ -61,7 +61,7 @@ Version: 0.9.0 Preview
 > 3. 高阶  
 > [APT离线更新软件](hilevel/apt-update-offline.md)  
 > [Debian To Go](hilevel/deb-togo.md)  
-> [安装GCC 15](hilevel/gcc15.md)  
+> [安装GCC 15](hilevel/gcc-15.md)  
 > [Desktop启动器](hilevel/desktop.md)  
 > [自定义文件缩略图生成](hilevel/thumbnail.md)  
 

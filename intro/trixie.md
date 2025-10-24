@@ -12,7 +12,7 @@ Debian Trixie移除了i386架构的支持但仍提供i386软件源（但没有i3
 
 - 内核从6.1系列更新到了6.12系列  
 - glibc更新到了2.41  
-- GCC更新到了14.2（如需安装gcc15见：[GCC-15](../hilevel/gcc15.md)）  
+- GCC更新到了14.2（如需安装gcc15见：[GCC-15](../hilevel/gcc-15.md)）  
 - systemd更新到了257  
 - GNOME更新到了48  
 - KDE更新到了6.3  
