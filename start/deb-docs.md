@@ -3,7 +3,7 @@
 [Debian 官网](https://www.debian.org/)  
 说明：Debian系统官网  
 [Debian Wiki](https://wiki.debian.org/)  
-说明：Debian官方百科（大部分问题都能在此处找到答案）  
+说明：Debian官方百科（不少问题都能在此处找到答案）  
 [Debian说明文档](https://www.debian.org/doc/)  
 说明：Debian使用手册总页面  
 [Debian Reference Card](https://www.debian.org/doc/manuals/refcard/refcard.en.pdf)  
@@ -27,4 +27,4 @@
 \[1\] [Debian 用户手册](https://www.debian.org/doc/user-manuals)
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7 | Date: 2025-07-20
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.1 | Date: 2025-10-09

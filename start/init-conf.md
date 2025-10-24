@@ -22,11 +22,13 @@ LANGUAGE=C.UTF-8 xdg-user-dirs-update --force
 然后删除原来以中文名命名的目录并重新添加书签。  
 
 ## 重新配置语言环境
+有时我们可能想要将系统的默认语言修改为英文或添加更多语言的支持则需要重新配置语言环境。  
 配置方法：执行以下命令  
 ```sh
 dpkg-reconfigure locales
 ```
-确保在语言编译列表中所需的语言已被勾选并确定，然后选择系统语言即可。（注：可以通过该方法将系统语言设为英文，然后在GNOME设置->系统->区域与语言中将“语言”设置为“汉语(中国)”，以实现系统/终端语言为英文，GUI程序语言为中文的效果）  
+确保在语言编译列表中所需的语言已被勾选并确定，然后在下一个界面选择选择系统语言（如：C.UTF-8）即可。
+注：可以通过配置语言环境将系统语言设为英文，然后重启计算机后在GNOME设置->系统->区域与语言中将“语言”设置为“汉语(中国)”，以实现系统/终端语言为英文，GUI程序语言为中文的效果。  
 
 ## 配置常规软件源
 Debian很多时候安装软件都通过apt从网络源中下载并安装软件，而想要这么做得预先配置好软件源。  
@@ -38,7 +40,7 @@ Suites: trixie trixie-updates
 Components: main contrib non-free non-free-firmware
 Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 ```
-注：发行版名称（`Suites`字段）可能要依据实际需求稍作修改。如果因为地区网络问题导致更新/安装软件速度较慢可以将URIs对应的值替换为[其它镜像站](https://www.debian.org/mirror/list)的地址（其URL不强求以斜杠结尾）（如：https://mirrors.cernet.edu.cn/debian/或https://mirrors.ustc.edu.cn/debian/）。  
+注：发行版名称（`Suites`字段）可能要依据实际需求稍作修改。如果因为地区网络问题导致更新软件速度较慢可以将URIs对应的值替换为[其它镜像站](https://www.debian.org/mirror/list)的地址（其URL不强求以斜杠结尾）（如：`https://mirrors.cernet.edu.cn/debian/`或`https://mirrors.ustc.edu.cn/debian/`）。  
 然后通过`apt update`命令更新档案库元数据。  
 
 ## 配置安全源
@@ -52,7 +54,7 @@ Suites: trixie-security
 Components: main contrib non-free non-free-firmware
 Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 ```
-注：发行版名称(`Suites`)可能要依据实际需求稍作修改。如果因为地区网络问题导致更新/安装软件速度较慢可以将`URIs`对应的值替换为其它镜像站的地址（其URL不强求以斜杠结尾）（如：https://mirrors.cernet.edu.cn/debian-security/或https://mirrors.ustc.edu.cn/debian-security/）。因为镜像站的更新存在延迟，所以对于有及时修复安全漏洞需求的用户应使用官方安全源，以确保能及时获得安全更新。  
+注：发行版名称(`Suites`)可能要依据实际需求稍作修改。如果因为地区网络问题导致更新软件速度较慢可以将`URIs`对应的值替换为其它镜像站的地址（其URL不强求以斜杠结尾）（如：`https://mirrors.cernet.edu.cn/debian-security/`或`https://mirrors.ustc.edu.cn/debian-security/`）。因为镜像站的更新存在延迟，所以对于有及时修复安全漏洞需求的用户应使用官方安全源，以确保能及时获得安全更新。  
 然后通过`apt update`命令更新档案库元数据。  
 
 ## 参考资料
@@ -65,4 +67,4 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 \[7\] [Debian 软件仓库镜像使用帮助 - 校园网联合镜像站](https://help.mirrors.cernet.edu.cn/debian/)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.6 | Date: 2025-08-10
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.8 | Date: 2025-10-13

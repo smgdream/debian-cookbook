@@ -22,7 +22,7 @@ apt install gawk
 ```sh
 apt install gcc-14
 ```
-注：Debian trixie没有提供gcc15，如果需要使用gcc15可参考[GCC-15](hilevel/gcc.md)。  
+注：Debian trixie没有提供GCC 15，如果需要使用GCC 15可参考[GCC-15](hilevel/gcc15.md)。  
 
 安装GNU程序编译可能依赖的程序，命令如下：  
 ```sh
@@ -38,8 +38,8 @@ gettext：GNU国际化处理套件
 apt install cppcheck cloc
 ```
 说明：  
-cppcheck：可用于C和C++的静态代码分析工具  
-cloc：代码行统计工具  
+cppcheck：开源的C/C++静态代码分析工具(lint)  
+cloc：代码行数统计工具  
 
 常用GNU数学开发库安装，命令如下：  
 ```sh
@@ -146,18 +146,25 @@ apt install dotnet-sdk-8.0 -y
 **离线安装**  
 从[dotnet官网的下载页](https://dotnet.microsoft.com/en-us/download)的对应版本[下载页](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)下载适用于linux的对应机器架构的最新的Binary压缩包。然后在一个合适的位置（如：/opt）创建一个用于安装dotnet的目录（如：dotnet，通过命令`mkdir /opt/dotnet`）。之后将通过命令`tar -xvf dotnet-sdk-*.tar.gz -C DOTNET_DIR`将压缩包解压到对应目录。然后在dotnet安装目录中创建一个名为`dotnet-path.sh`的shell脚本文件并在其中写入以下内容：  
 ```sh
-#! /bin/sh
+#! /bin/bash
 
 export PATH="$PATH:DOTNET_DIR:$DOTNET_DIR/tools"
 ```
 注：请将DOTNET_DIR替换为dotnet安装目录的绝对路径。  
 然后授予目录中的`dotnet-path.sh`脚本以可执行权限（通过命令 `chmod +x dotnet-path.sh`）。最后通过命令`ln -s /DOTNET_DIR/dotnet-path.sh/etc/profile.d/dotnet.sh`创建软链接以设置dotnet的PATH变量（彻底登出用户或重启计算机即可生效）。  
 
-## java开发环境
+## Python3开发环境
+```
+apt install python3 python3-pip python3.13-venv
+```
+<!-- 注：通常Debian默认安装python3，但后面两个没默认安装。 -->
+
+## Java开发环境
 通过以下命令安装java sdk：  
 ```sh
-apt install openjdk-21-jdk openjfx # can update to openjdk25 after java25 release
+apt install openjdk-21-jdk openjfx
 ```
+Java 25 LTS已发布但Debian源中的openjdk 25目前仍为Early Access（预览）版本，如需使用java 25正式版可以在网上下载各厂商或组织（如：[Azul](https://www.azul.com/downloads/)、[Microsoft](https://learn.microsoft.com/en-us/java/openjdk/download)）编译的openjdk 25，然后解压并配置环境变量。
 
 ## Rust开发环境
 **在线安装**  
@@ -187,4 +194,4 @@ apt install qemu-system
 \[3\] [Getting started - Rust Programming Language](https://www.rust-lang.org/learn/get-started)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.5 | Date: 2025-09-02
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.9 | Date: 2025-10-24

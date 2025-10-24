@@ -35,6 +35,7 @@
 | 包名 | 描述 |
 | --- | --- |
 | ptyxis | 现代化的gtk4终端模拟器（可用于取代gnome-terminal） |
+| gnome-tweaks | Gnome高级设置（用于设置部分Gnome Setting无法设置的内容，如：最大最小化按钮的显隐），关于其使用方法可见[Gnome的调教与美化](../improve/gnome-conf.md) |
 | gnome-shell-extensions | gnome拓展管理器 |
 | dconf-editor | 图形化的dconf编辑器 |
 | gparted | 图形化的分区工具 |
@@ -42,12 +43,12 @@
 | nomacs | 多功能图片查看器 |
 | deadbeef | 专业本地音乐播放器（需前往[DeaDBeeF官网](https://deadbeef.sourceforge.io/)下载deb包并安装） |
 | helvum | 图形化pipewire音频路由控制器 |
-| missioncenter | 现代化的gtk4系统监视器（需通过[flathub安装](https://flathub.org/apps/io.missioncenter.MissionCenter)或使用GitLab发布页提供的[appimage构建](https://gitlab.com/mission-center-devs/mission-center/-/releases)） |
-| Motrix  | 基于aria2的通用下载器（需前往[官网](.)下载） |
-| qBittorrent | 著名的bittorrent客户端，用于下载bt资源 |
+| missioncenter | 现代化的gtk4系统监视器（需通过[flathub安装](https://flathub.org/apps/io.missioncenter.MissionCenter)或使用[GitLab发布页提供](https://gitlab.com/mission-center-devs/mission-center/-/releases)的appimage构建 |
+| motrix  | 基于aria2的通用下载器（需前往[Motrix官网](https://motrix.app/)下载） |
+| qbittorrent | 著名的bittorrent客户端，用于下载bt资源 |
 
-## gnome拓展安装与美化
-关于此部分内容见：[Gnome调教与美化](../todo.md)
+## gnome界面的调教与美化
+关于此部分内容见：[Gnome的调教与美化](../improve/gnome-conf.md)
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5 | Date: 2025-07-27
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.1 | Date: 2025-10-09

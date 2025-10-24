@@ -8,7 +8,7 @@
 
 然后通过`apt install /path/to/printer_driver.deb`命令来安装驱动，随后即可正常连接使用打印机。  
 
-杂谈：如果在驱动下载页面好好看看你还会发现，这打印机驱动竟然还开源了。部分日本厂商对Linux用户还真挺友善的。  
+闲话：如果在驱动下载页面好好看看你还会发现，这打印机驱动竟然还开源了。部分日本厂商对Linux用户还真挺友善的。  
 
 ## HP
 对于HP打印机通过以下命令安装驱动程序。  
@@ -21,9 +21,9 @@ apt install hplip python3-pyqt5
 
 注：部分打印机在安装过程中需要安装hplip plugin，hp-setup可以自动在线安装hplip plugin。但在部分地区因为网络问题无法安装plugin则需要先关闭hp-setup，然后在[HP plugins - openprinting](https://www.openprinting.org/download/printdriver/auxfiles/HP/plugins/)下载相应版本的`hplip-VERSION-plugin.run`（版本即为hplip的版本，可通过`apt list hplip`命令查看）。随后授予plugin可执行权限并以普通用户身份安装。之后重新执行`hp-setup`就能正常初始化打印机并配置驱动了。  
 
-## ref
+## 参考资料
 
 \[1\] [HP plugins - openprinting](https://www.openprinting.org/download/printdriver/auxfiles/HP/plugins/)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.3.1 | Date: 2025-09-01
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.3.3 | Date: 2025-10-10

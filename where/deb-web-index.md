@@ -14,6 +14,7 @@
 | [关于 Debian](https://www.debian.org/intro/about) | 更多->页脚的关于Debian |
 | [Debian 网站地图](https://www.debian.org/sitemap) | 更多->页脚的网站地图 |
 | [Debian Logos](https://www.debian.org/logos/) | 更多->页脚的网站地图->Debian logos |
+| [Debian安全信息](https://www.debian.org/security/) | 安全更新 |
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6 | Date: 2025-08-22
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.1 | Date: 2025-10-12

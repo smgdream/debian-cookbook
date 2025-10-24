@@ -1,6 +1,16 @@
 # Gnome的调教与美化
 
-Gnome是两大linux桌面环境之一，它设计简洁对许多新的桌面图形特性支持良好。其对于键鼠操控和触屏操控都很友善。唯一美中不足的是为了获得更加良好的交互体验需要依赖于第三方开发的扩展。下面分别介绍扩展的安装和Gnome美化，然后还将额外介绍一下Gnome-shell界面的构成。  
+Gnome是两大linux桌面环境之一，它设计简洁对许多新的桌面图形特性支持良好。其对于键鼠操控和触屏操控都很友善。唯一美中不足的是为了获得更加良好的交互体验需要依赖于第三方开发的扩展。下面分别介绍gnome-tweak的使用、扩展的安装和Gnome美化，然后还将额外介绍一下Gnome-shell界面的构成。  
+
+## Gnome Tweaks
+Gnome Tweaks用于设置于Gnome图形界面相关的高级内容，如：主题、样式、字体、窗口等等等等。  
+![Gnome Tweak](images/gnome-conf/gnome-tweaks.png)  
+通常Debian Gnome默认安装了gnome-tweaks，如果没有安装则可以通过`apt install gnome-tweaks`命令进行安装。  
+
+**显示最大化最小化按钮**  
+Gnome默认不显示窗口的最大化最小化按钮，许多用户依赖于有最大化最小化按钮的窗口操作方式，而显示最大化最小化按钮的方法如下：  
+
+在Gnome Tweaks的“窗口”菜单中打开标题栏按钮部分的最大化最小化开关即可显示最大化最小化按钮。  
 
 ## Gnome拓展安装和拓展推荐
 
@@ -123,6 +133,8 @@ exit
 使用方法：`./script.sh GNOMEEXT_ZIP_FILE`
 
 ## Gnome美化
+在gnome tweaks的“外观”菜单中可以更改主题、图标和光标。  
+![Gnome tweaks appearance](images/gnome-conf/tweaks-appearance.png)  
 
 ### 安装Gnome主题
 
@@ -136,6 +148,12 @@ exit
 
 注意：部分下载下来的主题压缩档可能不单是一个主题而是一个系列的风格相似颜色不同的主题，其中包含了多个主题文件夹，需要复制的是主题文件夹（主题文件夹的判别方法：主题目录下直接存放着`index.theme`文件）。如果将整个系列的总文件夹复制过去将导致无法使用这些主题。笔者建议将系列所有主题文件夹全部复制到主题目录中。  
 
+**Gnome主题推荐**  
+| 主题名 | 描述 |
+| --- | --- |
+| [Orchis theme](https://github.com/vinceliuice/Orchis-theme) | 长期霸榜的主题，该主题现代优雅简洁细节也打磨得很好。该主题的设计较为圆润 |
+| [Fluent theme](https://github.com/vinceliuice/Fluent-gtk-theme) | 长期上榜的主题，该主题设计语言较为方正，整个主题的设计亦现代简洁优雅 |
+
 ### 安装Gnome光标主题
 
 安装光标主题可以改变光标的样式。
@@ -144,6 +162,11 @@ exit
 然后解压文件。如果光标主题文件夹内提供了安装脚本则可以直接使用安装脚本安装光标主题。如果没有提供安装脚本则要将光标主题文件夹复制到光标主题目录（系统Gnome光标主题目录：`/usr/share/icons/`，用户Gnome光标主题目录：`~/.local/share/icons/`）。  
 
 注意：部分下载下来的光标主题压缩档可能不单是一个光标主题而是一个系列的风格相似颜色不同的光标主题，其中包含了多个光标主题文件夹，需要复制的是光标主题文件夹（光标主题文件夹的判别方法：光标主题目录下直接存放着`cursor.theme`文件）。如果将整个系列的总文件夹复制过去将导致无法使用这些光标主题。笔者建议将系列所有光标主题文件夹全部复制到光标主题目录中。  
+
+**光标主题推荐**  
+| 主题名 | 描述 |
+| --- | --- |
+| [Bibata Cursor](https://github.com/ful1e5/Bibata_Cursor) | 该光标主题设计圆润现代，其黑白二色子主题最为出名，Manjaro默认即使用该光标主题 |
 
 ### 安装Gnome图标主题
 安装图标主题可以覆盖已有应用的图标还可以覆盖gtk图标。  
@@ -157,6 +180,8 @@ exit
 ![](images/gnome-conf/desktop.png)
 ![](images/gnome-conf/overview.png)
 ![](images/gnome-conf/app-picker.png)
+注1：System menu亦被称为System status menu（系统状态菜单）或Quick Settings（快速设置）。  
+注2：Activities Overview有时会被简称为Overview（概览）或Activities。
 
 ## 参考资料
 
@@ -170,4 +195,4 @@ exit
 \[8\] [Red Hat Enterprise Linux 9 Getting started with the GNOME desktop environment](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/pdf/getting_started_with_the_gnome_desktop_environment/Red_Hat_Enterprise_Linux-9-Getting_started_with_the_GNOME_desktop_environment-en-US.pdf)
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.7 | Date: 2025-09-04
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.3 | Date: 2025-10-12

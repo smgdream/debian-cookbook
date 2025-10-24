@@ -16,14 +16,14 @@ apt install ibus-rime
 rime默认自带了几种输入方案，当当前聚焦于文本框时可通过`F4`即可呼出输入方案选择菜单。
 
 ## RIME的配置
-RIME的~配置目录如下：
-IBus: `~/.config/ibus/rime`
-Fcitx5: `~/.local/share/fcitx5/rime`
+RIME的配置目录如下：  
+IBus: `~/.config/ibus/rime`  
+Fcitx5: `~/.local/share/fcitx5/rime`  
 
-RIME输入法默认的候选词排布为纵向排布，如需横向排布则需将`~/.config/ibus/rime/build/ibus_rime.yaml`配置文件中的`horizontal`对应的值更改为`true`。注意：该方法仅适用于ibus-rime。
+RIME输入法默认的候选词排布为纵向排布，如需横向排布则需将`~/.config/ibus/rime/build/ibus_rime.yaml`配置文件中的`horizontal`对应的值更改为`true`。 (注意：该方法仅适用于ibus-rime)
 
 ### 东风破 plum
-plum是rime的输入法配置管理器。源仓库中没有提供该软件，需要从官方github仓库中下载使用。下载命令如下：  
+plum是rime的输入法配置管理工具。Debian源仓库中没有提供该软件，需要从[官方github仓库](https://github.com/rime/plum)中下载使用。下载命令如下：  
 ```sh
 git clone https://github.com/rime/plum.git plum
 ```
@@ -32,7 +32,7 @@ git clone https://github.com/rime/plum.git plum
 cd ~/plum
 bash rime-install <recipe_name>
 ```
-关于plum的具体使用说明见：https://github.com/rime/plum   
+关于plum的具体使用说明见：[plum - README.md](https://github.com/rime/plum/blob/master/README.md)
 
 ## 参考资料
 
@@ -44,4 +44,4 @@ bash rime-install <recipe_name>
 
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.1 | Date: 2025-08-20
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6 | Date: 2025-10-11

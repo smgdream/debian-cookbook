@@ -5,7 +5,7 @@
 ## vim配置文件
 系统全局的vim配置文件路径为：`/etc/vim/vimrc`，用户vim配置文件的路径为`~/.vimrc`（如果没有则新建一个）。
 
-**常用配置**  
+### 常用配置
 | 配置 | 效果 |
 | --- | --- |
 | `"comment` | 注释 |
@@ -22,7 +22,7 @@
 | `filetype plugin on` | 自动检测文件类型使用相应插件 |
 | `colorscheme THEME_NAME` | 使用名为THEME_NAME的主题 |
 
-**更多关于vim配置项的资料源**  
+### 更多关于vim配置项的资料源
 https://ruanyifeng.com/blog/2018/09/vimrc.html
 https://vimdoc.sourceforge.net/htmldoc/options.html
 
@@ -69,12 +69,12 @@ call plug#end()
 关于vim plug的详细说明见[vim-plug的github仓库](https://github.com/junegunn/vim-plug)。  
 
 ### 手动安装vim插件
-通常插件存放在`~/.vim/pack`目录中，但直接将插件文件夹复制到该目录中是无法使用插件的，还需要在`~/.vim/pack`目录中创建插件组文件夹，插件组文件夹名可以随便设置一个（如：`foo`），然后还要在插件组文件夹中新建一个start目录。之后将插件目录复制到start目录中即可完成插件的安装。后面启动vim并输入插件使用命令即可执行插件。
+通常插件存放在`~/.vim/pack`目录中，但直接将插件文件夹复制到该目录中是无法使用插件的，还需要在`~/.vim/pack`目录中创建插件组文件夹，插件组文件夹名可以随便设置一个（如：`foo`），然后还要在插件组文件夹中新建一个`start`目录。之后将插件目录复制到start目录中即可完成插件的安装。后面启动vim并输入插件使用命令即可执行插件。
 
 **示例：手动安装NERDTree**  
-如果没用`~/.vim/pack`目录则通过`mkdir -pv ~/.vim/pack`命令新建一个，然后在该目录中新建一个`foobar`命令，再在`foobar`目录中新建一个`start`目录。
+如果没有`~/.vim/pack`目录则通过`mkdir -pv ~/.vim/pack`命令新建一个，然后在该目录中新建一个`foobar`目录，再在`foobar`目录中新建一个`start`目录。
 
-在[NERDTree的tag页](https://github.com/preservim/nerdtree/tags)下载NERDTree插件，然后通过`tar -xvf /PATH/TO/NERDTREE_TARBALL_FILE`命令解压，然后将解压出来的项目文件夹重命名为`nerdtree`，随后通过`cp -r nerdtree ~/.vim/pack/foobar/start/`命令将`nerdtree`目录复制到`~/.vim/pack/foobar/start/`目录中。之后即可启动vim通过`:NERDTree`命令执行NERDTree。
+在[NERDTree的tag页](https://github.com/preservim/nerdtree/tags)下载NERDTree插件，然后通过`tar -xvf /PATH/TO/NERDTREE_TARBALL_FILE`命令解压，然后将解压出来的项目文件夹重命名为`nerdtree`，随后通过`cp -r nerdtree ~/.vim/pack/foobar/start/`命令将`nerdtree`目录复制到`~/.vim/pack/foobar/start/`目录中。之后即可启动vim通过`:NERDTree`命令唤起NERDTree并使用。
 
 ### 自动使用插件
 默认情况下安装插件后要进入vim并输入对应命令后才可以使用插件，这显然有点麻烦，用户可能希望进入vim后vim能自动执行插件。
@@ -111,4 +111,4 @@ autocmd EVENTS PATTERN COMMAND
 \[10\] [使用 oh-my-bash 和 Nightfly 美化 Bash 和 Vim](https://cn.linux-console.net/?p=16191)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.2 | Date: 2025-08-29
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6 | Date: 2025-10-11

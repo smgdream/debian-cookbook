@@ -1,11 +1,11 @@
-# 本人的Debian初始化配置
+# 笔者的Debian初始化配置
 
 首先按照[Debian初步配置](../start/init-conf.md)配置好后执行以下改进了4年的oobe脚本（至于为什么叫oobe，因为我以前是捣鼓Windows的）。  
 
 ```sh
 #!/bin/bash
-# readly for debian 13
-# Version: 2025-08-10
+# For debian 13
+# Version: 2025-09-13
 
 echo user:
 read USER_NAME
@@ -64,7 +64,7 @@ apt install inotify-tools qoi
 apt install fbi fbterm fbset fbcat
 
 # install network software
-apt install wget wget2 aria2
+apt install curl wget wget2 aria2
 
 # install information viewing tools
 apt install iotop htop btop fastfetch
@@ -119,7 +119,7 @@ apt install openjdk-21-jdk openjfx #openjdk-25-jdk
 apt install dkms pkg-config libglvnd-dev
 
 # enable wayland for nvidia driver
-#echo 'GRUB_CMDLINE_LINUX="$GRUB_CMDLINE_LINUX nvidia-drm.modeset=1"' > /etc/default/grub.d/nvidia-modeset.cfg
+#echo 'GRUB_CMDLINE_LINUX="$GRUB_CMDLINE_LINUX nvidia-drm.modeset=1 nvidia-drm.fbdev=1"' > /etc/default/grub.d/nvidia-modeset.cfg
 #update-grub
 #mv /usr/lib/udev/rules.d/61-gdm.rules /usr/lib/udev/rules.d/61-gdm.rules.bak
 # Reference:
@@ -229,4 +229,4 @@ echo OK
 然后重启计算机，再安装NVIDIA官方驱动并重启计算机，最后安装Hanabi动态壁纸。  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.4 | Date: 2025-08-11
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.5 | Date: 2025-10-03

@@ -2,17 +2,16 @@
 
 **Debian食用手册**  
 [License: CC BY-NC-SA 4.0](./LICENSE)  
-Version: 0.8.1 Preview
-
+Version: 0.9.0 Preview
 
 ## 1 适用范围
 
 本手册旨在提供适用于Debian系统的使用说明和配置说明，该手册适合有简单linux基础的人阅读。  
 
-限制：本手册内容适用于Debian13，因本人能力所限，当前手册桌面环境相关内容主要局限于GNOME桌面环境。  
+限制：本手册内容适用于Debian 13，因本人能力所限，当前手册桌面环境相关内容主要局限于GNOME桌面环境。  
 
 ## 2 微社区
-如果有关于使用Debian和其他Linux相关的的问题或有关于本手册的建议与勘误可在[Discussions](https://github.com/smgdream/debian-cookbook/discussions)讨论区进行讨论和说明。  
+如果有关于使用Debian和其他Linux相关的的问题或有关于本手册的建议与可在[Discussions](https://github.com/smgdream/debian-cookbook/discussions)讨论区进行讨论和说明，如果要提交勘误请提交issue。  
 
 ## 3 贡献说明
 
@@ -54,14 +53,15 @@ Version: 0.8.1 Preview
 > [Wine](improve/wine.md)    
 > [Linux游戏](improve/linux-game.md)  
 > [Debian系统升级](improve/deb-full-upgrade.md)  
-> [本人的Debian初始化配置](improve/mydeb-oobe.md)  
 > [在Debian中配置打印机](improve/deb-printer.md)  
+> [Backports源的配置与使用](improve/backports.md)  
+> [笔者的Debian初始化配置](improve/mydeb-oobe.md)  
 
 <!-- hilevel -->
 > 3. 高阶  
 > [APT离线更新软件](hilevel/apt-update-offline.md)  
 > [Debian To Go](hilevel/deb-togo.md)  
-> [GCC-15](hilevel/gcc.md)  
+> [安装GCC 15](hilevel/gcc15.md)  
 > [Desktop启动器](hilevel/desktop.md)  
 > [自定义文件缩略图生成](hilevel/thumbnail.md)  
 
@@ -71,7 +71,8 @@ Version: 0.8.1 Preview
 > [输入法介绍](usage/im-intro.md)  
 > [中州韻輸入法 RIME](usage/rime.md)  
 > [雾凇拼音 rime-ice](usage/rime-ice.md)  
-> [其它软件使用说明](usage/other.md)  
+> [其他软件使用说明](usage/other.md)  
+> [部分软件的运行方法](usage/exec.md)  
 
 > 5. 官方资料何处寻  
 > [Debian官网简单指引](where/deb-web-index.md)  
@@ -82,8 +83,19 @@ Version: 0.8.1 Preview
 > [其他资料源](where/other-doc.md)  
 
 > 6. 软件编译专题  
+> [Linux](compile/linux.md)  
+> [musl libc](compile/musl.md)  
+> [GCC](compile/gcc.md)  
+> [tcc](compile/tcc.md)  
+> [SDL3](compile/sdl3.md)  
+
 > 7. 知识杂物房  
+<!-- > 构建Mine Tiny Linux -->  
+
 > 8. 书籍推荐  
+<!-- > The C Programming Language -->   
+<!-- > UNIX adv env -->  
+
 > 9. 其他  
 
 ## 相关仓库

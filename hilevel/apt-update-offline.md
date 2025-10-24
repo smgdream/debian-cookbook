@@ -30,10 +30,10 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 但是如果缺少密钥则要使用`Trusted`选项来信任软件源。如果有效时间配置存在问题则需要通过`Check-Valid-Until`选项来忽略其有效时间配置（当然断网修改系统时间也是一种方法）。  
 one-line-style:  
 ```
-deb [trusted=yes check-valid-until=no] file://ABSOLUTE_PATH SUITE [COMPONENT1] [COMPONENT2] [...]
+deb [ trusted=yes check-valid-until=no ] file://ABSOLUTE_PATH SUITE [COMPONENT1] [COMPONENT2] [...]
 
 example:
-deb [trusted=yes check-valid-until=no] file:///mnt/mydisc/offlinesrc/13/ trixie contrib main non-free non-free-firmware
+deb [ trusted=yes check-valid-until=no ] file:///mnt/mydisc/offlinesrc/13/ trixie contrib main non-free non-free-firmware
 ```
 在one-line格式中，如存在多个选项则用空格分隔  
 
@@ -70,10 +70,10 @@ Check-Valid-Until: no
 mkdir /mnt/debian
 mount YOUR_ISO_FILE /mnt/debian
 ```
-然后将当前所有软件源作无效化处理并增添以下源配置  
+然后将当前所有软件源作无效化处理（如将当前所有源注释掉）并增添以下源配置  
 one-line-style:
 ```
-deb [trusted=yes check-valid-until=no] file:///mnt/debian/ trixie contrib main non-free-firmware
+deb [ trusted=yes check-valid-until=no ] file:///mnt/debian/ trixie contrib main non-free-firmware
 ```
 deb822-style:
 ```
@@ -85,18 +85,18 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 Trusted: yes
 Check-Valid-Until: no
 ```
-在以上两种格式中，如果是其他系统版本需要根据实际情况更改Suites字段的值（即光碟中dists目录中的目录名，根据需求选一个），还需要根据实际情况设置Components字段的内容（通常为即光碟中dists/SUITES/目录下的子目录名）。  
+在以上两种格式中，如果是其他系统版本需要根据实际情况更改Suites字段的值（即光碟中dists目录中的目录名，根据需求选一个，通常设置为代号如：forky、trixie），还需要根据实际情况设置Components字段的内容（通常为即光碟中dists/SUITES/目录下的子目录名）。  
 
 最后通过以下命令更新源数据并更新软件  
 ```sh
 apt update
-apt upgrade
+apt full-upgrade
 ```
 <br>
 
-在iso映像中的软件更新可能无法覆盖到当前系统上的所有软件，这种情况下需要在通过iso映像更新完主要软件后设置在线软件源然后通过`apt update`和`apt full-upgrade`以进一步更新软件。更新完软件后可通过`apt autoremove`卸载不再需要的软件（该命令在个别情况下会卸载系统仍然需要的软件，使用需慎重）。  
+在iso映像中的软件更新可能无法覆盖到当前系统上的所有软件，这种情况下需要在通过iso映像更新完主要软件后设置在线软件源然后再通过`apt update`和`apt full-upgrade`以进一步更新软件。更新完软件后可通过`apt autoremove`卸载不再需要的软件（该命令在极少数情况下会卸载系统仍然需要的软件，使用时需特别关注）。  
 
-更新系统相关的资料见：[Upgrades from Debian 12 (bookworm)](https://www.debian.org/releases/trixie/release-notes/upgrading.en.html)
+更新系统相关的资料见：[Debian系统升级](../improve/deb-full-upgrade.md)和[Upgrades from Debian 12 (bookworm)](https://www.debian.org/releases/trixie/release-notes/upgrading.en.html)
 
 
 ## 参考资料
@@ -104,4 +104,4 @@ apt upgrade
 \[2\][Upgrades from Debian 12 (bookworm)](https://www.debian.org/releases/trixie/release-notes/upgrading.en.html)
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.3 | Date: 2025-08-09
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.5 | Date: 2025-10-10

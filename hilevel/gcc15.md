@@ -1,28 +1,31 @@
-# 安装gcc-15
+# 安装GCC 15
 
-C23引入了许多新特性，而有的人已经迫不及待地想使用C23进行程序开发了。这时有一个完整支持C23特性的编译器显得尤为重要，而GCC15是第一个完整支持C23特性的GCC版本。但可惜的是GCC15刚好错过了Debian Trixie的软冻结，故GCC15没有收录到常规软件源。但天无绝人之路，我们仍有两种安装GCC15的方法：从源码编译或安装第三方编译二进制包。  
+C23引入了许多新特性，而有的人已经迫不及待地想使用C23进行程序开发了。这时有一个完整支持C23特性的编译器显得尤为重要，而GCC 15是第一个完整支持C23特性的GCC版本。但可惜的是GCC 15恰好错过了Debian Trixie的软冻结，故GCC 15没有收录到常规软件源。但天无绝人之路，我们仍有两种安装GCC 15的方法：从源码编译或安装第三方编译二进制包。  
 
-## 二进制编译安装GCC15
+## 二进制编译安装GCC 15
 
-要求：至少8GiB空闲空间  
-编译编译器要编译器，所以我们需要先安装一个编译器。  
+要求：至少8GiB空闲磁盘空间  
+
+编译编译器要编译器，所以我们需要先安装一个编译器并安装编译GCC所需要的开发库。  
 ```sh
-apt install gcc-14 make gettext build-essential
+apt install gcc-14 make gawk flex bison gettext
 apt install libgmp-dev libmpfr-dev libmpc-dev libisl-dev
 ```
 然后我们切换到一个合适的目录并下载gcc15源码。  
 ```sh
-wget https://ftp.gnu.org/gnu/gcc/gcc-15.1.0/gcc-15.1.0.tar.xz
+wget https://ftp.gnu.org/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz
 ```
 如果因为本地网络问题下载较慢可以将`https://ftp.gnu.org`部分文本替换为合适的镜像站（如：`https://mirrors.ustc.edu.cn`）  
 解压源码包  
 ```sh
-tar -xvf gcc-15.1.0.tar.xz
+tar -xvf gcc-15.2.0.tar.xz
 ```
-进入源码目录并进行完全清理  
+进入源码目录并进行预先清理，然后创建并进入编译目录`build`。  
 ```sh
-cd gcc-15.1.0
+cd gcc-15.2.0
 make distclean
+mkdir build
+cd build
 ```
 设置编译配置  
 ```sh
@@ -49,12 +52,11 @@ make distclean
 --disable-bootstrap 禁用bootstrap编译方式（仅编译一次而非三次）  
 --enable-nls 启用本地语言支持（使gcc可以以本地语言输出信息）  
 
-编译及安装  
+编译并安装gcc 15。  
 ```sh
 make -j$(nproc)
 sudo make install-strip
 ```
-<!-- make DESTDIR=/home/USERNAME/compile/gcc-15.2 install-strip -->
 注1：`-jN`选项用于设置参与编译的CPU物理线程数，`nproc`用于获取CPU的总物理线程数。  
 注2：make子命令`install-strip`用于安装程序与库，并剥离调试信息与符号信息（可大幅减少安装占用的磁盘空间）。  
 
@@ -62,11 +64,11 @@ sudo make install-strip
 ```sh
 make distclean
 cd ..
-rm -rv gcc-15.1.0
+rm -r build
 ```
-注：以上命令用于清理并删除gcc编译目录。  
+注：以上命令用于清理并删除gcc编译目录`build`。  
 
-## 安装第三方编译二进制GCC15
+## 安装第三方编译二进制GCC 15
 
 注意：安装第三方编译的gcc具有一定的安全风险！  
 
@@ -82,7 +84,7 @@ sudo tar -xvf /path/to/GCC_15_TARBALL.tar.xz -C /
 ```
 随后在`/etc/profile.d`中创建脚本`gcc-15.sh`并在该文件中写入以下内容并授予该文件可执行权限，以将gcc可执行文件所在目录添加到PATH中。  
 ```sh
-#! /bin/sh
+#! /bin/bash
 export PATH="/opt/gcc-15/bin:${PATH}"
 ```
 重启计算机后即可使用GCC 15。  
@@ -94,4 +96,4 @@ export PATH="/opt/gcc-15/bin:${PATH}"
 \[3\][Installing GCC: Final installation](https://gcc.gnu.org/install/finalinstall.html)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.8 | Date: 2025-09-07
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.9.1 | Date: 2025-10-24

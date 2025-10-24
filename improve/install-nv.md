@@ -17,22 +17,24 @@ apt install build-essential linux-headers-$(uname -r | sed 's/.*-//g') pkg-confi
 ```
 注：DKMS框架用于在内核更新时自动构建新的驱动模块。  
 
-支持安装32位NVIDIA兼容库：如果需要在安装驱动时安装32位NVIDIA库需要在启动安装驱动前需要通过以下命令添加i386架构支持并安装相应基础依赖库。
+安装32位NVIDIA兼容库：如果需要在安装驱动时安装32位NVIDIA库需要在启动安装驱动前需要通过以下命令添加i386架构支持并安装相应基础依赖库。
 ```sh
 dpkg --add-architecture i386
 apt install libc6:i386
 ```
 
-然后通过`chmod +x NVIDIA_DRIVEN_NAME`命令授予驱动安装包可执行权限并执行（如：`./NVIDIA-Linux-x86_64-575.57.08.run`）。之后可能会显示是否同意用户协议，同意即可。然后可能会询问要安装的内核模块驱动类型。  
+然后通过`chmod +x NVIDIA_DRIVEN_NAME`命令授予驱动安装包可执行权限并执行（如：`chmod +x ./NVIDIA-Linux-x86_64-575.57.08.run`）。之后可能会显示是否同意用户协议，同意即可。然后可能会询问要安装的内核模块驱动类型。  
 ![](images/install-nv/ktype.jpg)  
 Turing及更新架构（20系以及之后的显卡）选择“NVIDIA Proprietary”（专有内核驱动），Turing之前的架构（20系之前的显卡）选择“MIT/GPL”（开源内核驱动）（以上规则已经笔者本人简化，关于不同内核模块选择的详细信息见：[Driver types - NvidiaGraphicsDrivers - Debian Wiki](https://wiki.debian.org/NvidiaGraphicsDrivers#Driver_types)）。  
+
 然后将会开始安装过程，中途可能会询问是否安装32位库，如果不清楚或没有这类需求则不用安装。后面可能还会询问是否启用DKMS通常选择"Yes"。  
 ![](images/install-nv/set-dkms.jpg)  
-额外说明：在安装过程中可能会出现一个Error说：“当前系统在使用Nouveau”，此时请勿惊慌"OK"继续，下一步将会询问是否禁用Nouveau选择"Yes"即可。在安装的途中可能还会出现一些莫名其妙的窗口如果不清楚选那个默认即可。  
 最后一步驱动安装程序可能会询问是否要重新构建initramfs，选择重新构建并稍后即可完成安装。  
 ![Rebuild initramfs](images/install-nv/update-initrd.jpg)  
 ![Finish](images/install-nv/finish.jpg)  
 最后重启计算机即可使用nvidia驱动。  
+
+额外说明：在安装过程中可能会出现一个Error说：“当前系统在使用Nouveau”，此时请勿惊慌"OK"继续，下一步将会询问是否禁用Nouveau选择"Yes"即可，后面还可能会询问是否重建initramfs选择"Yes"即可，在后面的界面中通常选择重启计算机然后重新关闭gdm3并重新进入驱动安装程序。在安装的途中可能还会出现一些莫名其妙的窗口如果不清楚选择默认选项即可。  
 
 **注意：** 据[可靠消息](https://forums.developer.nvidia.com/t/unix-graphics-feature-deprecation-schedule/60588)主版本为580的驱动将是最后一版支持Maxwell、Pascal和Volta架构的驱动（大概就是GTX10系列及之前的系列和Titan V及之前的Titan显卡最后能用的驱动为580驱动）。  
 
@@ -80,6 +82,16 @@ apt install firmware-misc-nonfree nvidia-driver nvidia-kernel-dkms
 可见：[NVIDIA驱动使用wayland显示服务](nv-wayland.md)  
 注意：如果不重新启用wayland的话则无法在显示器上使用分数缩放，对于高分辨率显示器这将会导致较差的显示效果。  
 
+## 附加资料
+
+### 手动指定以NVIDIA显卡执行程序
+通过在程序执行命令前面添加临时变量`__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only`即可（强制）以NVIDIA显卡执行程序。
+
+格式示例:  
+```sh
+__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only PROGRAM ARGS...
+```
+
 ## 参考资料
 
 \[1\] [NvidiaGraphicsDrivers - Debian Wiki](https://wiki.debian.org/NvidiaGraphicsDrivers)  
@@ -90,4 +102,4 @@ apt install firmware-misc-nonfree nvidia-driver nvidia-kernel-dkms
 \[6\] [如何在 Debian/Ubuntu 中阻止包和内核更新](https://cn.linux-console.net/?p=3649)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.8 | Date: 2025-09-06
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.3 | Date: 2025-10-12

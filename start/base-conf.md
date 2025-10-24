@@ -40,7 +40,9 @@ usermod -a -G video USER_NAME
 说明：将用户添加至video组中即可获得写framebuffer权限。  
 
 ## 时间同步
-对于Debian Bookworm及以前版本需要手动安装NTP程序以进行数据同步（Debian trixie已默认安装systemd-timesyncd用于时间同步），安装并启用NTP服务的命令如下：  
+注意：Debian trixie已默认安装systemd-timesyncd用于时间同步，故无须执行该步骤。
+
+对于Debian Bookworm及以前版本需要手动安装NTP程序以进行数据同步，安装并启用NTP服务的命令如下：  
 ```sh
 apt install ntpsec
 systemctl enable ntpsec
@@ -60,4 +62,4 @@ Debian中默认笔记本合上盖子的行为为挂起计算机，而有时我�
 编辑`/etc/systemd/logind.conf`文件，取消`HandleLidSwitch`行的`#`注释。任何将`HandleLidSwitch`的对应值修改为合上笔记本盖子所需的行为（如：ignore，无操作）。最后重启计算机应用配置（注意：请勿相信网上说的重启`systemd-logind`服务的操作，否则可能导致桌面环境卡死）。  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.5 | Date: 2025-08-06
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.6 | Date: 2025-10-03

@@ -1,15 +1,15 @@
 # Debian系统备份
 
-虽然Debian以稳定著称，但还是有极小概率滚挂。而且有时候我们为了干一些事情而安装了一堆乱七八糟的软件还没法卸载干净。或者手动安装软件或手动调整系统文件导致系统出现问题且难以修复。这时如果有备份直接时光倒流回去就行了。所以通过备份，系统就多了一重保险。接下来笔者通过timeshift来说明如何备份Debian。  
+虽然Debian以稳定著称，但仍有极小概率滚挂。而且有时候我们为了干一些事情而安装了一堆乱七八糟的软件还没法卸载干净。或者手动安装软件或手动调整系统文件导致系统出现问题且难以修复。这时如果有备份直接时间跳跃回去就行了。所以通过备份，系统就多了一重保险。接下来笔者通过timeshift来说明如何备份Debian。  
 
-**安装timeshift**  
+## 安装timeshift
 通过以下命令安装timeshift：  
 ```sh
 apt install timeshift
 ```
 然后在应用菜单中点击timeshift并输入密码即可使用timeshift。  
 
-**首次使用timeshift的配置**  
+## 首次使用timeshift的配置
 首次使用timeshift将会出现一个配置向导要求用户配置timeshift。  
 首先选择一个备份方式，对于非Btrfs文件系统的用户来说只有RSYNC一个选择，而对于使用Btrfs文件系统的用户则可以选择RSYNC或BTRFS。  
 ![Seletc Type](images/backup/type.png)  
@@ -39,23 +39,25 @@ apt install timeshift
 ![Filters](images/backup/filters.png)  
 
 ## 命令行备份与恢复
-有时因为意外可能出现无法进入图形界面。但不用怛心，timeshift提供了cli操作命令，在终端通过命令也可以使用timeshift回滚系统。  
+有时因为意外可能出现无法进入图形界面的情况。但不用怛心，timeshift提供了cli操作命令，在终端通过命令也可以使用timeshift回滚系统。  
 
 首先可以通过以下命令查看当前存在的快照，并确定所要恢复到的快照的快照名。  
 ```sh
 timeshift --list
 ```
 然后执行以下命令即可还原备份。  
+```sh
 timeshift --restore --snapshot 'SNAPSHIOT_NAME'
+```
 注：SNAPSHIOT_NAME为相应快照的快照名  
 
-当然也可以执行命令`timeshift --restore`并在接下来的界面选择备份进行还原。  
+当然也可以执行命令`timeshift --restore`并在接下来的界面选择备份并进行还原。  
 
-更多与timeshitf命令相关的信息可通过timeshift --help查阅。  
+更多与timeshitf命令相关的信息可通过`timeshift --help`查阅。  
 
 ## 参考资料
 
 \[1\] `timeshift --help`  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.5 | Date: 2025-08-30
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.6 | Date: 2025-10-09

@@ -43,7 +43,7 @@ umount /dev/EFI_PART_DEV_NAME
 
 **本地grub修复**  
 
-启动计算机启动到Debian安装介质并重新进入急救模式。当来到根分区设备选择界面时选择Linux系统所在分区（如果存在多个linux系统则选择其中一个合适的即可），然后当询问是否挂载/boot/efi对应分区时选择是。然后选择重新安装grub引导器，之后在对应界面中按照提示输入需安装grub引导器的设备的路径，然后即可完成grub的安装。最后，“重新启动系统”完成安装。
+启动计算机启动到Debian安装介质并重新进入急救模式。当来到根分区设备选择界面时选择Linux系统所在分区（如果存在多个linux系统则选择其中一个合适的即可），然后当询问是否挂载/boot/efi对应分区时选择“是”。然后选择重新安装grub引导器，之后在对应界面中按照提示输入需安装grub引导器的设备的路径，然后即可完成grub的安装。最后，“重新启动系统”完成安装。
 
 ## 安装固件
 
@@ -101,4 +101,4 @@ apt install \
 **自此Debian To Go的安装才算真正完成。**  
 
 ---
-Autuor: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.5 | Date: 2025-07-28
+Autuor: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.6 | Date: 2025-10-10

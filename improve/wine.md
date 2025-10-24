@@ -1,6 +1,8 @@
 # Wine
 
-Wine全称"Wine is not an emulator"(Wine不是一个模拟器)，它是一个用于在UNXI系统上运行Windows应用程序的兼容层，它通过将Windows API调用转换为POXIS API调用来使得Windows应用程序得以在UNIX系统中运行。它是Linux用户在Linux系统上使用Windows应用程序的必不可少的工具。通过Wine我们可以在Linux上运行Windows应用程序甚至还可以以较高性能运行不少游戏。
+Wine全称"Wine is not an emulator"(Wine不是一个模拟器)，它是一个用于在UNXI系统上运行Windows应用程序的兼容层，它通过将Windows API调用转换为POXIS API调用来使得Windows应用程序得以在UNIX系统中运行。它是Linux用户在Linux系统上使用Windows应用程序的必不可少的工具。通过Wine我们可以在Linux上运行Windows应用程序甚至还可以以较高性能运行不少游戏。  
+
+在64位环境中Wine可以运行64位、32位和16位Windows程序。没错Wine现在还能在64位环境中运行16位程序，这可是连Microsoft自己都做不到的黑科技，该功能需要使用wine 10.16及更新版本。  
 
 注意：Wine并不能完美运行所有Windows应用程序，适配较好的程序可以正常运行，适配较差的程序则运行出现明显问题或无法运行。  
 
@@ -35,14 +37,18 @@ wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/debian/dists
 | 开发分支 | `apt install --install-recommends winehq-devel` |
 | Staging 分支 | `apt install --install-recommends winehq-staging` |
 
-对于没启用32位架构支持的用户则通过以下方法安装wine。
+注：稳定分支不一定稳定且少Bug，只意味着其稳定和少Bug的可能性更高。  
+
+<br>
+
+对于**没启用32位架构支持**的用户则通过以下方法安装wine。
 
 首先安装需要的分支：  
 | Wine分支 | 安装命令 |
 | --- | --- |
-| 稳定分支 | `apt install --install-recommends wine-stable-amd64` |
-| 开发分支 | `apt install --install-recommends wine-devel-amd64` |
-| Staging 分支 | `apt install --install-recommends wine-staging-amd64` |
+| 稳定分支 | `apt install wine-stable-amd64` |
+| 开发分支 | `apt install wine-devel-amd64` |
+| Staging 分支 | `apt install wine-staging-amd64` |
 
 然后手动在[wine源仓库](https://dl.winehq.org/wine-builds/debian/pool/main/w/wine/)下载以下两个文件`wine-BRANCHNAME_VERSION~DISTNAME-1_amd64.deb`和`winehq-BRANCHNAME_VERSION~DISTNAME-1_amd64.deb`，之后手动将这两个包的内容解压到相应目录。  
 部分命令示例（仅供参考）  
@@ -57,6 +63,8 @@ cp -rv ./bin/* /usr/local/bin/
 rm /usr/local/bin/wine
 ln -s /usr/local/bin/wine64 /usr/local/bin/wine
 ```
+
+吐槽：当今Linux几乎所有软件都有64位了，如果不是为了使用Wine，我才不愿意添加i386源。真希望wine什么时候官方打包能变为WoW64的发布，到时候就能完全和32位say goodbye了。  
 
 ### 通过Debian源安装wine
 除非你确定不会运行32位windows程序，否则运行以下命令启用32位架构支持：  
@@ -76,6 +84,8 @@ Wine Mono用于让wine支持运行.NET Framework 应用程序，Gecko是wine独�
 首先查询下表确认所需安装的Wine Mono版本（请务必按照表格的说明安装对应的版本）。  
 | Wine 版本 | Wine Mono 版本 |
 | --- | --- |
+| 10.17 | 10.3.0 |
+| 10.14 | 10.2.0 |
 | 10.10 | 10.1.0 |
 | 10.5 | 10.0.0 |
 | 10.0-rc1 | 9.4.0 |
@@ -123,7 +133,9 @@ wine msiexec /i PATH_TO_MONO_MSI
 mkdir -pv /opt/wine/gecko/
 tar -xvf PATH_TO_GECKO_TARBALL -C /opt/wine/gecko/
 ```
-安装完后新建的wine实例中将包含Gecko。  
+安装完后各wine实例即可使用Gecko。  
+
+注：以该方式安装的Gecko在使用时wine会直接从UNIX安装中加载Gecko，而非在创建实例时将其安装在实例中，故在uninstaller中是看不到Gecko相关的软件包的。  
 
 **安装MSI包**  
 将Gecko安装包下载到本地后执行以下命令为当前Wine实例安装Gecko。  
@@ -133,11 +145,10 @@ wine msiexec /i PATH_TO_GECKO_MSI
 ## 安装中文字体
 安装部分软件依赖于专门的中文字体，如果不安装中文字体，文本将显示为方框。中文字体的安装方法如下：  
 
-将命名为`msyh.ttc`的微软雅黑字体文件复制到wine安装目录下的`share/wine/fonts`目录中即可。安装完后新建的wine示例将包含该字体。
-
-[微软雅黑字体下载](pool/msyh.ttc)
+将命名为`msyh.ttc`的[微软雅黑字体文件](../pool/msyh.ttc)复制到wine安装目录下的`share/wine/fonts`目录中即可。安装完后新建的wine示例将包含该字体。  
 
 <!-- vxdk 3d11? -->
+<!-- wine半离线安装？ -->
 
 ## wine 简单使用说明
 
@@ -147,9 +158,9 @@ wine msiexec /i PATH_TO_GECKO_MSI
 wine PROGRAM [ARGS...]
 ```
 
-使用wine运行程序（不显示debug信息）
+使用wine运行程序（不显示所有fixme debug信息）
 ```sh
-WINEDEBUG=-all wine PROGRAM [ARGS...]
+WINEDEBUG=fixme-all wine PROGRAM [ARGS...]
 ```
 
 wine实例的设置
@@ -177,19 +188,39 @@ wine实例内的注册表
 wine regedit
 ```
 
-可通过设置WINEPREFIX环境/临时变量来指定/设置wine实例目录的位置如：  
-设置为环境变量。  
+wine实例内置的扫雷
+```sh
+wine winemine
+```
+
+安装msi安装包
+```sh
+wine msiexec /i MSI_FILE
+```
+
+可通过设置`WINEPREFIX`环境/临时变量来指定/设置wine实例目录的位置如：  
+设置为临时环境变量  
 ```sh
 exprot WINEPREFIX=~/.wine-game
 wine PROGRAM [ARGS...]
 ```
-设置为临时变量。  
+设置为临时变量  
 ```sh
 WINEPREFIX=~/.wine-game wine PROGRAM [ARGS...]
 ```
+如果没有设置`WINEPREFIX`变量则wine实例的默认路径为`~/.wine`。  
 
-## Wine版本使用报告
-经本人测试Wine 10.0存在较多bug，许多应用无法正常运行（部分游戏运行出错，甚至从源代码编译安装的wine无法运行）。而当前最新开发版Wine 10.12运行windows应用的问题少得多。
+创建32位架构的wine实例  
+```sh
+WINEPREFIX=~/.wine32 WINEARCH=win32 wineboot -i
+```
+说明：  
+- `WINEPREFIX`变量只是为了另外指定一个wine实例目录以避免和现有wine实例目录冲突。  
+- `WINEARCH`变量用于指定wine实例的架构，其有效值为`win64`和`win32`，`win64`可运行64位程序以及32位程序（如果安装了32位wine的话），`win32`只能运行32位程序。  
+- `wineboot -i`命令用于创建并初始化一个wine实例。
+
+## Wine版本可用性报告
+经本人测试Wine 10.0存在较多bug，许多应用无法正常运行（部分游戏运行出错，甚至从源代码编译安装的wine无法运行）。而经过笔者的测试Wine 10.12开发版运行windows应用出现的问题倒少得多。
 
 ## Wine游戏
 见[Linux游戏](linux-game.md)的“Wine游戏”段落。  
@@ -206,7 +237,12 @@ WINEPREFIX=~/.wine-game wine PROGRAM [ARGS...]
 \[5\] [Gecko - Wine Wiki](https://gitlab.winehq.org/wine/wine/-/wikis/Gecko)  
 \[6\] [FAQ - Wine Wiki](https://gitlab.winehq.org/wine/wine/-/wikis/FAQ)  
 \[7\] [Wine builds 软件仓库镜像使用帮助](https://help.mirrors.cernet.edu.cn/wine-builds/)  
-\[8\] [Wine User's Guide  Wine - Wine Wiki](https://gitlab.winehq.org/wine/wine/-/wikis/Wine-User's-Guide)  
+\[8\] [Wine User's Guide - Wine Wiki](https://gitlab.winehq.org/wine/wine/-/wikis/Wine-User's-Guide)  
+\[9\] [Commands - Wine Wiki](https://gitlab.winehq.org/wine/wine/-/wikis/Commands)  
+\[10\] [msiexec - Wine Wiki](https://gitlab.winehq.org/wine/wine/-/wikis/Commands/msiexec)  
+\[11\] [wineboot - Wine Wiki](https://gitlab.winehq.org/wine/wine/-/wikis/Commands/wineboot)  
+\[12\] [Download- Wine Wiki](https://gitlab.winehq.org/wine/wine/-/wikis/Download)  
+\[13\] [WINEDEBUG channels - Wine User's Guide - Wine Wiki](https://gitlab.winehq.org/wine/wine/-/wikis/Wine-User's-Guide#winedebug-channels)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.8 | Date: 2025-08-21
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.5 | Date: 2025-10-18

@@ -3,17 +3,19 @@
 
 ## 硬件支持
 
-**显卡**  
-创意设计基本上使用的显卡都是NVIDIA的显卡，而NVIDIA直接提供了官方Linux驱动，[安装驱动](install-nv.md)后用起来肯定是没问题的。  
+### 显卡
+创意设计使用的显卡基本上都是NVIDIA的显卡，而NVIDIA直接提供了官方Linux驱动，[安装驱动](install-nv.md)后用起来肯定是没问题的。  
 
-**声卡**  
+### 声卡
 当前大部分声卡在Linux上都可以即插即用，其基本的使用是没问题的。但只有部分国际声卡大厂的部分产品提供了用于Linux的控制台程序。  
 
-**数位板和数位屏**  
-当前绝大多数数位板在Linux中都可以即插即用。  
+### 数位板和数位屏
+当前绝大多数数位板在Linux中都可以即插即用。 
+
 Wacom可以使用一些非官方软件（如[OpenTabletDriver](https://github.com/OpenTabletDriver/OpenTabletDriver)）或创意软件的功能来对数位板进行设置。对于GNOME桌面环境，插入数位板后设置里的侧栏将会出现“数位板”设置，然后可在对应窗口中设置数位板。  
 ![Gnome setting graphy](images/table-setting.png)  
-而国内友基系和绘王系两大厂商均为其产品提供了专门的Linux数位板控制面板程序。对于厂商没提供数位板控制面板的数位板则可以使用开源的[OpenTabletDriver](https://github.com/OpenTabletDriver/OpenTabletDriver)数位板控制面板来配置数位板。  
+而国内友基系和绘王系两大厂商均为其产品提供了专门的Linux数位板控制面板程序。对于厂商没提供数位板控制面板的数位板则可以使用开源的[OpenTabletDriver](https://github.com/OpenTabletDriver/OpenTabletDriver)数位板控制面板并结合创意软件的数位板设置来配置数位板。  
+
 注：部分数位板在Wayland下无法正常使用，需要在Xorg图形环境中使用数位板。  
 
 ## 软件支持
@@ -26,4 +28,4 @@ DAW：[REAPER](https://www.reaper.fm)（部分闭源部分专有）、[Ardour](h
 动画制作：[OpenToonz](https://opentoonz.github.io)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.3 | Date: 2025-08-11
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6 | Date: 2025-10-10

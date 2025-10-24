@@ -10,10 +10,10 @@ Debian包追踪器可用于获取一个软件在Debian中的状态，并且还�
 点击对应软件的tracker页面的logs，然后点击所要查看架构的Installed。  
 
 ## [pkgs](https://pkgs.org/)
-pkgs是各linux和unix系统的软件包集合网站。在该网站中你可以查看各系统对各软件包支持和版本信息，通过该网站和可以获取软件包在各系统中的下载链接。  
+pkgs是各linux和unix系统的软件包集合网站。在该网站中你可以查看各系统对各软件包支持和版本信息，通过该网站和可以获取适用于各系统的软件包的下载链接。  
 
 ## 参考资料
 \[1\] [About pkgs.org](https://pkgs.org/about/)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6 | Date: 2025-08-22
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.1 | Date: 2025-10-11

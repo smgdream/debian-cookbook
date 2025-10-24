@@ -5,7 +5,7 @@
 | apt | - | https://salsa.debian.org/apt-team/apt | https://salsa.debian.org/apt-team/apt/-/tags |
 | aria2 | https://aria2.github.io/ | https://github.com/aria2/aria2 | https://github.com/aria2/aria2/releases |
 | Blender | https://www.blender.org/ | https://projects.blender.org/blender/blender | https://download.blender.org/source/ |
-| CMake | https://cmake.org/ | -- | -- |
+| CMake | https://cmake.org/ | https://gitlab.kitware.com/cmake/cmake | https://gitlab.kitware.com/cmake/cmake/-/tags |
 | curl | https://curl.se/ | https://github.com/curl/curl | https://github.com/curl/curl/releases |
 | FFmpeg | https://ffmpeg.org/ | https://git.ffmpeg.org/gitweb/ffmpeg.git | https://git.ffmpeg.org/gitweb/ffmpeg.git/tags |
 | firefox | https://www.firefox.com/ | https://github.com/mozilla-firefox/firefox | https://ftp.mozilla.org/pub/firefox/releases/ |
@@ -19,8 +19,9 @@
 | Mission Center | https://missioncenter.io/ | https://gitlab.com/mission-center-devs/mission-center | https://gitlab.com/mission-center-devs/mission-center/-/releases |
 | OBS Studio | https://obsproject.com/ | https://github.com/obsproject/obs-studio | https://github.com/obsproject/obs-studio/releases |
 | openSSL | https://openssl-library.org/ | https://github.com/openssl/openssl | https://github.com/openssl/openssl/releases |
-| qBittorrent | -- | https://github.com/qbittorrent/qBittorrent/ | https://github.com/qbittorrent/qBittorrent/tags |
+| qBittorrent | https://www.qbittorrent.org/ | https://github.com/qbittorrent/qBittorrent/ | https://github.com/qbittorrent/qBittorrent/tags |
 | QEMU | https://www.qemu.org/ | https://gitlab.com/qemu-project/qemu | https://gitlab.com/qemu-project/qemu/-/tags |
+| SDL | https://libsdl.org/ | https://github.com/libsdl-org/SDL | https://github.com/libsdl-org/SDL/releases |
 | TeX | https://ctan.org/pkg/tex | https://tug.org/svn/texlive/trunk/Build/source/texk/web2c/ （注：该页面为分页页面） | https://ctan.org/tex-archive/systems/knuth/dist/tex |
 | Tiny C Compiler | https://www.bellard.org/tcc/ | https://repo.or.cz/w/tinycc.git | https://repo.or.cz/tinycc.git/tags |
 | Typst | https://typst.app/ | https://github.com/typst/typst | https://github.com/typst/typst/releases |
@@ -29,4 +30,4 @@
 [GNU FTP](https://ftp.gnu.org/gnu/)
 
 ---
-License: CC0 | Version: 0.5.1 | Date: 2025-08-23
+License: CC0 | Version: 0.6 | Date: 2025-10-17
