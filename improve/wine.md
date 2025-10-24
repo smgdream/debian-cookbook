@@ -145,7 +145,7 @@ wine msiexec /i PATH_TO_GECKO_MSI
 ## 安装中文字体
 安装部分软件依赖于专门的中文字体，如果不安装中文字体，文本将显示为方框。中文字体的安装方法如下：  
 
-将命名为`msyh.ttc`的[微软雅黑字体文件](../pool/msyh.ttc)复制到wine安装目录下的`share/wine/fonts`目录中即可。安装完后新建的wine示例将包含该字体。  
+将命名为`msyh.ttc`的[微软雅黑字体文件](https://github.com/smgdream/debian-file/releases/download/4/msyh.ttc)复制到wine安装目录下的`share/wine/fonts`目录中即可。安装完后新建的wine示例将包含该字体。  
 
 <!-- vxdk 3d11? -->
 <!-- wine半离线安装？ -->
