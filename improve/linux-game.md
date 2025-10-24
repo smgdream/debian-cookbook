@@ -124,7 +124,7 @@ echo initfinish
 ```
 然后下载DirectX 9.0c并为该wine实例安装。
 
-> 如通过第三方打包的[运行库ScKu](../pool/Scku.exe)安装DirectX 9.0c  
+> 如通过第三方打包的[运行库ScKu](https://github.com/smgdream/debian-file/releases/download/3/Scku.exe)安装DirectX 9.0c  
 > `WINEPREFIX=~/.wine32 WINEARCH=win32 wine Scku.exe`  
 > 然后选择Custom install（自定义安装），之后仅选择DirectX 9.0c并安装即可。  
 
@@ -160,7 +160,7 @@ Steam早已原生支持linux，而Valve在2022年推出了Steam Desk游戏掌机
 **Ruina (废都物语)**  
 《废都物语》是一个故事震撼人心的早期日式回合制RPG游戏。其游戏引擎为RPG Maker 2000，故其可以通过EasyRPG Player驱动游戏运行。  
 
-笔者打包了一个Linux和Windows皆可运行的[通用版Ruian](../pool/ruina_universal.tar.xz)，解压后执行对应系统的游戏启动脚本即可运行游戏。  
+笔者打包了一个Linux和Windows皆可运行的[通用版Ruian](https://github.com/smgdream/debian-file/releases/download/2/ruina_universal.tar.xz)，解压后执行对应系统的游戏启动脚本即可运行游戏。  
 
 
 ## 参考资料
