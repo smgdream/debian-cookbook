@@ -114,7 +114,7 @@ wine explorer
 ```
 然后在explorer中打开游戏目录并双击运行游戏。  
 
-#### Steins;Gate Steam Ver.（命运石之门 Steam版）
+#### Steins;Gate Steam Edition（命运石之门 Steam版）
 wine版本要求：>=10.12  
 运行方法：
 通过以下命令创建32位wine实例
@@ -170,4 +170,4 @@ Steam早已原生支持linux，而Valve在2022年推出了Steam Desk游戏掌机
 \[3\] [EasyRPG Player](https://easyrpg.org/player/)    
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7 | Date: 2025-10-11
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.1 | Date: 2025-10-24
