@@ -72,7 +72,7 @@ rm -r build
 
 注意：安装第三方编译的gcc具有一定的安全风险！  
 
-这是笔者编译的gcc15：[gcc-15_15.2.0-1_trixie_amd64.tar.xz](../pool/gcc-15_15.2.0-1_trixie_amd64.tar.xz)，其安装方法如下：  
+这是笔者编译的gcc15：[gcc-15_15.2.0-1_trixie_amd64.tar.xz](https://github.com/smgdream/debian-file/releases/download/1/gcc-15_15.2.0-1_trixie_amd64.tar.xz)，其安装方法如下：  
 
 安装依赖  
 ```sh
