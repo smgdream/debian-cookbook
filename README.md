@@ -1,157 +1,102 @@
-# 🍳 Debian Cookbook
+# Debian cookbook
 
-> **Debian 食用手册**  
-> 一个面向实践的 Debian 使用与配置指南  
+**Debian食用手册**  
+[License: CC BY-NC-SA 4.0](./LICENSE)  
+Version: 0.9.0 Preview
 
-![License](https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-blue)
-![Version](https://img.shields.io/badge/version-0.9.0--preview-orange)
+## 1 适用范围
 
----
+本手册旨在提供适用于Debian系统的使用说明和配置说明，该手册适合有简单linux基础的人阅读。  
 
-## 📖 1. 适用范围
+限制：本手册内容适用于Debian 13，因本人能力所限，当前手册桌面环境相关内容主要局限于GNOME桌面环境。  
 
-本手册旨在提供适用于 **Debian 系统** 的使用说明与配置指南，适合具备**基础 Linux 使用经验**的用户阅读。
+## 2 微社区
+如果有关于使用Debian和其他Linux相关的的问题或有关于本手册的建议与可在[Discussions](https://github.com/smgdream/debian-cookbook/discussions)讨论区进行讨论和说明，如果要提交勘误请提交issue。  
 
-> ⚠️ **限制说明**
-> - 当前版本适用于 **Debian 13 (Trixie)**
-> - 桌面环境内容主要围绕 **GNOME**
+## 3 贡献说明
 
----
+本人欢迎各位为本手册添砖加瓦，但必须以CC BY-NC-SA 4.0协议或CC0协议发布。  
 
-## 💬 2. 微社区
+## 4 内容索引
 
-如果你在使用 Debian 或本手册过程中遇到问题，欢迎参与讨论：
+<!-- intro -->
+> 0. 何为Debian  
+> [本手册的食用方法](intro/eat.md)  
+> [何为Debian](intro/debian.md)  
+> [Debian Trixie的新特性](intro/trixie.md)  
+> [Debian的硬件兼容性](intro/deb-hcp.md)  
+> [我与Debian](intro/i-and-linux.md)  
 
-- 💭 讨论区：[Discussions](https://github.com/smgdream/debian-cookbook/discussions)  
-- 🐛 勘误 / Bug：请提交 Issue  
+<!-- start -->
+> 1. 启程  
+> [当前Debian适合我吗](start/deb-suit4me.md)  
+> [Debian安装](start/install-deb.md)  
+> [Debian初步配置](start/init-conf.md)  
+> [Debian基本环境配置](start/base-conf.md)  
+> [Gnome基本桌面环境配置](start/desktop-conf.md)  
+> [基本开发环境配置](start/dev-conf.md)  
+> [不访看看Debian官方资料](start/deb-docs.md)  
+> [当前Debian的部分bugs](start/bugs.md)  
 
----
+<!-- improve -->
+> 2. 进阶  
+> [Debina系统备份](improve/sys-backup.md)  
+> [Debian+windows](improve/deb+win.md)  
+> [Debian对各家显卡的支持](improve/graphics-card.md)  
+> [Deal late no more NVIDIA](improve/install-nv.md)  
+> [NVIDIA驱动使用wayland显示服务](improve/nv-wayland.md)  
+> [Gnome调教与美化](improve/gnome-conf.md)  
+> [动态壁纸](improve/live-wp.md)  
+> [Debian多媒体源](improve/deb-mmedia.md)  
+> [Linux多媒体工作站](improve/media-workstation.md)  
+> [国产软件的支持说明](improve/cn-software.md)  
+> [Wine](improve/wine.md)    
+> [Linux游戏](improve/linux-game.md)  
+> [Debian系统升级](improve/deb-full-upgrade.md)  
+> [在Debian中配置打印机](improve/deb-printer.md)  
+> [Backports源的配置与使用](improve/backports.md)  
+> [笔者的Debian初始化配置](improve/mydeb-oobe.md)  
 
-## 🤝 3. 贡献说明
+<!-- hilevel -->
+> 3. 高阶  
+> [APT离线更新软件](hilevel/apt-update-offline.md)  
+> [Debian To Go](hilevel/deb-togo.md)  
+> [安装GCC 15](hilevel/gcc-15.md)  
+> [Desktop启动器](hilevel/desktop.md)  
+> [自定义文件缩略图生成](hilevel/thumbnail.md)  
 
-欢迎为本项目贡献内容！
+> 4. 软件使用简要教程  
+> [无法退出的VIM](usage/vim-q.md)  
+> [配置VIM](usage/vim-conf.md)  
+> [输入法介绍](usage/im-intro.md)  
+> [中州韻輸入法 RIME](usage/rime.md)  
+> [雾凇拼音 rime-ice](usage/rime-ice.md)  
+> [其他软件使用说明](usage/other.md)  
+> [部分软件的运行方法](usage/exec.md)  
 
-请遵循以下协议之一：
+> 5. 官方资料何处寻  
+> [Debian官网简单指引](where/deb-web-index.md)  
+> [Debian用户社区](where/deb-com.md)  
+> [Debian软件包相关信息](where/pkg-info.md)  
+> [Linux Wiki](where/linux-wiki.md)  
+> [部分开源软件官网及ftp](where/software-web.md)  
+> [其他资料源](where/other-doc.md)  
 
-- **CC BY-NC-SA 4.0**
-- **CC0**
+> 6. 软件编译专题  
+> [Linux](compile/linux.md)  
+> [musl libc](compile/musl.md)  
+> [GCC](compile/gcc.md)  
+> [tcc](compile/tcc.md)  
+> [SDL3](compile/sdl3.md)  
 
----
+> 7. 知识杂物房  
+<!-- > 构建Mine Tiny Linux -->  
 
-## 📚 4. 内容索引
+> 8. 书籍推荐  
+<!-- > The C Programming Language -->   
+<!-- > UNIX adv env -->  
 
----
+> 9. 其他  
 
-### 🧭 0. 引导（Intro）
-
-- [本手册的食用方法](intro/eat.md)  
-- [何为 Debian](intro/debian.md)  
-- [Debian Trixie 的新特性](intro/trixie.md)  
-- [Debian 的硬件兼容性](intro/deb-hcp.md)  
-- [我与 Debian](intro/i-and-linux.md)  
-
----
-
-### 🚀 1. 启程（Getting Started）
-
-- [当前 Debian 适合我吗](start/deb-suit4me.md)  
-- [Debian 安装](start/install-deb.md)  
-- [Debian 初步配置](start/init-conf.md)  
-- [Debian 基本环境配置](start/base-conf.md)  
-- [GNOME 桌面环境配置](start/desktop-conf.md)  
-- [开发环境配置](start/dev-conf.md)  
-- [官方资料索引](start/deb-docs.md)  
-- [当前 Debian 的部分 Bugs](start/bugs.md)  
-
----
-
-### ⚙️ 2. 进阶（Advanced）
-
-- [Debian 系统备份](improve/sys-backup.md)  
-- [Debian + Windows 双系统](improve/deb+win.md)  
-- [显卡支持情况](improve/graphics-card.md)  
-- [NVIDIA 驱动安装](improve/install-nv.md)  
-- [NVIDIA + Wayland](improve/nv-wayland.md)  
-- [GNOME 美化与调教](improve/gnome-conf.md)  
-- [动态壁纸](improve/live-wp.md)  
-- [多媒体源配置](improve/deb-mmedia.md)  
-- [Linux 多媒体工作站](improve/media-workstation.md)  
-- [国产软件支持](improve/cn-software.md)  
-- [Wine 使用](improve/wine.md)  
-- [Linux 游戏](improve/linux-game.md)  
-- [系统升级](improve/deb-full-upgrade.md)  
-- [打印机配置](improve/deb-printer.md)  
-- [Backports 使用](improve/backports.md)  
-- [作者初始化配置](improve/mydeb-oobe.md)  
-
----
-
-### 🧠 3. 高阶（Power User）
-
-- [APT 离线更新](hilevel/apt-update-offline.md)  
-- [Debian To Go](hilevel/deb-togo.md)  
-- [安装 GCC 15](hilevel/gcc-15.md)  
-- [Desktop 启动器](hilevel/desktop.md)  
-- [自定义缩略图](hilevel/thumbnail.md)  
-
----
-
-### 🧰 4. 软件使用（Usage）
-
-- [无法退出的 VIM](usage/vim-q.md)  
-- [VIM 配置](usage/vim-conf.md)  
-- [输入法介绍](usage/im-intro.md)  
-- [RIME 输入法](usage/rime.md)  
-- [雾凇拼音](usage/rime-ice.md)  
-- [其他软件说明](usage/other.md)  
-- [程序运行方式](usage/exec.md)  
-
----
-
-### 🌐 5. 官方资源（Resources）
-
-- [Debian 官网指引](where/deb-web-index.md)  
-- [用户社区](where/deb-com.md)  
-- [软件包信息](where/pkg-info.md)  
-- [Linux Wiki](where/linux-wiki.md)  
-- [开源软件站点](where/software-web.md)  
-- [其他资料](where/other-doc.md)  
-
----
-
-### 🛠️ 6. 编译专题（Compilation）
-
-- [Linux](compile/linux.md)  
-- [musl libc](compile/musl.md)  
-- [GCC](compile/gcc.md)  
-- [tcc](compile/tcc.md)  
-- [SDL3](compile/sdl3.md)  
-
----
-
-### 📦 7. 知识杂物房
-
-> 🚧 持续更新中...
-
----
-
-### 📚 8. 书籍推荐
-
-> 🚧 敬请期待...
-
----
-
-### 🔚 9. 其他
-
----
-
-## 🔗 相关仓库
-
-- 👉 **[debian-file](https://github.com/smgdream/debian-file)**  
-  与本项目相关的脚本、代码与资源集合  
-
----
-
-## ⭐ Star History（可选）
-
-如果你觉得这个项目有帮助，欢迎点个 ⭐！
+## 相关仓库
+**[debian-file](https://github.com/smgdream/debian-file)**: 跟debian-cookbook相关的一些代码、脚本、软件、文件的存储仓库。  
