@@ -1,16 +1,16 @@
 # Linux游戏
-如今在linux中可以游玩不少游戏了，不过和windows相比还是差了些。  
+如今在Linux中可以游玩不少游戏了据[报道](https://boilingsteam.com/windows-games-compatibility-on-linux-is-at-a-all-time-high/)有90%的游戏可以在Linux上运行。  
 
 ## 原生游戏
 
 **Minecraft**  
-说起原生支持linux的游戏，minecraft是绕不过的话题。minecraft使用java编写，所以只要目标平台能跑jvm它就能跑minecraft。在debian中运行mc的方法如下：  
-首先需要安装jre（java runtime environment）。  
+说起原生支持linux的游戏，minecraft是绕不过的话题。minecraft使用java编写，所以只要目标平台能跑jvm它就能跑minecraft。在debian中运行MC的方法如下：  
+首先需要安装JRE（java runtime environment）。  
 ```sh
 apt install openjdk-21-jre
 ```
-然后下载一个mc启动器（如[hmcl](https://hmcl.huangyuhui.net/)）。  
-之后即可通过java -jar hmcl.jar命令启动启动器，然后在启动器中下载mc并启动。  
+然后下载一个MC启动器（如[HMCL](https://hmcl.huangyuhui.net/)）。  
+之后即可通过`java -jar <HMCL_JAR>`命令启动启动器，然后在启动器中下载MC并启动。  
 
 **其他游戏**  
 现在随着steam desk的发展和linux桌面用户的增长以及godot游戏开发者的增加。越来越多游戏加入了原生支持linux的队伍，如：ENDER LILIES、Half-life、BUCKSHOT ROULETTE等游戏。  
@@ -19,19 +19,22 @@ apt install openjdk-21-jre
 
 wine不单是为了运行windows应用，高性能地运行windows的游戏也是wine更新至今的一大目标。关于wine的安装方法和使用教程见[Wine](wine.md)。因为wine不是模拟器所以通过wine运行游戏性能损耗也较小，有的游戏甚至还比在windows上运行的帧率更高。  
 
-通常使用命令`wine GAME_PROGRAM`即可通过Wine运行Windows游戏。在部分机器上Linux可能无法在wine运行游戏时自动将显卡设为高性能显卡，此时可以可以通过在程序运行命令前添加变量`__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only`即可指定使用nv独显渲染游戏（命令示例：`__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only wine GAME_PROGRAM`）。 
+通常使用命令`wine <GAME>`即可通过Wine运行Windows游戏。在部分机器上Linux可能无法在wine运行游戏时自动将显卡设为高性能显卡，此时可以可以通过在程序运行命令前添加变量`__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only`即可指定使用nv独显渲染游戏。示例如下：  
+```sh
+__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only wine <GAME>
+``` 
 
 部分游戏在wine中可能需要在虚拟桌面环境中运行，否则游戏运行会存在一些问题。设置虚拟桌面环境的方法如下：  
-方法一：执行命令winecfg,，在wine设置中勾选“图形”选项卡的“虚拟桌面”选项（永久性设置）。  
+方法一：执行命令winecfg,，在wine设置中勾选“图形”选项卡的“虚拟桌面”选项并设置一个合适的虚拟桌面分辨率（永久性设置）。  
 方法二：通过以下命令临时通过虚拟桌面环境运行游戏：  
 ```sh
-wine explorer /desktop=name,WIDTHxHEIGHT GAME_PROGRAM
+wine explorer /desktop=<NAME>,<WIDTH>x<HEIGHT> <GAME>
 ```
-注：`WIDTH`为屏幕宽度像素数，`HEIGHT`为屏幕高度像素数。`name`为虚拟桌面名  
+注：`NAME`为虚拟桌面名。`WIDTH`为屏幕宽度像素数，`HEIGHT`为屏幕高度像素数。  
 
 ### 部分windows游戏在wine中运行的方法
 
-注1：以下命令均假设你已将当前目录切换至游戏顶层目录。  
+注1：以下命令均假设你已[安装wine mono](wine.md)并将当前目录切换至游戏顶层目录。  
 注2：以下版本要求仅代表经笔者测试可运行游戏的wine版本，而非最低wine版本要求。  
 
 #### GRIS 
@@ -64,13 +67,6 @@ wine版本要求：>= 7.0
 wine 'Monument Valley 2.exe'
 ```
 第一次执行游戏时如果无法进入游戏游玩界面则强制结束游戏进程并再次启动。  
-
-#### Monument Valley III（纪念碑谷  III） 
-wine版本要求：>= 10.0  
-运行方法：  
-```sh
-wine 'Monument Valley 3.exe'
-```
 
 #### ENDER LILIES（终焉的莉莉丝）
 wine版本要求：>= 9.0  
@@ -116,15 +112,14 @@ wine explorer
 
 #### Steins;Gate Steam Edition（命运石之门 Steam版）
 wine版本要求：>=10.12  
-运行方法：
-通过以下命令创建32位wine实例
+运行方法：  
+首先通过以下命令创建32位wine实例
 ```sh
 WINEPREFIX=~/.wine32 WINEARCH=win32 wineboot -i
-echo initfinish
 ```
 然后下载DirectX 9.0c并为该wine实例安装。
 
-> 如通过第三方打包的[运行库ScKu](https://github.com/smgdream/debian-file/releases/download/3/Scku.exe)安装DirectX 9.0c  
+> 如通过第三方打包的[运行库ScKu](../pool/Scku.exe)安装DirectX 9.0c  
 > `WINEPREFIX=~/.wine32 WINEARCH=win32 wine Scku.exe`  
 > 然后选择Custom install（自定义安装），之后仅选择DirectX 9.0c并安装即可。  
 
@@ -136,16 +131,19 @@ WINEPREFIX=~/.wine32 WINEARCH=win32 wine explorer
 ```
 最后通过explorer启动游戏启动器`Launcher.exe`并点击开始游戏即可游玩。
 
-
+注：对于使用了新WoW64实现的Wine 11.0及更新版本。不需要创建32位wine实例的步骤。只需安装字体，然后安装DirectX 9.0c并运行explorer且不需要设置临时变量。如：  
+```sh
+wine Scku.exe
+wine explorer
+```
+最后通过explorer启动游戏启动器`Launcher.exe`并点击开始游戏即可游玩。  
 
 ## Steam
 
 Steam早已原生支持linux，而Valve在2022年推出了Steam Desk游戏掌机，Steam Desk的Steam OS操作系统是基于已有Linux发行版二次开发的（目前Steam OS属于Arch Linux的衍生版）。  
 
 ### 安装Steam
-安装steam的方法如下：
-
-在steam下载页面下载steam的deb包，然后使用`apt install PATH_TO_STEAM_DEB`命令安装steam，首次启动steam建议在终端中通过命令steam启动。然后steam可能要求输入提权密码并自动添加i386源并安装steam运行所需i386依赖（该过程中请勿进行任何无关操作，否则可能导致steam崩溃）。然后steam将下载steam 数据包（steam可能不会显示图像化的进度条，如果是通过终端运行的steam可以通过终端输出信息了解steam数据包下载进度）。steam数据包下载并安装完毕后即可登录并使用steam。  
+在steam下载页面下载steam的deb包，然后使用`apt install </PATH/TO/STEAM_DEB>`命令安装steam，首次启动steam建议在终端中通过命令`steam`启动。然后steam可能要求输入提权密码并自动添加i386源并安装steam运行所需i386依赖（该过程中请勿进行任何无关操作，否则可能导致steam崩溃）。然后steam将下载steam 数据包（steam可能不会显示图像化的进度条，如果是通过终端运行的steam可以通过终端输出信息了解steam数据包下载进度）。steam数据包下载并安装完毕后即可登录并使用steam。  
 
 在linux steam客户端中可以下载不少原生支持linux的游戏。即使游戏没有提供原生linux版，大部分Windows游戏也可以通过Valve基于wine针对高性能运行游戏二次开发的Proton运行。Proton对运行windows游戏的支持相当好，就连黑神话悟空都可以通过Proton在linux上完美高性能运行。可以用[ProtonDB](https://www.protondb.com)查询Windows游戏通过Proton在linux上运行的兼容程度。  
 
@@ -155,12 +153,12 @@ Steam早已原生支持linux，而Valve在2022年推出了Steam Desk游戏掌机
 ## 其他游戏运行方案
 部分游戏可以通过模拟器运行，如可以通过DosBox运行支持DOS的游戏。  
 
-还有一部分游戏因为其游戏引擎设计的原因其游戏运行时程序和库是固定的，且其运行时、游戏逻辑、美术资源是完全分离的。对于这类游戏引擎制作的游戏，如果有大佬们开发了支持Linux的兼容游戏运行时则可以在Linux游玩该引擎的游戏。如EasyRPG Player即为RPG Maker 2000/2003的兼容游戏运行时。  
+还有一部分游戏因为其游戏引擎设计的原因其游戏运行时程序和库是固定的，且其运行时与游戏逻辑和美术资源是完全分离的。对于这类游戏引擎制作的游戏，如果有大佬们开发了支持Linux的兼容游戏运行时则可以在Linux游玩该引擎的游戏。如EasyRPG Player即为RPG Maker 2000/2003的兼容游戏运行时。  
 
 **Ruina (废都物语)**  
-《废都物语》是一个故事震撼人心的早期日式回合制RPG游戏。其游戏引擎为RPG Maker 2000，故其可以通过EasyRPG Player驱动游戏运行。  
+《废都物语》是一个故事震撼人心的早期日式回合制RPG游戏。其使用的游戏引擎为RPG Maker 2000，故其可以通过EasyRPG Player运行游戏。  
 
-笔者打包了一个Linux和Windows皆可运行的[通用版Ruian](https://github.com/smgdream/debian-file/releases/download/2/ruina_universal.tar.xz)，解压后执行对应系统的游戏启动脚本即可运行游戏。  
+笔者打包了一个Linux和Windows皆可运行的[通用版Ruian](../pool/ruina_universal.tar.xz)，解压后执行对应系统的游戏启动脚本即可运行游戏。  
 
 
 ## 参考资料
@@ -168,6 +166,7 @@ Steam早已原生支持linux，而Valve在2022年推出了Steam Desk游戏掌机
 \[1\] [repo - steampowered](https://repo.steampowered.com/)  
 \[2\] [EasyRPG Player - GAMUX](https://www.linuxgame.cn/easyrpg-player)  
 \[3\] [EasyRPG Player](https://easyrpg.org/player/)    
+\[4\] [Windows Games’ Compatibility on Linux Is at an All-Time High](https://boilingsteam.com/windows-games-compatibility-on-linux-is-at-a-all-time-high/)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.1 | Date: 2025-10-24
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.2u | Date: 2026-06-17

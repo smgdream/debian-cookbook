@@ -20,8 +20,12 @@ apt install gawk
 
 安装gcc编译器。命令如下：  
 ```sh
-apt install gcc-14
+apt install gcc gcc-14
 ```
+说明：  
+gcc-14: GCC 14.y.0编译器本体  
+gcc: 提供了一些链接到gcc的各个组件的软链接  
+
 注：Debian trixie没有提供GCC 15，如果需要使用GCC 15可参考[GCC-15](hilevel/gcc-15.md)。  
 
 安装GNU程序编译可能依赖的程序，命令如下：  
@@ -60,6 +64,8 @@ libssl-dev：常用的著名的密码学开发库
 libncurses-dev：TUI界面程序开发框架  
 libelf-dev：ELF文件处理开发库  
 
+注：有一个名为`build-essential`的包可用于一键安装基础开发工具，其包含：gcc, make, libc6-dev, dpkg-dev。
+
 ## 安装常用脚本语言解释器
 命令如下：  
 ```sh
@@ -78,9 +84,9 @@ apt install git
 ## Linux内核头文件
 部分与内核有关的软件的编译或安装依赖于Linux内核头文件，Linux内核相关的程序开发也需要该组件，安装命令如下：  
 ```sh
-apt install linux-headers-$(uname -r | sed 's/.*-//g')
+apt install linux-headers-$(dpkg --print-architecture)
 ```
-注：`uname -r | sed 's/.*-//g'`子命令用于获取合适格式的机器架构。  
+注：`dpkg --print-architecture`子命令用于获取合适格式的机器架构。  
 
 ## 安装deb包开发工具
 该软件用于将现有软件打包成deb包及用于修改deb包。安装命令如下：  
@@ -106,16 +112,14 @@ apt install libgl-dev
 ```
 
 ### 安装vulkan
-**apt安装**  
-
+#### apt安装
 安装命令：  
 ```sh
 apt install vulkan-dev
 ```
 
-**离线安装**  
-
-从vulkan sdk下载页的Linux下载项的SDK Tarball选项卡下载最新版的vulkan sdk xz压缩档。然后解压到一个合适的目录（如：/opt，通过命令`tar -xvf vulkan-sdk-linux-*.tar.xz -C /opt`）。之后将解压出来的以版本号命名的目录重命名成一个合适的名字（如：vulkansdk，通过命令`mv x.x.xxx.x vulkansdk`）。然后授予目录中的`setup-env.sh`脚本以可执行权限（通过命令 `chmod +x setup-env.sh`）。最后通过命令`ln -s /VULKAN_SDK_DIR/setup-env.sh /etc/profile.d/vulkansdk.sh`创建软链接以设置vulkan sdk的环境变量（彻底登出用户或重启计算机即可生效）。  
+#### 离线安装
+从vulkan sdk下载页的Linux下载项的SDK Tarball选项卡下载最新版的vulkan sdk xz压缩档。然后解压到一个合适的目录（如：/opt，通过命令`tar -xvf vulkan-sdk-linux-*.tar.xz -C /opt`）。之后将解压出来的以版本号命名的目录重命名成一个合适的名字（如：vulkansdk，通过命令`mv x.x.xxx.x vulkansdk`）。然后授予目录中的`setup-env.sh`脚本以可执行权限（通过命令 `chmod +x setup-env.sh`）。最后通过命令`ln -s /<VULKAN_SDK_DIR>/setup-env.sh /etc/profile.d/vulkansdk.sh`创建软链接以设置vulkan sdk的环境变量（彻底登出用户或重启计算机即可生效）。  
 
 ## 安装SDL2与SDL3开发环境
 通过以下命令安装SDL2开发环境。  
@@ -130,28 +134,34 @@ apt install libsdl3-dev
 ## dotnet开发环境
 想在Linux在进行C#程序开发需要安装dotnet开发环境，安装方法如下（以net8举例）：  
 
-**apt安装**  
+### apt安装
 下载并添加包签名密钥并添加包存储库。  
 ```sh
-wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+wget https://packages.microsoft.com/config/debian/13/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 rm packages-microsoft-prod.deb
 ```
-安装dotnet8  
+注：请根据实际系统版本修改第一条命令URL中的系统版本号（如更改为`12`）。  
+
+安装dotnet10  
 ```sh
 apt update
-apt install dotnet-sdk-8.0 -y
+apt install dotnet-sdk-10.0
 ```
 
-**离线安装**  
-从[dotnet官网的下载页](https://dotnet.microsoft.com/en-us/download)的对应版本[下载页](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)下载适用于linux的对应机器架构的最新的Binary压缩包。然后在一个合适的位置（如：/opt）创建一个用于安装dotnet的目录（如：dotnet，通过命令`mkdir /opt/dotnet`）。之后将通过命令`tar -xvf dotnet-sdk-*.tar.gz -C DOTNET_DIR`将压缩包解压到对应目录。然后在dotnet安装目录中创建一个名为`dotnet-path.sh`的shell脚本文件并在其中写入以下内容：  
+### 离线安装
+从[dotnet官网的下载页](https://dotnet.microsoft.com/en-us/download)的对应版本[下载页](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)下载适用于linux的对应机器架构的最新的LTS的Binary压缩包。然后在一个合适的位置（如：`/opt`）创建一个用于安装dotnet的目录，dotnet的安装路径即为`DOTNET_ROOT`（如：`/opt/dotnet`，通过命令`mkdir /opt/dotnet`）。之后通过命令`tar -xvf dotnet-sdk-<VERSION>.tar.gz -C <DOTNET_ROOT>`将压缩包解压到该目录。然后在dotnet安装目录中创建一个名为`dotnet-path.sh`的shell脚本文件并在其中写入以下内容：  
 ```sh
 #! /bin/bash
-
-export PATH="$PATH:DOTNET_DIR:$DOTNET_DIR/tools"
+export DOTNET_ROOT=<DOTNET_ROOT>
+export PATH="$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 ```
-注：请将DOTNET_DIR替换为dotnet安装目录的绝对路径。  
-然后授予目录中的`dotnet-path.sh`脚本以可执行权限（通过命令 `chmod +x dotnet-path.sh`）。最后通过命令`ln -s /DOTNET_DIR/dotnet-path.sh/etc/profile.d/dotnet.sh`创建软链接以设置dotnet的PATH变量（彻底登出用户或重启计算机即可生效）。  
+说明：将`DOTNET_CLI_TELEMETRY_OPTOUT`环境变量置`1`可关闭[遥测](https://www.ibm.com/cn-zh/think/topics/telemetry)功能。  
+
+注：请将`<DOTNET_ROOT>`替换为dotnet安装目录的绝对路径。  
+
+然后授予目录中的`dotnet-path.sh`脚本以可执行权限（通过命令 `chmod +x dotnet-path.sh`）。最后通过命令`ln -s /<DOTNET_ROOT>/dotnet-path.sh /etc/profile.d/dotnet.sh`创建软链接以设置dotnet的PATH变量（彻底登出用户或重启计算机即可生效）。  
 
 ## Python3开发环境
 ```
@@ -167,14 +177,38 @@ apt install openjdk-21-jdk openjfx
 Java 25 LTS已发布但Debian源中的openjdk 25目前仍为Early Access（预览）版本，如需使用java 25正式版可以在网上下载各厂商或组织（如：[Azul](https://www.azul.com/downloads/)、[Microsoft](https://learn.microsoft.com/en-us/java/openjdk/download)）编译的openjdk 25，然后解压并配置环境变量。
 
 ## Rust开发环境
-**在线安装**  
+### 在线安装
 通过以下命令安装rust：  
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-**离线安装**  
+### 离线安装
 从[Other Rust Installation Methods页面](https://forge.rust-lang.org/infra/other-installation-methods.html)下载适用于linux系统的对应机器架构的最新稳定版独立安装包。然后使用`tar -xvf rust-*.tar.xz`解压安装包，然后进入安装包目录以root用户执行`./install.sh`安装脚本即可完成rust开发环境的安装（可通过设置安装脚本的参数来调整rust的安装，有关参数的详细信息可通过`./install.sh --help`查看）。  
+
+## 安装Docker
+安装Docker首先需要下载并安装软件源密钥。  
+```sh
+wget -nv https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+chmod +r /etc/apt/keyrings/docker.asc
+```
+注：在部分不稳定网络环境下wget命令可能会执行出错，如果出错可以尝试多次执行wget命令。  
+
+然后添加Docker软件源。  
+```sh
+tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/debian
+Suites: $(. /etc/os-release && echo "$VERSION_CODENAME")
+Components: stable
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+```
+最后通过apt安装Docker。  
+```sh
+apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
 
 ## 安卓设备调试环境
 通过以下命令安装调试安卓设备所需工具：  
@@ -187,11 +221,19 @@ apt install adb fastboot
 ```sh
 apt install qemu-system
 ```
+## 其他开发工具
+| 软件名 | 包名 | 描述 |
+| --- | --- | --- |
+| [strace](https://strace.io/) | strace | 系统调用跟踪器 |
+<!-- |  |  |  | -->
 
 ## 参考资料
 \[1\] [Install the .NET SDK or the .NET Runtime on Debian](https://learn.microsoft.com/en-us/dotnet/core/install/linux-debian?tabs=dotnet8)  
 \[2\] [Install .NET on Linux by using an install script or by extracting binaries](https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual#manual-install)  
 \[3\] [Getting started - Rust Programming Language](https://www.rust-lang.org/learn/get-started)  
+\[4\] [.NET SDK and .NET CLI telemetry](https://learn.microsoft.com/en-us/dotnet/core/tools/telemetry)  
+\[5\] [What Is Telemetry? | IBM](https://www.ibm.com/think/topics/telemetry)  
+\[6\] [Install Docker Engine on Debian](https://docs.docker.com/engine/install/debian/)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.9 | Date: 2025-10-24
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.4u | Date: 2026-10-16

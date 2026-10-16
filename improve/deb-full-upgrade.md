@@ -20,7 +20,7 @@ apt full-upgrade
 
 进入到新版本系统后执行`apt autoremove`命令卸载无用软件包。apt可能会输出一些类似“以下软件没有进行更新：xxx xxx xxx ...”的信息。对应这些软件可以通过执行以下命令进行更新。  
 ```sh
-apt reinstall xxx xxx xxxx ...
+apt reinstall <PACKAGE_NAME > ...
 apt autoremove
 ```
 
@@ -37,4 +37,4 @@ apt autoremove
 \[1\][Upgrades from Debian 12 (bookworm)](https://www.debian.org/releases/trixie/release-notes/upgrading.en.html)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7 | Date: 2025-10-10
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.1 | Date: 2025-11-06

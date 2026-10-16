@@ -12,7 +12,7 @@
 | GCC | https://gcc.gnu.org/ | https://gcc.gnu.org/git/gcc.git | https://ftp.gnu.org/gnu/gcc/ |
 | Godot | https://godotengine.org/ | https://github.com/godotengine/godot | https://github.com/godotengine/godot/releases |
 | imgui | https://www.dearimgui.com/ | https://github.com/ocornut/imgui | https://github.com/ocornut/imgui/releases |
-| Krita | https://krita.org/ | https://invent.kde.org/graphics/krita | https://invent.kde.org/graphics/krita/-/tags |
+| Krita | https://krita.org/ | https://invent.kde.org/graphics/krita | https://invent.kde.org/graphics/krita/-/tags <!-- or https://download.kde.org/stable/krita/ --> |
 | Kdenlive | https://kdenlive.org/ | https://invent.kde.org/multimedia/kdenlive | https://invent.kde.org/multimedia/kdenlive/-/tags |
 | Linux | https://www.kernel.org/ | https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/ | https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/refs/tags |
 | Make | https://www.gnu.org/software/make/ | https://cgit.git.savannah.gnu.org/cgit/make.git | https://cgit.git.savannah.gnu.org/cgit/make.git/refs/tags |
@@ -22,6 +22,7 @@
 | qBittorrent | https://www.qbittorrent.org/ | https://github.com/qbittorrent/qBittorrent/ | https://github.com/qbittorrent/qBittorrent/tags |
 | QEMU | https://www.qemu.org/ | https://gitlab.com/qemu-project/qemu | https://gitlab.com/qemu-project/qemu/-/tags |
 | SDL | https://libsdl.org/ | https://github.com/libsdl-org/SDL | https://github.com/libsdl-org/SDL/releases |
+| SysV Init | - | https://codeberg.org/thejessesmith/sysvinit | https://codeberg.org/thejessesmith/sysvinit/releases |
 | TeX | https://ctan.org/pkg/tex | https://tug.org/svn/texlive/trunk/Build/source/texk/web2c/ （注：该页面为分页页面） | https://ctan.org/tex-archive/systems/knuth/dist/tex |
 | Tiny C Compiler | https://www.bellard.org/tcc/ | https://repo.or.cz/w/tinycc.git | https://repo.or.cz/tinycc.git/tags |
 | Typst | https://typst.app/ | https://github.com/typst/typst | https://github.com/typst/typst/releases |
@@ -30,4 +31,4 @@
 [GNU FTP](https://ftp.gnu.org/gnu/)
 
 ---
-License: CC0 | Version: 0.6 | Date: 2025-10-17
+License: CC0 1.0 | Version: 0.6.1 | Date: 2026-10-16

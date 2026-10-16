@@ -8,8 +8,8 @@ SDL3是一个简单的2D多媒体开发库，它提供了对HDR、vulkan、HiDPI
 
 然后通过以下命令解压源码包并进入项目目录。  
 ```sh
-tar -xvf SDL3-VERSION.tar.gz
-cd SDL3-VERSION
+tar -xvf SDL3-<VERSION>.tar.gz
+cd SDL3-<VERSION>
 ```
 
 之后安装编译SDL3所依赖的工具和开发库。
@@ -28,19 +28,20 @@ libpipewire-0.3-dev libwayland-dev libdecor-0-dev liburing-dev
 ```sh
 cmake -S . -B build
 cmake --build build -j$(nproc)
-cmake --install build --prefix DIRECTORY
+cmake --install build --prefix <DIRECTORY>
 ```
 说明：  
-`cmake -S . -B build -DCMAKE_BUILD_TYPE=Release`  
-检查机器的编译环境，设置构建目录为build，指定构建模式为Release，然后生成编译脚本。  
-
-注1：如果不设置`-DCMAKE_BUILD_TYPE=Release`参数则默认的构建模式为RelWithDebInfo，该模式将保留部分调试信息，构建出来的文件也自然会大一些。  
-注2：在Windows中使用MinGW进行编译，如果没有安装ninja则需要添加参数`-G "MinGW Makefiles"`将生成器指定为MinGW Makefiles。  
-
+`cmake -S . -B build -DCMAKE_BUILD_TYPE=Release`<sup>注1</sup>  
+检查机器的编译环境，设置构建目录为build，指定构建模式为Release<sup>注2</sup> ，然后生成编译脚本。  
 `cmake --build build -j$(nproc)`  
 编译SDL3将构建目录设置为build并使用所有的CPU线程进行编译。  
-`cmake --install build --prefix DIRECTORY`  
-从构建目录bulid中将SDL3安装到指定目录中。后续即可使用该目录中SDL3头文件和动态库。  
+`cmake --install build --prefix <DIRECTORY>`  
+从构建目录bulid中将SDL3安装到指定目录`DIRECTORY`。后续即可使用该目录中SDL3头文件和动态库。  
+
+注1：在Windows中使用MinGW编译SDL，如果没有安装ninja则需要添加参数`-G "MinGW Makefiles"`将生成器指定为MinGW Makefiles。  
+
+注2：如果不设置`-DCMAKE_BUILD_TYPE=Release`参数则默认的构建模式为RelWithDebInfo，该模式将保留部分调试信息，构建出来的文件也自然会大一些。  
+
 
 如需进行清理工作删除build目录即可。  
 
@@ -49,4 +50,4 @@ cmake --install build --prefix DIRECTORY
 \[2\] docs/README-cmake.md  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.2 | Date: 2025-10-24
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.3 | Date: 2025-11-07

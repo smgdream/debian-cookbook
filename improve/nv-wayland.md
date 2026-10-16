@@ -1,13 +1,14 @@
 # NVIDIA驱动使用wayland显示服务
 
-当你安装完nvidia驱动后你可能会发现显示服务变成了x11，而显示管理器中也没有了wayland桌面的选项。如果还需要使用wayland则需要对系统进行配置。配置方法如下：  
+当你安装完nvidia驱动后你可能会发现显示服务变成了x11，而显示管理器中也没有了wayland桌面的选项。如果还需要使用wayland则要对系统进行配置。配置方法如下：  
 
 通过以下命令启用内核nvidia驱动的模式设置：  
 ```sh
 echo 'GRUB_CMDLINE_LINUX="$GRUB_CMDLINE_LINUX nvidia-drm.modeset=1 nvidia-drm.fbdev=1"' > /etc/default/grub.d/nvidia-modeset.cfg
 update-grub
 ```
-说明：要在内核被调用时传递参数`nvidia-drm.modeset=1`，故可以通过修改/etc/default/grub文件或在/etc/default/grub.d目录中添加子grub配置文件，`nvidia-drm.fbdev=1`参数用于启用nvidia对于framebuffer（帧缓冲）设备的DRM支持。然后通过`update-grub`命令重新生成grub启动配置时将内核参数写入到启动配置中。  
+说明：要在内核被调用时传递参数`nvidia-drm.modeset=1`以启用NVIDIA显卡的DRM内核显示模式，故可以通过修改`/etc/default/grub`文件或在`/etc/default/grub.d`目录中添加子grub配置文件，`nvidia-drm.fbdev=1`参数用于启用nvidia对于framebuffer（帧缓冲）设备的DRM支持。然后通过`update-grub`命令重新生成grub启动配置时将内核参数写入到启动配置中。 
+ <!-- news: https://forums.developer.nvidia.com/t/wayland-support-for-the-595-release-series/365749 -->
 
 后续有两种步骤启用wayland。  
 
@@ -21,16 +22,17 @@ systemctl enable nvidia-suspend.service
 systemctl enable nvidia-hibernate.service
 systemctl enable nvidia-resume.service
 ```
-注：`nvidia-suspend-common`不依赖Debian打包的NVIDIA驱动  
+注：`nvidia-suspend-common`不依赖Debian官方源中的NVIDIA驱动  
 
-然后开启`PreserveVideoMemoryAllocations`NVIDIA模块参数。  
+然后开启`PreserveVideoMemoryAllocations`NVIDIA模块参数，以允许在挂起后保留视频内存。  
 ```sh
 echo 'options nvidia NVreg_PreserveVideoMemoryAllocations=1' > /etc/modprobe.d/nvidia-power-management.conf
 ```
+<!-- info todo update: suspend in 595 https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend -->
 最后，重启计算机并在gdm中选择wayland桌面环境即可使用wayland桌面环境。  
 
 ## 其二
-**注意：该步骤在gdm更新后需重新执行否则显示服务器将会回退到X11。**  
+**注意：该方法在gdm更新后需重新执行否则显示服务器将会回退到X11。**  
 
 通过以下命令禁用原本的gdm规则以启用gdm的wayland桌面选项：  
 ```sh
@@ -47,4 +49,4 @@ mv /usr/lib/udev/rules.d/61-gdm.rules /usr/lib/udev/rules.d/61-gdm.rules.bak
 \[5\] [Chapter 36. Direct Rendering Manager Kernel Modesetting (DRM KMS)](https://download.nvidia.com/XFree86/Linux-x86_64/580.82.09/README/kms.html)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.6 | Date: 2025-10-09
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.7u | Date: 2026-08-31

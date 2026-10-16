@@ -7,7 +7,7 @@ root用户下无法正常显示ASCII字符以外的字符，这是因为root用�
 
 ## 对当前用户启用sudo
 只有在sudo用户组中的用户才可以使用sudo命令，而Debian安装程序不会将其创建的普通用户添加到sudo用户组。  
-配置方法：以root用户执行`usermod -a -G sudo USER_NAME`，然后彻底登出用户或重启计算机。  
+配置方法：以root用户执行`usermod -a -G sudo <USER_NAME>`，然后彻底登出用户或重启计算机。  
 
 ## 允许普通用户执行更多命令
 在/sbin目录中的命令普通用户无法直接执行即使普通用户拥有执行权限且命令非特权命令，如：`reboot`。这是因为普通用户的默认PATH中没有/sbin。  
@@ -27,7 +27,8 @@ LANGUAGE=C.UTF-8 xdg-user-dirs-update --force
 ```sh
 dpkg-reconfigure locales
 ```
-确保在语言编译列表中所需的语言已被勾选并确定，然后在下一个界面选择选择系统语言（如：C.UTF-8）即可。
+确保在语言编译列表中所需的语言已被勾选并确定，然后在下一个界面选择选择系统语言（如：C.UTF-8）即可。  
+
 注：可以通过配置语言环境将系统语言设为英文，然后重启计算机后在GNOME设置->系统->区域与语言中将“语言”设置为“汉语(中国)”，以实现系统/终端语言为英文，GUI程序语言为中文的效果。  
 
 ## 配置常规软件源
@@ -40,12 +41,19 @@ Suites: trixie trixie-updates
 Components: main contrib non-free non-free-firmware
 Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 ```
-注：发行版名称（`Suites`字段）可能要依据实际需求稍作修改。如果因为地区网络问题导致更新软件速度较慢可以将URIs对应的值替换为[其它镜像站](https://www.debian.org/mirror/list)的地址（其URL不强求以斜杠结尾）（如：`https://mirrors.cernet.edu.cn/debian/`或`https://mirrors.ustc.edu.cn/debian/`）。  
+说明：updates源用于提前获取下一个小版本更新更新的软件。  
+
+注：发行版名称（`Suites`字段）可能要依据实际需求稍作修改。如果因为地区网络问题导致更新软件速度较慢可以将URIs对应的值替换为[其他镜像站](https://www.debian.org/mirror/list)的地址（其URL不强求以斜杠结尾）（如：`https://mirrors.cernet.edu.cn/debian/`或`https://mirrors.ustc.edu.cn/debian/`）。  
+
 然后通过`apt update`命令更新档案库元数据。  
 
+注意：不要制造FrankenDebian（Franken即“Frankenstein 弗兰肯斯坦”）！新手不要随意地缝合其他的仓库，如：更新版本的Debian仓库、其他发行版仓库、Ubuntu PPA、第三方仓库、用于分发单个应用的仓库。随意地将各种仓库缝合在一起就如同把肉块缝合在一起制造出如缝合怪弗兰肯斯坦一样，这将会埋下在未来破坏系统的隐患。当然，如果你已经是使用Debian的熟手在确保引入其他仓库不会造成问题的情况下，你自然可以根据你的实际需求引入其他仓库。在本手册的后续文章中也将会使用一些第三方仓库，如果你担心存在隐患的话可以不使用。但至少笔者在自己的系统中使用这些仓库没导致过什么大问题。
+
 ## 配置安全源
-及时获取安全更新修复系统漏洞是极为重要的事，而想要及时获得安全修复更新则要配置好安全源。  
+及时获取安全更新修复系统漏洞是相当重要的事，且现今随着AI辅助漏洞发掘技术的应用大量危险漏洞被发现，及时获得安全更新修复显得更为重要。而想要及时获得安全修复更新则要配置好安全源。  
+
 注：在配置安全源之前请先配置好常规软件源。  
+
 配置方法：在`/etc/apt/sources.list.d/debian.sources`添加以下内容并保存。  
 ```
 Types: deb
@@ -54,8 +62,11 @@ Suites: trixie-security
 Components: main contrib non-free non-free-firmware
 Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 ```
-注：发行版名称(`Suites`)可能要依据实际需求稍作修改。如果因为地区网络问题导致更新软件速度较慢可以将`URIs`对应的值替换为其它镜像站的地址（其URL不强求以斜杠结尾）（如：`https://mirrors.cernet.edu.cn/debian-security/`或`https://mirrors.ustc.edu.cn/debian-security/`）。因为镜像站的更新存在延迟，所以对于有及时修复安全漏洞需求的用户应使用官方安全源，以确保能及时获得安全更新。  
+注：发行版名称(`Suites`)可能要依据实际需求稍作修改。如果因为地区网络问题导致更新软件速度较慢可以将`URIs`对应的值替换为其他镜像站的地址（其URL不强求以斜杠结尾）（如：`https://mirrors.cernet.edu.cn/debian-security/`或`https://mirrors.ustc.edu.cn/debian-security/`）。因为镜像站的更新存在延迟，所以对于有及时修复安全漏洞需求的用户应使用官方安全源，以确保能及时获得安全更新。  
+
 然后通过`apt update`命令更新档案库元数据。  
+
+注：可阅读文章[安全漏洞追踪](../misc/cves.md)了解相关扩展知识。  
 
 ## 参考资料
 \[1\] [XDG user directories - ArchWiki](https://wiki.archlinux.org/title/XDG_user_directories)  
@@ -65,6 +76,8 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 \[5\] [Debian - USTC Mirror Help](https://mirrors.ustc.edu.cn/help/debian.html)  
 \[6\] [Debian Security - USTC Mirror Help](https://mirrors.ustc.edu.cn/help/debian-security.html)  
 \[7\] [Debian 软件仓库镜像使用帮助 - 校园网联合镜像站](https://help.mirrors.cernet.edu.cn/debian/)  
+\[8\] [Debian Reference 2.1.5. Debian archive basics](https://www.debian.org/doc/manuals/debian-reference/ch02.en.html#_debian_archive_basics)  
+\[9\] [DontBreakDebian - Debian Wiki](https://wiki.debian.org/DontBreakDebian)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.8 | Date: 2025-10-13
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.2u | Date: 2026-10-16

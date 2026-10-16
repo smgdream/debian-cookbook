@@ -16,4 +16,4 @@
 \[1\] [A Guide to Debian Community Discord](https://forums.debian.net/viewtopic.php?t=160981)  
 
 ---
-License: CC0 | Version: 0.6.1 | Date: 2025-08-23
+License: CC0 1.0 | Version: 0.6.2 | Date: 2026-10-16

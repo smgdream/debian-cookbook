@@ -26,6 +26,7 @@ bash rime-install iDvel/rime-ice:others/recipes/full
 
 ### 删除不需要的词库
 直接删除对应RIME配置文件夹内的对应词库文件夹即可，中文：`cn_dicts`、英文：`en_dicts`、emoji：`opencc`。  
+
 注：如果需要删除英文词库还需要额外删除RIME配置目录中的`melt_eng.dict.yaml`配置文件，否则会出现ERROR。  
 
 ### 更新词库
@@ -36,4 +37,4 @@ bash rime-install iDvel/rime-ice:others/recipes/full
 \[2\] [雾凇拼音 README](https://github.com/iDvel/rime-ice/blob/main/README.md)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6 | Date: 2025-10-11
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.1 | Date: 2025-11-07

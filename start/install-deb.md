@@ -1,7 +1,8 @@
 # 安装Debian
 
 以下内容基于Debian Trixie（常规离线映像）展开，其他版本的安装方法可能有所有出入。  
-## 1. 下载ISO映像
+
+## 下载ISO映像
 Debian提供了各种ISO安装镜像类型，其中CD版均为网络安装镜像安装过程依赖于网络连接。DVD版可用于离线安装Debian其包含了常用软件、常用桌面环境及常用图形界面程序。BD版亦可用于离线安装debian，其包含了常用桌面环境、常用图形界面程序及大量常用软件（注：以上描述仅限于只有Disk1的情况，如果下载了所有镜像集合则可以离线安装官方软件集中的大部分软件）。  
 
 Debian提供了三种下载ISO映像的方式：常规下载、Bittorrent种子和jigdo。常规下载方式可通过浏览器或下载器直接下载链接所定位的ISO文件，下载速度易受到多方面的影响。BT种子需通过BT客户端下载，下载体验较好。jigdo需通过jigdo客户端下载，下载速度可能不稳定但这是下载完整ISO集合的唯一方法（注：本文不对jigdo下载进行讨论，有相关需求者自行查看[相应官方资料](https://www.debian.org/CD/jigdo-cd/)）。  
@@ -19,7 +20,7 @@ Debian提供了三种下载ISO映像的方式：常规下载、Bittorrent种子�
 
 ## 烧录镜像
 ### Linux
-刻录到光碟  
+刻录到光碟<!-- 更新为使用xorriso? -->  
 ```sh
 apt install dvd+rw-tools
 growisofs -dvd-compat -speed=8 -Z /dev/cdrom=debian.iso
@@ -32,6 +33,11 @@ dd if=debian.iso of=/dev/TARGET_DEV_NAME
 通过UltarISO或其他刻录软件iso映像刻录到光碟。  
 通过Rufus或其他U盘烧录软件将iso映像烧录到U盘。  
 
+## 购买实体安装介质（可选）
+2026年5月，Debian官方认证Debian安装介质经销商新增了一家中国大陆的经销商（ASYS Technology）。有购买实体安装介质需要的中国Debian用户可前往此经销商的销售平台[购买Debian安装介质](https://asystech.cn/pc/debian.html)。 
+
+注：这不算是广告。笔者和ASYS科技没有任何利益关系，他也没有送过我哪怕是一盒~~戊酸雌二醇~~Debian安装介质。  
+
 ## 关闭安全启动、TPM及Bitlock（可选）
 安装和使用linux建议关闭安全启动和TPM（虽然linux系统支持安全启动和TPM），这是因为开启这两个功能将会导致部分linux系统的设置变得复杂，而且这两个功能在大部分情况下防己不防人。在关闭这两个功能之前需要在windows的设置中解除磁盘的Bitloc锁k关闭BitLocker功能（Bitlock也是一个废物功能，但大部分品牌机却出厂默认开启该功能）。然后关闭计算机再启动计算机并通过快捷键进入UEFI设置菜单，之后找到并关闭这两个功能。最后按F10保存设置并重启计算机。  
 
@@ -43,7 +49,7 @@ dd if=debian.iso of=/dev/TARGET_DEV_NAME
 
 ## 设定语言及键盘映射
 自此正式开始安装过程，笔者建议安装过程全程断网，中途可能遇到的部分问题在“问题处理”段落提供了解决方案。  
-**选择语言** 选择一个合适的语言，如：中文(简体)（该语言既是安装界面的语言也是系统语言）  
+**选择语言** 选择一个合适的语言，如：中文(简体)。该语言既是安装界面的语言也是安装后系统的默认语言。笔者建议读者选择其母语，否则安装完Debian后还需要需要一些额外的步骤以完善母语相关的支持（本手册目前未提及这些内容）。  
 ![select lang zh_CN](images/install-deb/select-lang.png)  
 然后 **选择地区** 选择一个合适的地区，如：中国（该地区将决定与地区相关的数据显示格式，如：时间格式）  
 ![select location China](images/install-deb/select-location.png)  
@@ -88,20 +94,20 @@ dd if=debian.iso of=/dev/TARGET_DEV_NAME
 ![](images/install-deb/part-method.png)  
 然后，通常双击“完成分区存在并将修改写入磁盘”以确认使用当前分区方案即可。  
 ![](images/install-deb/part-home-sure.png)  
-之后安装程序将会列出分区信息列表并要求用户确认分区方案，通常选择“是”然后“继续”以执行分区操作。
+之后安装程序将会列出分区信息列表并要求用户确认分区方案，通常选择“是”然后“继续”以执行分区操作。  
 ![](images/install-deb/part-home-sureyn.png)  
-最后安装程序自动执行分区命令以完成分区操作。
+最后安装程序自动执行分区命令以完成分区操作。  
 
 ## 安装系统
 安装程序将自动**安装基本系统**  
 ![](images/install-deb/install-base-sys.png)  
 然后安装程序将**配置包管理器**并询问是否扫描额外的安装介质，如果你下载的是多ISO映像集合，则插入烧录了其他ISO映像的安装介质并选择“是”，如果仅有Disk1则选择否，然后“继续”（因为当前仅有Disk1，所以选择“否”并“继续”）。  
 ![](images/install-deb/ext-media-yn.png)  
-之后安装程序将询问是否使用网络镜像站点，通常选择“否”（至于软件的更新和额外软件的安装则在安装完Debian后再进行安装和更新）。
+之后安装程序将询问是否使用网络镜像站点，通常选择“否”（至于软件的更新和额外软件的安装则在安装完Debian后再进行安装和更新）。  
 ![](images/install-deb/mirror-yn.png)  
-然后安装程序将会更新软件信息并询问是否参与软件包流行度调查，“是”或“否”看个人意愿。
+然后安装程序将会更新软件信息并询问是否参与软件包流行度调查，“是”或“否”看个人意愿。  
 ![](images/install-deb/pop-contest.png)  
-然后安装程序将会再次更新软件信息并要求用户选择额外的软件集合。
+然后安装程序将会再次更新软件信息并要求用户选择额外的软件集合。  
 ![](images/install-deb/select-extsoft.png)  
 通常保持标准系统工具的勾选状态。如果需要安装web服务或ssh服务则需勾选对应选项。  
 如果需要安装图像桌面环境则需勾选“Debian桌面环境”并勾选想要的桌面环境（如果仅勾选“Debian桌面环境”，则默认安装GNOME）（实际的桌面环境相关的勾选关系较为混乱，以上说明已经本人简化），笔者用惯了GNOME也用得很舒服，所以笔者选择GNOME桌面（如果不清楚如何选择，保持安装程序默认的“Debian桌面环境 + GNOME + 标准系统工具”勾选即可）。  
@@ -123,7 +129,7 @@ dd if=debian.iso of=/dev/TARGET_DEV_NAME
 然后进入grub菜单后等待5秒或直接回车即可进入Debian。
 ![Grub2 menu](images/install-deb/grub-menu.png)  
 ![](images/install-deb/deb-init.png)  
-之后输入密码登录即可进入桌面。
+之后输入密码登录即可进入桌面。  
 ![](images/install-deb/new-deb.png)  
 注：第一次启动Debian桌面将会出现一个导览窗口，关闭或跳过即可（当然看看也行）。  
 实际上，自此Debian已经安装完毕。但为了处理一点小问题，以及为了得到更好的体验，建议对系统的部分配置进行微调。
@@ -137,7 +143,7 @@ root用户下无法正常显示ASCII字符以外的字符，这是因为root用�
 
 ### 对当前用户启用sudo
 只有在sudo用户组中的用户才可以使用sudo命令，而Debian安装程序不会将其创建的普通用户添加到sudo用户组（除非安装Debian时没有设置root密码）。  
-以root用户执行`usermod -a -G sudo USER_NAME`，然后彻底登出用户或重启计算机。  
+以root用户执行`usermod -a -G sudo <USER_NAME>`，然后彻底登出用户或重启计算机。  
 
 ### 允许普通用户执行更多命令
 在/sbin目录中的命令普通用户无法直接执行即使普通用户拥有执行权限且命令非特权命令，如：`reboot`。这是因为普通用户的默认PATH中没有/sbin。  
@@ -168,7 +174,7 @@ root用户下无法正常显示ASCII字符以外的字符，这是因为root用�
 在linux中通过以下命令添加启动项。  
 ```sh
 apt install efibootmgr
-efibootmgr -c -d /dev/DEVICE_NAME -p N -L "Debian Installer" -l "\EFI\boot\bootx64.efi"
+efibootmgr -c -d /dev/<DEVICE_NAME> -p N -L "Debian Installer" -l "\EFI\boot\bootx64.efi"
 ```
 注：`DEVICE_NAME`为硬盘设备名而非分区设备名，`N`为分区编号（即安装文件所在分区的序号，从1开始数）。  
 在windows中建议下载DiskGDiskGenius，通过其中的“工具->设置UEFI BIOS启动项”菜单将安装文件所在分区下的\EFI\boot\bootx64.efi添加到启动菜单中，然后保存设置。  
@@ -178,9 +184,9 @@ efibootmgr -c -d /dev/DEVICE_NAME -p N -L "Debian Installer" -l "\EFI\boot\bootx
 ## 问题处理
 ### 无法挂载安装介质
 有时候会出现无法挂载安装介质的情况，这时候需要手动挂载安装介质。  
-通过ctrl+alt+Fx快捷键切换到一个没有任务的tty中，然后再执行以下命令挂载安装介质。  
+通过ctrl+alt+F?快捷键切换到一个没有任务的tty中，然后再执行以下命令挂载安装介质。  
 ```sh
-mount /dev/INSTALLATION_MEDIA_PARTITION_DEVICE_NAME /cdrom
+mount /dev/<INSTALLATION_MEDIA_PARTITION_DEVICE_NAME> /cdrom
 ```
 注：`INSTALLATION_MEDIA_PARTITION_DEVICE_NAME`为安装介质分区设备名  
 然后返回安装程序所在tty并重新检测安装介质，即可继续安装进程。  
@@ -189,6 +195,7 @@ mount /dev/INSTALLATION_MEDIA_PARTITION_DEVICE_NAME /cdrom
 
 \[1\] [Debian GNU/Linux Installation Guide](https://www.debian.org/releases/stable/amd64/install.en.pdf)  
 \[2\] [sudo - Debian Wiki](https://wiki.debian.org/sudo)  
+\[3\] [Vendors of Debian installation media](https://www.debian.org/CD/vendors/)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.9.9 | Date: 2025-10-22
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.9.9u | Date: 2026-08-31

@@ -72,7 +72,7 @@ rm -r build
 
 注意：安装第三方编译的gcc具有一定的安全风险！  
 
-这是笔者编译的gcc15：[gcc-15_15.2.0-1_trixie_amd64.tar.xz](https://github.com/smgdream/debian-file/releases/download/1/gcc-15_15.2.0-1_trixie_amd64.tar.xz)，其安装方法如下：  
+这是笔者编译的gcc15：[gcc-15_15.2.0-1_trixie_amd64.tar.xz](../pool/gcc-15_15.2.0-1_trixie_amd64.tar.xz)，其安装方法如下：  
 
 安装依赖  
 ```sh
@@ -80,7 +80,7 @@ apt install libc6-dev binutils
 ```
 解压gcc15二进制包  
 ```sh
-sudo tar -xvf /path/to/GCC_15_TARBALL.tar.xz -C /
+sudo tar -xvf </PATH/TO/GCC_15_TARBALL> -C /
 ```
 随后在`/etc/profile.d`中创建脚本`gcc-15.sh`并在该文件中写入以下内容并授予该文件可执行权限，以将gcc可执行文件所在目录添加到PATH中。  
 ```sh
@@ -96,4 +96,4 @@ export PATH="/opt/gcc-15/bin:${PATH}"
 \[3\][Installing GCC: Final installation](https://gcc.gnu.org/install/finalinstall.html)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.9.1 | Date: 2025-10-24
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.9.2 | Date: 2025-11-06

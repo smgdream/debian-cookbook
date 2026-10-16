@@ -17,4 +17,4 @@
 | [Debian安全信息](https://www.debian.org/security/) | 安全更新 |
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.1 | Date: 2025-10-12
+Author: smgdream | License: CC0 1.0 | Version: 0.6.2 | Date: 2026-10-16

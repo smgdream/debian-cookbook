@@ -68,7 +68,7 @@ Check-Valid-Until: no
 然后挂载iso镜像  
 ```sh
 mkdir /mnt/debian
-mount YOUR_ISO_FILE /mnt/debian
+mount <YOUR_ISO_FILE> /mnt/debian
 ```
 然后将当前所有软件源作无效化处理（如将当前所有源注释掉）并增添以下源配置  
 one-line-style:
@@ -104,4 +104,4 @@ apt full-upgrade
 \[2\][Upgrades from Debian 12 (bookworm)](https://www.debian.org/releases/trixie/release-notes/upgrading.en.html)
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.5 | Date: 2025-10-10
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.6 | Date: 2025-11-06

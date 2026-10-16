@@ -94,13 +94,15 @@ apt install gnome-browser-connector
 在扩展页面开启右上角的开关（如果还出现了弹窗则同意）即可。  
 ![](images/gnome-conf/web-install-ext.png)
 
+注：通过浏览器安装的扩展仅当前用户可用。  
+
 ### 手动安装扩展
 
 在部分环境下无法在线通过GNOME Shell Extensions扩展商店安装扩展或想为系统安装扩展这种情况下则需要手动安装扩展。方法如下：  
 
 从[GNOME Shell Extensions扩展商店](https://extensions.gnome.org/)下载扩展zip包或从扩展的独立发布页（如：github仓库页面）下载扩展zip包。然后解压zip包的内容解压到一个单独的空文件夹中（如：extmp）。  
 
-之后查看文件夹内的metadata.json文件的uuid字段的字符串内容，然后将文件夹命名为该字符串内容（不要双引号）（如：uuid行的内容为`"uuid": "blur-my-shell@aunetx",`，则将文件夹命名为blur-my-shell@aunetx），如果文件夹中存在schemas子文件夹则要进入schemas子文件夹通过`glib-compile-schemas .`命令编译文件夹内的xml文件。  
+之后查看文件夹内的metadata.json文件的`uuid`字段的字符串内容，然后将文件夹命名为该字符串内容（不要双引号）（如：uuid行的内容为`"uuid": "blur-my-shell@aunetx",`，则将文件夹命名为blur-my-shell@aunetx）。如果文件夹中存在schemas子文件夹则要进入schemas子文件夹通过`glib-compile-schemas .`命令编译文件夹内的xml文件。  
 
 之后将刚才命名好的整个扩展文件夹复制到用户gnome扩展目录`~/.local/share/gnome-shell/extensions/`或系统gnome扩展目录`/usr/share/gnome-shell/extensions/`。  
 
@@ -130,23 +132,23 @@ sudo mv  ./extmp ${GNOME_EXT_DIR}/${EXT_UUID}
 
 exit
 ```
-使用方法：`./script.sh GNOMEEXT_ZIP_FILE`
+使用方法：`./script.sh <GNOMEEXT_ZIP_FILE>`
 
 ## Gnome美化
 在gnome tweaks的“外观”菜单中可以更改主题、图标和光标。  
 ![Gnome tweaks appearance](images/gnome-conf/tweaks-appearance.png)  
 
-### 安装Gnome主题
+### 安装Gnome应用主题
 
-安装主题可以使得各种gtk应用具有相对一致（以及可能优雅）的视觉效果。  
+安装应用主题可以使得各种gtk应用具有相对一致（以及可能优雅）的视觉效果。  
 
-可在独立主题发布页（如：github仓库页面）或[GTK3/4 Themes - Gnome-look.org](https://www.gnome-look.org/browse?cat=135&ord=latest)下载主题压缩文件。  
+可在独立应用主题发布页（如：github仓库页面）或[GTK3/4 Themes - Gnome-look.org](https://www.gnome-look.org/browse?cat=135&ord=latest)下载应用主题压缩文件。  
 
-注：部分主题的安装需要`sassc`，可通过命令`apt install sassc`安装。  
+注：部分应用主题的安装需要`sassc`，可通过命令`apt install sassc`安装。  
 
 然后解压文件。如果主题文件夹内提供了安装脚本则可以直接使用安装脚本安装主题。如果没有提供安装脚本则要将主题文件夹复制到主题目录（系统Gnome主题目录：`/usr/share/themes`，用户Gnome主题目录：`~/.themes`）。  
 
-注意：部分下载下来的主题压缩档可能不单是一个主题而是一个系列的风格相似颜色不同的主题，其中包含了多个主题文件夹，需要复制的是主题文件夹（主题文件夹的判别方法：主题目录下直接存放着`index.theme`文件）。如果将整个系列的总文件夹复制过去将导致无法使用这些主题。笔者建议将系列所有主题文件夹全部复制到主题目录中。  
+注意：部分下载下来的主题压缩档可能不单是一个主题而是一个系列的风格相似颜色不同的主题，其中包含了多个主题文件夹，需要复制的是主题文件夹（主题文件夹的判别方法：主题目录下直接存放着`index.theme`文件）。如果将整个系列的总文件夹复制过去将导致无法使用这些主题。  
 
 **Gnome主题推荐**  
 | 主题名 | 描述 |
@@ -161,7 +163,7 @@ exit
 可在独立主题发布页（如：github仓库页面）或[Cursors - Gnome-look.org](https://www.gnome-look.org/browse?cat=107&ord=latest)下载光标主题压缩文件。  
 然后解压文件。如果光标主题文件夹内提供了安装脚本则可以直接使用安装脚本安装光标主题。如果没有提供安装脚本则要将光标主题文件夹复制到光标主题目录（系统Gnome光标主题目录：`/usr/share/icons/`，用户Gnome光标主题目录：`~/.local/share/icons/`）。  
 
-注意：部分下载下来的光标主题压缩档可能不单是一个光标主题而是一个系列的风格相似颜色不同的光标主题，其中包含了多个光标主题文件夹，需要复制的是光标主题文件夹（光标主题文件夹的判别方法：光标主题目录下直接存放着`cursor.theme`文件）。如果将整个系列的总文件夹复制过去将导致无法使用这些光标主题。笔者建议将系列所有光标主题文件夹全部复制到光标主题目录中。  
+注意：部分下载下来的光标主题压缩档可能不单是一个光标主题而是一个系列的风格相似颜色不同的光标主题，其中包含了多个光标主题文件夹，需要复制的是光标主题文件夹（光标主题文件夹的判别方法：光标主题目录下直接存放着`cursor.theme`文件）。如果将整个系列的总文件夹复制过去将导致无法使用这些光标主题。  
 
 **光标主题推荐**  
 | 主题名 | 描述 |
@@ -174,7 +176,7 @@ exit
 
 然后解压文件。如果图标主题文件夹内提供了安装脚本则可以直接使用安装脚本安装图标主题。如果没有提供安装脚本则要将图标主题文件夹复制到图标主题目录（系统Gnome图标主题目录：`/usr/share/icons/`，用户Gnome图标主题目录：`~/.local/share/icons/`）。  
 
-注意：部分下载下来的图标主题压缩档可能不单是一个图标主题而是一个系列的风格相似颜色不同的图标主题，其中包含了多个图标主题文件夹，需要复制的是图标主题文件夹（图标主题文件夹的判别方法：图标主题目录下直接存放着`index.theme`文件）。如果将整个系列的总文件夹复制过去将导致无法使用这些图标主题。笔者建议将系列所有图标主题文件夹全部复制到图标主题目录中。  
+注意：部分下载下来的图标主题压缩档可能不单是一个图标主题而是一个系列的风格相似颜色不同的图标主题，其中包含了多个图标主题文件夹，需要复制的是图标主题文件夹（图标主题文件夹的判别方法：图标主题目录下直接存放着`index.theme`文件）。如果将整个系列的总文件夹复制过去将导致无法使用这些图标主题。  
 
 ## Gnome-shell界面构成
 ![](images/gnome-conf/desktop.png)
@@ -192,7 +194,8 @@ exit
 \[5\] [Icons - ArchWiki](https://wiki.archlinux.org/title/Icons)  
 \[6\] [Projects/GnomeShell/Design – GNOME Wiki Archive](https://wiki.gnome.org/Projects/GnomeShell/Design)  
 \[7\] [Teams / Design / os-mockups · GitLab](https://gitlab.gnome.org/Teams/Design/os-mockups)  
-\[8\] [Red Hat Enterprise Linux 9 Getting started with the GNOME desktop environment](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/pdf/getting_started_with_the_gnome_desktop_environment/Red_Hat_Enterprise_Linux-9-Getting_started_with_the_GNOME_desktop_environment-en-US.pdf)
+\[8\] [Red Hat Enterprise Linux 9 Getting started with the GNOME desktop environment](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/pdf/getting_started_with_the_gnome_desktop_environment/Red_Hat_Enterprise_Linux-9-Getting_started_with_the_GNOME_desktop_environment-en-US.pdf)  
+\[9\] GNOME Shell A design for a personal integrated digital work environment
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.3 | Date: 2025-10-12
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.4u | Date: 2026-06-16

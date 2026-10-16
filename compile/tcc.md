@@ -1,10 +1,10 @@
 # 编译Tiny C Compiler
 
-Tiny C Compiler (tcc)是一个使用C语言编写的超轻量C99编译器，其原作者是大名鼎鼎的Fabrice Bellard<sup>注1</sup>，现tcc由社区接手开发。其具有将C源文件当作脚本运行的独家黑科技，亦提供了libtcc这个运行时动态C代码编译库。  
+[Tiny C Compiler](https://www.bellard.org/tcc/) (tcc)是一个使用C语言编写的超轻量C99编译器，其原作者是大名鼎鼎的[Fabrice Bellard](https://www.bellard.org/)<sup>注1</sup>，现tcc由社区接手开发。其具有将C源文件当作脚本运行的独家黑科技，亦提供了libtcc这个运行时动态C代码编译库。  
 
-注1：Fabrice Bellard最著名的作品为FFMPEG和QEMU。  
+注1：Fabrice Bellard最著名的作品为FFmpeg和QEMU。  
 
-当前最新的tcc正式版为0.9.27但该版本已经是数年前的版本，该版本存在个别较为严重的bug（如：算术表达式错误的编译结果），且该版本相比最新开发版(0.9.28rc)也少了很多新功能（如：RISC-V 64位架构支持），故如果需要使用tcc，笔者更建议直接下载最新开发版，然后从源码编译安装。tcc编译安装的方法见下文所述。  
+当前最新的tcc正式版为0.9.27但该版本已经是数年前的版本，该版本存在个别较为严重的bug（如：算术表达式错误的编译结果），且该版本相比最新开发版(0.9.28rc)也少了很多新功能（如：RISC-V 64位架构支持），故如果需要使用tcc，笔者更建议直接从开发仓库下载最新开发版，然后从源码编译安装。tcc编译安装的方法见下文所述。  
 
 tcc支持的C标准：ANSI C, C99 (without inline and complex), 少量C11、C23和C2y特性，部分[GNU C特性](https://www.bellard.org/tcc/tcc-doc.html#GNU-C-extensions)以及独有的[Tiny C特性](https://www.bellard.org/tcc/tcc-doc.html#TinyCC-extensions)。  
 
@@ -14,8 +14,8 @@ tcc支持的C标准：ANSI C, C99 (without inline and complex), 少量C11、C23�
 ## tcc的编译与安装
 通过以下命令解压源码包并进入项目目录。  
 ```sh
-tar -xvf tinycc-COMMITID.tar.gz
-cd tinycc-COMMITID
+tar -xvf tinycc-<COMMITID>.tar.gz
+cd tinycc-<COMMITID>
 ```
 
 然后通过以下命令编译tcc并安装到系统中。  
@@ -45,10 +45,10 @@ make distclean
 
 ## 参考资料
 
-\[1\] [Tiny C Compiler Reference Documentation](https://www.bellard.org/tcc/tcc-doc.html)（其中内容有所过时）  
+\[1\] [Tiny C Compiler Reference Documentation](https://www.bellard.org/tcc/tcc-doc.html)（其中部分内容过时）  
 \[2\] [Public Git Hosting - tinycc.git/summary](https://repo.or.cz/tinycc.git)  
 \[3\] README  
 \[4\] win32/tcc-win32.txt  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7 | Date: 2025-10-24
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.1u | Date: 2026-10-16

@@ -2,7 +2,7 @@
 以下内容仅供参考，请依据需求选择性配置。  
 
 ## 常用软件安装
-可通过`apt install PACKAGE1_NAME PACKAGE2_NAME ...`命令安装一个或多个软件。  
+可通过`apt install <PACKAGE_NAME > ...`命令安装一个或多个软件。  
 以下程序列表中的程序根据建议以及实际情况安装。  
 | 包名 | 描述 |
 | --- | --- |
@@ -26,7 +26,7 @@
 | lynx | 终端网络浏览器 |
 
 ## 常用库安装
-可通过`apt install PACKAGE1_NAME PACKAGE2_NAME ...`命令安装一个或多个软件。  
+可通过`apt install <PACKAGE_NAME> ...`命令安装一个或多个软件。  
 以下库根据实际需要安装。  
 | 包名 | 说明 |
 | --- | --- |
@@ -35,7 +35,7 @@
 ## 授予普通用户写freambuffer权限
 部分终端软件可能需要写freambuffer权限，而普通用户默认没有写framebuffer权限，所以要通过以下命令授予写framebuffer权限：  
 ```sh
-usermod -a -G video USER_NAME
+usermod -a -G video <USER_NAME>
 ```
 说明：将用户添加至video组中即可获得写framebuffer权限。  
 
@@ -62,4 +62,4 @@ Debian中默认笔记本合上盖子的行为为挂起计算机，而有时我�
 编辑`/etc/systemd/logind.conf`文件，取消`HandleLidSwitch`行的`#`注释。任何将`HandleLidSwitch`的对应值修改为合上笔记本盖子所需的行为（如：ignore，无操作）。最后重启计算机应用配置（注意：请勿相信网上说的重启`systemd-logind`服务的操作，否则可能导致桌面环境卡死）。  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.6 | Date: 2025-10-03
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.7 | Date: 2025-11-06

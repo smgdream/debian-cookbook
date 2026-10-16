@@ -21,6 +21,8 @@ Debian Trixie IMF预装规则：如果安装Debian时选择非中文语言则仅
 | IBus table | `ibus-table` | 形码输入法引擎框架，支持五笔、仓颉、郑码等多种形码输入方案，但需要安装相应子包（如使用五笔需安装`ibus-table-wubi`） |
 | IBus拼音 | `ibus-pinyin` | 早期IBus拼音输入法（已停更多年，但仍存在于源中） |
 
+<!-- 新的基于Fcitx5的输入法？ -->
+
 ## 使用输入法
 对于GNOME用户，打开gnome设置点击“键盘”->“输入源”->“添加输入源”之后后选择对应输入法语言（如：汉语中国），然后即可选择要启用的输入法。  
 
@@ -34,9 +36,10 @@ Debian Trixie IMF预装规则：如果安装Debian时选择非中文语言则仅
 \[3\] [搜狗输入法linux-安装指导](https://shurufa.sogou.com/linux/guide)  
 \[4\] [Sun Pinyin developers](https://www.chinadaily.com.cn/video/2010-09/16/content_11310174.htm)  
 \[5\] [Red Hat Enterprise Linux 9 Getting started with the GNOME desktop environment Chapter 7. Enabling Chinese, Japanese, or Korean text input 7.4.5](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/getting_started_with_the_gnome_desktop_environment/assembly_enabling-chinese-japanese-or-korean-text-input_getting-started-with-the-gnome-desktop-environment#proc_switching-the-input-method-in-gnome_assembly_enabling-chinese-japanese-or-korean-text-input)  
+\[6\] [Using Fcitx 5 on Wayland](https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6 | Date: 2025-10-11
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6u | Date: 2025-11-28
 
 
 

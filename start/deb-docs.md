@@ -17,7 +17,7 @@
 [Debian reference](https://www.debian.org/doc/manuals/debian-reference/debian-reference.en.pdf)  
 说明：Debian使用参考手册（英文，重要）  
 [Debian参考手册](https://www.debian.org/doc/manuals/debian-reference/debian-reference.zh-cn.pdf)  
-说明：Debian使用参考手册（重要）  
+说明：Debian使用参考手册（中文版，重要）  
 [The Debian Administrator's Handbook](https://www.debian.org/doc/manuals/debian-handbook/index.en.html)  
 说明：想要成为Debian管理员所需了解的高级知识（英文）  
 [Debian管理员手册](https://www.debian.org/doc/manuals/debian-handbook/index.zh-cn.html)  
@@ -27,4 +27,4 @@
 \[1\] [Debian 用户手册](https://www.debian.org/doc/user-manuals)
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.1 | Date: 2025-10-09
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.1u | Date: 2026-09-04

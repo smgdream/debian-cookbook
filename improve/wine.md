@@ -1,4 +1,7 @@
 # Wine
+<!-- 未来需根据新的Wow64 Wine构建对本文做一次全面的内容调整 -->
+<!-- 根据新发布的wine11调整本文内容 -->
+<!-- 基本调整已完成，但仍有待进一步的调整 -->
 
 Wine全称"Wine is not an emulator"(Wine不是一个模拟器)，它是一个用于在UNXI系统上运行Windows应用程序的兼容层，它通过将Windows API调用转换为POXIS API调用来使得Windows应用程序得以在UNIX系统中运行。它是Linux用户在Linux系统上使用Windows应用程序的必不可少的工具。通过Wine我们可以在Linux上运行Windows应用程序甚至还可以以较高性能运行不少游戏。  
 
@@ -14,11 +17,15 @@ Wine全称"Wine is not an emulator"(Wine不是一个模拟器)，它是一个用
 
 使用官方wine可以及时体验最新的稳定版和测试版。安装方法如下。  
 
-除非你确定不会运行32位windows程序，否则运行以下命令启用32位架构支持：  
+对于Debian Trixie及之前版本或Ubuntu 25.04及之前版本，应当执行以下命令启用32位架构支持：  
 ```sh
 dpkg --add-architecture i386
 apt update
 ```
+对于Debian Forky及未来版本或Ubuntu 25.10及更新版本则无须执行以上命令添加32位软件源。因为针对这些新系统构建的wine 10.18及更新版本使用了新的WoW64实现，其不再依赖32位运行时。
+
+注：经笔者测试Debian Trixie可以安装供Debian Forky使用的Wine 11.0以避免需要启用i386库并安装i386依赖，安装方法和下文描述的wine安装方法别无二致，但是要把当前系统当作forky来执行本段落所说明的安装方法。
+
 然后安装仓库密钥：  
 ```sh
 wget -O - https://dl.winehq.org/wine-builds/winehq.key | gpg --dearmor -o /etc/apt/keyrings/winehq-archive.key
@@ -37,45 +44,26 @@ wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/debian/dists
 | 开发分支 | `apt install --install-recommends winehq-devel` |
 | Staging 分支 | `apt install --install-recommends winehq-staging` |
 
-注：稳定分支不一定稳定且少Bug，只意味着其稳定和少Bug的可能性更高。  
+注1：稳定分支不一定稳定且少Bug，只意味着其稳定和少Bug的可能性更高。  
 
-<br>
+注2：本文为了跟随新wine的变化，已移除了**没启用32位架构支持**的wine安装方法对于有需要的用户请查看本手册0.8版本的此篇文章。  
 
-对于**没启用32位架构支持**的用户则通过以下方法安装wine。
+根据[wine官方的新消息](https://gitlab.winehq.org/wine/wine/-/wikis/Debian-Ubuntu)：自wine 10.18开始将为Debian forky（当前的Debian Testing）和Ubuntu 25.10及更新版本提供包含新WoW64构建的Wine，不再分别需要64位和32位wien构建。以后安装wine就不需要添加i386源了。  
 
-首先安装需要的分支：  
-| Wine分支 | 安装命令 |
-| --- | --- |
-| 稳定分支 | `apt install wine-stable-amd64` |
-| 开发分支 | `apt install wine-devel-amd64` |
-| Staging 分支 | `apt install wine-staging-amd64` |
+~~吐槽：当今Linux几乎所有软件都有64位了，如果不是为了使用Wine，我才不愿意添加i386源。真希望wine什么时候官方打包能变为WoW64的发布，到时候就能完全和32位say goodbye了。~~  
 
-然后手动在[wine源仓库](https://dl.winehq.org/wine-builds/debian/pool/main/w/wine/)下载以下两个文件`wine-BRANCHNAME_VERSION~DISTNAME-1_amd64.deb`和`winehq-BRANCHNAME_VERSION~DISTNAME-1_amd64.deb`，之后手动将这两个包的内容解压到相应目录。  
-部分命令示例（仅供参考）  
-```sh
-# wine
-cp -rv ./opt/wine-stable/* /opt/wine-stable/
-
-# winehq
-cp -rv ./bin/* /usr/local/bin/
-
-# optional
-rm /usr/local/bin/wine
-ln -s /usr/local/bin/wine64 /usr/local/bin/wine
-```
-
-吐槽：当今Linux几乎所有软件都有64位了，如果不是为了使用Wine，我才不愿意添加i386源。真希望wine什么时候官方打包能变为WoW64的发布，到时候就能完全和32位say goodbye了。  
 
 ### 通过Debian源安装wine
-除非你确定不会运行32位windows程序，否则运行以下命令启用32位架构支持：  
+首先应当执行以下命令启用32位架构支持：  
 ```sh
 dpkg --add-architecture i386
 apt update
 ```
-然后使用以下命令安装wine。  
+然后通过以下命令安装wine。  
 ```sh
 apt install wine
 ```
+**注意：** 在Debian Trixie中的Wine版本为10.0，该版本虽说是稳定版但实际上既不稳定也不好用。  
 
 ## 安装wine Mono和Gecko
 Wine Mono用于让wine支持运行.NET Framework 应用程序，Gecko是wine独立实现的一个Internet Explorer。它们的安装方法如下：  
@@ -84,6 +72,12 @@ Wine Mono用于让wine支持运行.NET Framework 应用程序，Gecko是wine独�
 首先查询下表确认所需安装的Wine Mono版本（请务必按照表格的说明安装对应的版本）。  
 | Wine 版本 | Wine Mono 版本 |
 | --- | --- |
+| 11.16 | 11.3.0 |
+| 11.12 | 11.2.0 |
+| 11.8 | 11.1.0 |
+| 11.3 | 11.0.0 |
+| 11.0-rc4 | 10.4.1 |
+| 11.0-rc1 | 10.4.0 |
 | 10.17 | 10.3.0 |
 | 10.14 | 10.2.0 |
 | 10.10 | 10.1.0 |
@@ -94,10 +88,8 @@ Wine Mono用于让wine支持运行.NET Framework 应用程序，Gecko是wine独�
 | 9.8 | 9.1.0 |
 | 9.2 | 9.0.0 |
 | 8.19 | 8.1.0 |
-| 8.9 | 8.0.0 |
-| 7.20 | 7.4.0 |
 
-注：完整表格见[Wine Mono](https://gitlab.winehq.org/wine/wine/-/wikis/Wine-Mono#versions)  
+注：对于介于两个表项之间的版本则向下“取整”至最接近的版本，如10.18“取整”到10.17其需安装mono 10.3.0，而对于11.0“取整”到11.0-rc4，其需安装mono 10.4.1。完整表格见[Wine Mono](https://gitlab.winehq.org/wine/wine/-/wikis/Wine-Mono#versions)  
 
 然后前往[Wine Mono下载页](https://dl.winehq.org/wine/wine-mono/)下载合适的wine mono 版本。其中提供了tar包和msi两种格式的安装包，tar包用于为所有Wine全局安装Mono（安装完毕后创建的wine实例才有mono），msi包用于为已创建的wine实例单独安装Mono。这两种包的安装方式如下：  
 
@@ -105,14 +97,14 @@ Wine Mono用于让wine支持运行.NET Framework 应用程序，Gecko是wine独�
 将对应Mono安装包下载到本地后通过以下命令安装Mono：  
 ```sh
 mkdir -pv /opt/wine/mono/
-tar -xvf PATH_TO_MONO_TARBALL -C /opt/wine/mono/
+tar -xvf </PATH/TO/MONO_TARBALL> -C /opt/wine/mono/
 ```
 安装完后新建的wine实例中将包含mono。
 
 **安装msi包**  
 将对应Mono安装包下载到本地后通过以下命令为当前wine实例安装Mono：  
 ```sh
-wine msiexec /i PATH_TO_MONO_MSI
+wine msiexec /i </PATH/TO/MONO_MSI>
 ```
 
 ### 安装Gecko
@@ -120,8 +112,8 @@ wine msiexec /i PATH_TO_MONO_MSI
 首先查询下表确认需要安装的Gecko版本（请务必按照表格的说明安装对应的版本）。  
 | Wine版本范围 | Gecko版本 |
 | --- | --- |
-| wine-7.13 - wine-8.5 | 2.47.3 |
 | wine-8.6 - 当前最新版本 | 2.47.4 |
+| wine-7.13 - wine-8.5 | 2.47.3 |
 
 注：完整表格见[Gecko](https://gitlab.winehq.org/wine/wine/-/wikis/Gecko#installing)  
 
@@ -131,7 +123,7 @@ wine msiexec /i PATH_TO_MONO_MSI
 将Gecko安装包下载到本地后执行以下命令安装Gecko。  
 ```sh
 mkdir -pv /opt/wine/gecko/
-tar -xvf PATH_TO_GECKO_TARBALL -C /opt/wine/gecko/
+tar -xvf </PATH/TO/GECKO_TARBALL> -C /opt/wine/gecko/
 ```
 安装完后各wine实例即可使用Gecko。  
 
@@ -140,27 +132,40 @@ tar -xvf PATH_TO_GECKO_TARBALL -C /opt/wine/gecko/
 **安装MSI包**  
 将Gecko安装包下载到本地后执行以下命令为当前Wine实例安装Gecko。  
 ```sh
-wine msiexec /i PATH_TO_GECKO_MSI
+wine msiexec /i </PATH/TO/GECKO_MSI>
 ```
 ## 安装中文字体
 安装部分软件依赖于专门的中文字体，如果不安装中文字体，文本将显示为方框。中文字体的安装方法如下：  
 
-将命名为`msyh.ttc`的[微软雅黑字体文件](https://github.com/smgdream/debian-file/releases/download/4/msyh.ttc)复制到wine安装目录下的`share/wine/fonts`目录中即可。安装完后新建的wine示例将包含该字体。  
+将命名为`msyh.ttc`的[微软雅黑字体文件](../pool/msyh.ttc)复制到wine安装目录下的`share/wine/fonts`目录中即可。安装完后新建的wine实例将包含该字体。  
 
-<!-- vxdk 3d11? -->
-<!-- wine半离线安装？ -->
+## wine半离线安装
+注：此内容适用于提供的Debian系统的wine 10.18及更新的WoW64版本（不包含staging分支）。
+
+在安装wine时虽然wine的软件包是离线的，但是依赖仍需要在线安装，这也就是本段落为什么被称为《wine半离线安装》的原因。  
+
+离线安装wine仅需下载两个软件包，分别为`winehq-<branch>_<version>~<suit>-1_amd64.deb`和`wine-<branch>_<version>~<suit>-1_amd64.deb`这两个文件均位于`https://dl.winehq.org/wine-builds/debian/pool/main/w/wine/`目录中。
+
+说明：  
+- `<branch>`: wine的分支名，有效分支名分别为`stable`（稳定分支）、`devel`（开发版分支）、`staging`（特性尝鲜分支）。  
+- `<version>`: wine的版本。
+- `<suti>`: 相应系统版本的套件名，即系统代号，如`trixie`或`forky`。
+  
+> 如对于适用于Debian Forky的Wine 11.0则需要下载[winehq-stable_11.0.0.0~forky-1_amd64.deb](https://dl.winehq.org/wine-builds/debian/pool/main/w/wine/winehq-stable_11.0.0.0~forky-1_amd64.deb)和[wine-stable_11.0.0.0~forky-1_amd64.deb](https://dl.winehq.org/wine-builds/debian/pool/main/w/wine/wine-stable_11.0.0.0~forky-1_amd64.deb)。  
+
+然后通过apt安装这两个软件包即可（安装过程通常需要网络来安装wine的依赖）。  
 
 ## wine 简单使用说明
 
 使用wine运行程序
 
 ```sh
-wine PROGRAM [ARGS...]
+wine <PROGRAM> [ARGS...]
 ```
 
 使用wine运行程序（不显示所有fixme debug信息）
 ```sh
-WINEDEBUG=fixme-all wine PROGRAM [ARGS...]
+WINEDEBUG=fixme-all wine <PROGRAM> [ARGS...]
 ```
 
 wine实例的设置
@@ -195,32 +200,33 @@ wine winemine
 
 安装msi安装包
 ```sh
-wine msiexec /i MSI_FILE
+wine msiexec /i <MSI_FILE>
 ```
 
-可通过设置`WINEPREFIX`环境/临时变量来指定/设置wine实例目录的位置如：  
+可通过设置`WINEPREFIX`环境/临时变量来指定/设置wine实例目录的位置，如：  
+
 设置为临时环境变量  
 ```sh
-exprot WINEPREFIX=~/.wine-game
-wine PROGRAM [ARGS...]
+exprot WINEPREFIX=<WINE_INSTANCE_PATH>
+wine <PROGRAM> [ARGS...]
 ```
 设置为临时变量  
 ```sh
-WINEPREFIX=~/.wine-game wine PROGRAM [ARGS...]
+WINEPREFIX=~/.wine-game wine <PROGRAM> [ARGS...]
 ```
 如果没有设置`WINEPREFIX`变量则wine实例的默认路径为`~/.wine`。  
 
 创建32位架构的wine实例  
 ```sh
-WINEPREFIX=~/.wine32 WINEARCH=win32 wineboot -i
+WINEPREFIX=<WINE32_INSTANCE_PATH> WINEARCH=win32 wineboot -i
 ```
 说明：  
 - `WINEPREFIX`变量只是为了另外指定一个wine实例目录以避免和现有wine实例目录冲突。  
-- `WINEARCH`变量用于指定wine实例的架构，其有效值为`win64`和`win32`，`win64`可运行64位程序以及32位程序（如果安装了32位wine的话），`win32`只能运行32位程序。  
-- `wineboot -i`命令用于创建并初始化一个wine实例。
+- `WINEARCH`变量用于指定wine实例的架构，其有效值为`win64`（默认）和`win32`，`win64`可运行64位程序以及32位程序（如果安装了32位wine的话），`win32`只能运行32位程序。对于wine 11.0及更新版本移除了值`win32`并添加了值`wow64`，`wow64`用以指明强制旧的WoW64安装以新的WoW64模式运行。<!-- wow64具体的功能是什么仍不清楚，仅wine 11.0的release中提了一句，目前wiki中仍没有相关内容，但根据字面意思该值基本用不到。 -->  
+- `wineboot -i`命令用于创建并初始化一个wine实例，另外`wineboot -u`命令可用于更新相应的wine实例。
 
 ## Wine版本可用性报告
-经本人测试Wine 10.0存在较多bug，许多应用无法正常运行（部分游戏运行出错，甚至从源代码编译安装的wine无法运行）。而经过笔者的测试Wine 10.12开发版运行windows应用出现的问题倒少得多。
+经笔者实际测试Wine 10.0存在较多bug，许多应用无法正常运行（部分游戏运行出错，甚至从源代码编译安装的wine无法运行）。目前建议使用最新的稳定版Wine 11.0。
 
 ## Wine游戏
 见[Linux游戏](linux-game.md)的“Wine游戏”段落。  
@@ -245,4 +251,4 @@ WINEPREFIX=~/.wine32 WINEARCH=win32 wineboot -i
 \[13\] [WINEDEBUG channels - Wine User's Guide - Wine Wiki](https://gitlab.winehq.org/wine/wine/-/wikis/Wine-User's-Guide#winedebug-channels)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.5 | Date: 2025-10-18
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.2u | Date: 2026-06-17

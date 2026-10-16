@@ -13,8 +13,8 @@ apt install libgmp-dev libmpfr-dev libmpc-dev libisl-dev
 
 之后解压源码包并进入项目目录。  
 ```sh
-tar -xvf gcc-VERSION.tar.xz
-cd gcc-VERSION
+tar -xvf gcc-<VERSION>.tar.xz
+cd gcc-<VERSION>
 ```
 
 ## 编译gcc
@@ -24,7 +24,7 @@ cd gcc-VERSION
 mkdir build
 cd build
 ```
-注：此时所在目录为`gcc-VERSION/build`。  
+注：此时所在目录为`gcc-<VERSION>/build`。  
 
 之后使用以下命令进行编译配置。
 ```sh
@@ -102,7 +102,7 @@ make install-strip
 
 如有打包gcc的需要可以使用如下命令，gcc将被复制到指定的临时安装目录。  
 ```sh
-make DESTDIR=/PATH/TO/TMP_PATH install-strip
+make DESTDIR=</PATH/TO/TMP_PATH> install-strip
 ```
 然后使用所需打包方式的打包命令打包gcc。  
 
@@ -129,4 +129,4 @@ cd .. && rm -r build # optional
 \[9\] [16.4 DESTDIR: Support for Staged Installs](https://www.gnu.org/software/make/manual/html_node/DESTDIR.html)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6 | Date: 2025-10-24
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.1 | Date: 2025-11-07

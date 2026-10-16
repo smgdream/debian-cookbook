@@ -1,12 +1,15 @@
 # 部分软件的运行方法
 本部分软件因为某些原因无法正常运行，下面笔者将说明如何修复然后正常运行这些软件。  
 
+## 常见的Appimage运行修复方法
+因为沙盒问题导致的appimage无法运行（常见于国产软件的appimage软件分发）：运行appimage时添加`--no-sandbox`参数。  
+
 ## VirtualBox
-注意：VirtualBox 7.2.2存在bug，如果虚拟机全屏运行时点击屏幕下边的虚拟机控制栏将无法进行任何控制并会导致光标失效。  
+注意：VirtualBox在Wayland中运行时存在bug，如果虚拟机全屏运行时点击屏幕下边的虚拟机控制栏的控件将无法进行任何控制并会导致光标失效（在X11下运行则没有此问题）。另外安装VirtualBox请使用相应系统的构建不要使用​All distributions通用构建，否则VirtualBox虚拟机可能无法正常启动。    
 
 对于Linux内核版本为6.16及以上的Linux系统使用VirtualBox 7.2.2及更新版本可正常使用VirtualBox，但无法同时使用VirtualBox虚拟机和KVM虚拟机。  
 
-对于版本为6.12.x到6.15.x的Linux内核处境就有点尴尬了。VirtualBox从7.2.0某一小版本开始提供了对Debian Trixie的支持，我们可以正常安装并新建设置虚拟机。但你将发现无法启动虚拟机，这是因为从Linux 6.12开始，当加载KVM时将会自动启用虚拟化（通过`kvm.enable_virt_at_load`功能），这将会独占系统的虚拟化特性，故需要通过一些方法来关闭kvm虚拟化才能使用VirtualBox，方法如下：  
+对于版本为6.12.x到6.15.x的Linux内核处境就有点尴尬了。VirtualBox从7.2.0某一小版本开始提供了对Debian Trixie的支持，我们可以正常安装并新建设置虚拟机。但你将发现无法启动虚拟机，这是因为从Linux 6.12开始，当机器启动内核加载KVM时将会自动启用虚拟化（通过`kvm.enable_virt_at_load`功能），这将会独占系统的虚拟化特性，导致无法使用别的虚拟化软件。故需要通过一些方法来关闭kvm虚拟化才能使用VirtualBox，方法如下：  
 
 ### 方法一  
 在使用虚拟机前执行以下命令关闭kmv模块以释放虚拟化资源。  
@@ -48,6 +51,23 @@ GRUB_CMDLINE_LINUX="$GRUB_CMDLINE_LINUX kvm.enable_virt_at_load=0"
 options kvm enable_virt_at_load=0
 ```
 
+## NVIDIA驱动与Blender的兼容性问题
+NVIDIA 580驱动和590驱动对Blender存在兼容性问题，当NVIDIA 驱动为相应大版本的驱动时使用Blender极易发生崩溃，且会将NVIDIA显卡从总线上拔出。鉴于此问题不建议使用以上版本驱动。请使用其他版本的NVIDIA显卡驱动，如575。
+
+## 旧版本Krita Appimagae 解压运行
+我们可以直接运行Krita Appimage，在5.3及更新版本中将appimage解压也能正常运行。但对于5.2及之前的几个版本，如果试图将appimage解压运行Krita却无法启动了。其实更早之前的版本是可以正常解压运行的，但在某次更新之后就不行了。  
+
+通常如果一个Appimage无法解压运行则要修改其AppRun脚本。但是Krita的AppRun不是一个脚本而是一个可执行文件，这下就麻烦了。但因为笔者本人的曾经需要，通过一段时间的运行日志分析，最终编写出了以下可正常启动Krita的AppRun脚本。
+```sh
+#!/bin/sh
+
+this_dir="$(dirname "$0")"
+export PYTHONPATH=""$this_dir"/usr/lib/krita-python-libs/krita"
+export PYTHONHOME=""$this_dir"/usr"
+exec "$this_dir"/usr/bin/krita
+```
+解压后无法运行的问题出在krita的运行需要其专门的python库。所以要设置相应环境变量，将python相关路径变量设置为krita自带的python的路径才能运行。（但笔者仍不明白为什么appimage解压前可以正常运行，解压后就无法运行）  
+
 ## GDM Settings
 GDM Setting是一个用于设置gdm的工具我们可以用其设置gdm的背景、主题、光标等内容，但从其[官方github页面](https://github.com/gdm-settings/gdm-settings)下载的appimage可能因为动态链接库的符号问题而无法直接运行，通过配置使其正常运行的方法如下:  
 
@@ -55,6 +75,9 @@ GDM Setting是一个用于设置gdm的工具我们可以用其设置gdm的背景
 
 ## 钉钉
 见：[国产软件](../improve/cn-software.md)中钉钉支持情况的附加信息的内容。  
+
+## QQ Music
+见：[国产软件](../improve/cn-soutware.md)中qq music支持情况的附加信息的内容。
 
 ## 参考资料
 
@@ -75,6 +98,10 @@ GDM Setting是一个用于设置gdm的工具我们可以用其设置gdm的背景
 \[15\] [symbol lookup error: /tmp/.mount_GDM_SercdIqA/usr/lib/libc.so.6: undefined symbol: __tunable_is_initialized, version GLIBC_PRIVATE #264](https://github.com/gdm-settings/gdm-settings/issues/264)  
 \[16\] [Zero-dependency AppImage support | Current state of the AppImage #209](https://github.com/gdm-settings/gdm-settings/issues/209)  
 \[17\] [Use a new libc.so.6 with LD_PRELOAD](https://forums.opensuse.org/t/use-a-new-libc-so-6-with-ld-preload/162548)  
+\[18\] [[Bug]: CTRL+F and then selecting menu at bottom of screen looses mouse in VM · Issue #322](https://github.com/VirtualBox/virtualbox/issues/322)  
+\[19\] [virtualbox stops responding to mouse input. Linux Wayland host #4](https://github.com/VirtualBox/virtualbox/issues/4)  
+\[20\] [Wayland Support of VirtualBox Host Software? - virtualbox.org](https://forums.virtualbox.org/viewtopic.php?t=110046)  
+\[21\] [23 January 2026 - YouTube](https://www.youtube.com/watch?v=YFx2Z1v1GSc)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.1 | Date: 2025-10-24
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.8u | Date: 2026-04-22

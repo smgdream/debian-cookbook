@@ -3,7 +3,7 @@
 默认的vim可能用着不太习惯，例如vim默认8格缩进且不显示行号，所以我们要配置vim令其符合我们的使用习惯。vim支持插件，根据需求安装插件后我们能获得更加完善更加舒适的开发体验。
 
 ## vim配置文件
-系统全局的vim配置文件路径为：`/etc/vim/vimrc`，用户vim配置文件的路径为`~/.vimrc`（如果没有则新建一个）。
+系统全局的vim配置文件路径为：`/etc/vim/vimrc`，用户vim配置文件的路径为`~/.vimrc`（如果没有则可以创建一个）。
 
 ### 常用配置
 | 配置 | 效果 |
@@ -54,7 +54,7 @@ call plug#end()
 在`call plug#begin()`和`call plug#end()`插入一行配置`Plug '插件github短路径'`，插件github短路径格式为：`插件仓库所属用户名/插件仓库名`（如NERDTree的github仓库为`https://github.com/preservim/nerdtree`那么其短路径为`preservim/nerdtree`），然后保存并退出vim配置文件，之后打开vim执行命令`:PlugInstall`即可安装对应插件。然后在常规模式下键入插件的执行命令即可使用对应插件。  
 
 **示例：通过vim plug安装NERDTree**  
-ERDTree的github仓库为`https://github.com/preservim/nerdtree`所以其github短路径为`preservim/nerdtree`，于是在`call plug#begin()`和`call plug#end()`插入一行配置`Plug 'preservim/nerdtree'`配置变为：  
+NERDTree的github仓库为`https://github.com/preservim/nerdtree`，所以其github短路径为`preservim/nerdtree`。于是在`call plug#begin()`和`call plug#end()`之间插入一行配置`Plug 'preservim/nerdtree'`配置变为：  
 ```
 call plug#begin()
 
@@ -62,7 +62,9 @@ Plug 'preservim/nerdtree'
 
 call plug#end()
 ```
-然后保存退出vim配置文件。之后vim执行命令`:PlugInstall`稍等一会即完成NERDTree的安装。后面执行NERDTree的使用命令`:NERDTree`即可使用NERDTree插件。
+然后保存退出vim配置文件。之后在vim中执行命令`:PlugInstall`并稍等一会即可完成NERDTree的安装。后面执行NERDTree的使用命令`:NERDTree`即可使用NERDTree插件。
+
+注：使用vim plug安装插件需要连接网络，且要确保当前网络可正常访问GitHub。  
 
 **如需删除插件** 则在vim配置文件中移除插件相应的Plug行，然后在vim中执行`:PlugClean`命令即可卸载相应插件。  
 
@@ -72,6 +74,7 @@ call plug#end()
 通常插件存放在`~/.vim/pack`目录中，但直接将插件文件夹复制到该目录中是无法使用插件的，还需要在`~/.vim/pack`目录中创建插件组文件夹，插件组文件夹名可以随便设置一个（如：`foo`），然后还要在插件组文件夹中新建一个`start`目录。之后将插件目录复制到start目录中即可完成插件的安装。后面启动vim并输入插件使用命令即可执行插件。
 
 **示例：手动安装NERDTree**  
+
 如果没有`~/.vim/pack`目录则通过`mkdir -pv ~/.vim/pack`命令新建一个，然后在该目录中新建一个`foobar`目录，再在`foobar`目录中新建一个`start`目录。
 
 在[NERDTree的tag页](https://github.com/preservim/nerdtree/tags)下载NERDTree插件，然后通过`tar -xvf /PATH/TO/NERDTREE_TARBALL_FILE`命令解压，然后将解压出来的项目文件夹重命名为`nerdtree`，随后通过`cp -r nerdtree ~/.vim/pack/foobar/start/`命令将`nerdtree`目录复制到`~/.vim/pack/foobar/start/`目录中。之后即可启动vim通过`:NERDTree`命令唤起NERDTree并使用。
@@ -83,7 +86,11 @@ call plug#end()
 ```
 autocmd vimenter * PLUGIN_COMMAND
 ```
-注：`PLUGIN_COMMAND`为执行插件的命令，但不需要开头的冒号。
+注：`PLUGIN_COMMAND`为执行插件的命令，但不需要开头的冒号。  
+例如，在vim启动时自动启动NERDTree的配置为
+```
+autocmd vimenter * NERDTree
+```
 
 **扩展资料**  
 自动命令的简单格式如下：
@@ -94,7 +101,7 @@ autocmd EVENTS PATTERN COMMAND
 `autocmd` 该配置项用于设置自动命令运行。  
 `EVENTS` 该参数用于设置命令触发的事件，是触发命令的条件之一。（如：vimenter说明在启动vim时触发命令）  
 `PATTERN` 该参数用于设置在满足EVENTS要求后，触发命令的文件匹配模式要求，是触发命令的条件之二。（如：`*`匹配所有文件，`*.c`则匹配所有后缀为.c的C源文件）  
-`COMMAND` 为执行的命令，如果`autocmd EVENTS PATTERN COMMAND`是配置文件中的配置项则`COMMAND`不需要以`:`开头。  
+`COMMAND` 为执行的命令。如果`autocmd EVENTS PATTERN COMMAND`是vim配置文件中的配置项，则`COMMAND`不需要以`:`开头。  
 
 
 ## 参考资料
@@ -111,4 +118,4 @@ autocmd EVENTS PATTERN COMMAND
 \[10\] [使用 oh-my-bash 和 Nightfly 美化 Bash 和 Vim](https://cn.linux-console.net/?p=16191)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6 | Date: 2025-10-11
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.2 | Date: 2026-08-31

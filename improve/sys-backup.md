@@ -47,9 +47,9 @@ timeshift --list
 ```
 然后执行以下命令即可还原备份。  
 ```sh
-timeshift --restore --snapshot 'SNAPSHIOT_NAME'
+timeshift --restore --snapshot '<SNAPSHIOT_NAME>'
 ```
-注：SNAPSHIOT_NAME为相应快照的快照名  
+注：`SNAPSHIOT_NAME`为相应快照的快照名  
 
 当然也可以执行命令`timeshift --restore`并在接下来的界面选择备份并进行还原。  
 
@@ -60,4 +60,4 @@ timeshift --restore --snapshot 'SNAPSHIOT_NAME'
 \[1\] `timeshift --help`  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.6 | Date: 2025-10-09
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.7 | Date: 2025-11-06

@@ -5,7 +5,7 @@
 ```sh
 #!/bin/bash
 # For debian 13
-# Version: 2025-09-13
+# Version: 2025-11-09
 
 echo user:
 read USER_NAME
@@ -13,6 +13,7 @@ echo "Your user name: ${USER_NAME}"
 
 dpkg --configure -a
 apt update --fix-missing
+apt autoremove
 
 apt remove baobab \
 	   evince \
@@ -106,11 +107,11 @@ apt install ffmpeg vlc nomacs
 apt install ffmpegthumbnailer
 
 # install chinese pingying input method
-apt install ibus-rime
+apt install ibus-rimeuname
 
 # install developement enviroment
 apt install gcc-14 gcc make cmake meson build-essential perl git python3
-apt install linux-headers-$(uname -r | sed 's/.*-//g')
+apt install linux-headers-$(dpkg --print-architecture)
 
 # install java developement enviroment
 apt install openjdk-21-jdk openjfx #openjdk-25-jdk 
@@ -229,4 +230,4 @@ echo OK
 然后重启计算机，再安装NVIDIA官方驱动并重启计算机，最后安装Hanabi动态壁纸。  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.5 | Date: 2025-10-03
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.7 | Date: 2025-11-09

@@ -8,6 +8,7 @@
 [Linux From Scratch 中文翻译](https://lfs.xry111.site/zh_CN/)  
 [Linux From Scratch 12.3-中⽂翻译版](https://lfs.xry111.site/zh_CN/12.3/LFS-BOOK.pdf)  
 [Linux From Scratch 12.3-systemd-中⽂翻译版](https://lfs.xry111.site/zh_CN/12.3-systemd/LFS-SYSD-BOOK.pdf)  
+[Gameing on Linux](https://www.gamingonlinux.com/)  
 
 ---
-License: CC0 | Version: 0.3.5 | Date: 2025-10-11
+License: CC0 1.0 | Version: 0.3.6 | Date: 2026-10-a6

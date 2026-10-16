@@ -8,8 +8,8 @@ musl libc是一个轻量级的适用于Linux内核的C标准库实现，其向�
 
 然后使用以下命令解压源码包并进入项目目录。  
 ```sh
-tar -xvf musl-VERSION.tar.gz
-cd musl-VERSION
+tar -xvf musl-<VERSION>.tar.gz
+cd musl-<VERSION>
 ```
 
 然后使用以下命令编译并安装musl
@@ -33,7 +33,7 @@ make install
 
 因为要在宿主机上为挂载的目标机安装musl，所以在安装时需通过`DESTDIR`参数指定目标机的根目录挂载点。  
 ```sh
-make DESTDIR=/TARGET/ROOT/MNT/POINT install
+make DESTDIR=</TARGET/ROOT/MNT/POINT> install
 ```
 说明：`DESTDIR`参数实际用于将软件复制到临时位置而不是`--perfix`（或默认）指定的期望安装目录。虽然在该例子中虽然在宿主机上软件复制到的位置是通过`DESTDIR`设置的临时位置，但在目标机脱离宿主机独立运行后，则软件的安装位置即成为了`--perfix`参数所指定的期望安装目录`/`。  
 
@@ -51,6 +51,4 @@ make distclean
 \[2\] [16.4 DESTDIR: Support for Staged Installs](https://www.gnu.org/software/make/manual/html_node/DESTDIR.html)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7 | Date: 2025-10-24
-
-
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.1 | Date: 2025-11-07

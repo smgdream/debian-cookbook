@@ -8,7 +8,7 @@
 Debian Trixie基本支持2024年Q3及之前生产或组装的机器，2024年Q4至2025年Q3生产或组装的机器则可能支持。另外，根据笔者朋友的测试报告Debian Trixie 似乎对部分老旧机器的支持存在问题。  
 
 ### Debian Testing
-Debian Testing再某种程度上算半个滚动式发行版，其可以较为及时的支持新硬件（只要硬件厂商对Linux做了适配）。如果你的硬件较新可以使用该版本。  
+Debian Testing在某种程度上算半个滚动式发行版，其可以较为及时的支持新硬件（只要硬件厂商或个人/组织对Linux做了适配）。如果你的硬件较新可以使用该版本。  
 
 ### Debian Bookworm
 Debian Bookworm基本支持2022年Q4及之前生产或组装的机器，2024年Q4至2025年Q3生产或组装的产品则可能支持，该版本是最后一个支持32位x86架构的Debian版本。  
@@ -28,7 +28,7 @@ Debian Trixie支持Intel Lunar Lake架构的CPU及其兼容的主板。有线网
 
 2 在计算机上使用磁盘管理软件划分出一个不小于16GB的无分区小空闲空间，随后在空闲空间上[安装Debian](../start/install-deb.md)。
 
-3 测试硬件兼容性一，常规测试。启动Debian检查显示（显示可在设置中调节缩放比例）是否正常键鼠输入是否正常，检查有线网络无线网络是否正常，检查蓝牙是否正常，检查触控板是否正常，电池电量检测正常，检查声卡是否正常，检查摄像头是否正常，播放视频检查是否能正常调用核显解码。  
+3 测试硬件兼容性一，常规测试。启动Debian检查显示（显示可在设置中调节缩放比例）是否正常键鼠输入是否正常，检查有线网络无线网络是否正常，检查蓝牙是否正常，检查触控是否正常，电池电量检测正常，检查声卡是否正常，检查摄像头是否正常，播放视频检查是否能正常调用核显解码。  
 
 4 测试硬件兼容性二，独显测试。请按照[Debian对各家显卡的支持](../improve/graphics-card.md)中的方法安装显卡驱动。然后检查显示是否正常，并下载游戏测试（如minecraft）。  
 
@@ -38,12 +38,17 @@ NVIDIA显卡的情况较为特殊，在按照前文提到的方法安装完驱�
 
 注意：Linux对大部分硬件的支持都较为完善但有一类硬件除外——生物识别硬件（指纹识别和人脸识别），如果你有强烈的生物识别使用需求则可能Linux不太适合你。  
 
+### 简易硬件兼容性测试方法
+下载最新稳定版带图形环境的Debian Live CD（建议使用GNOME版或KDE版）并按照上文步骤3测试基本硬件兼容性。
+
 ## 目前已知的部分值得注意的硬件兼容问题
 
 注：以下内容来自各种资料源，笔者不对其正确性和可复现性负责。  
 
-- 部分Lenovo设备在Debian Trixie上存在音频相关问题。  
+- 部分Lenovo<sup>注1</sup>设备在Debian Trixie上存在音频相关问题。（联想负主要责任）  
 - Intel N5105在Debian Trixie上存在明显的核显驱动问题。
+
+注1：联想还有个子品牌 Lecoo “来酷”
 
 ## 鸣谢
 - [WenQi(闻柒)](https://github.com/WenqiOfficial)
@@ -52,7 +57,8 @@ NVIDIA显卡的情况较为特殊，在按照前文提到的方法安装完驱�
 ## 参考资料
 
 \[1\] [LinuxVersions - Linux Kernel Newbies](https://kernelnewbies.org/LinuxVersions)  
+\[2\] [Guide: Linux Audio on the Lenovo Legion Pro 7i Gen 10 (16IAX10H)](https://github.com/nadimkobeissi/16iax10h-linux-sound-saga)  
 
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5 | Date: 2025-10-09
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.1u | Date: 2026-10-16
