@@ -107,7 +107,7 @@ apt install ffmpeg vlc nomacs
 apt install ffmpegthumbnailer
 
 # install chinese pingying input method
-apt install ibus-rimeuname
+apt install ibus-rime
 
 # install developement enviroment
 apt install gcc-14 gcc make cmake meson build-essential perl git python3
@@ -230,4 +230,4 @@ echo OK
 然后重启计算机，再安装NVIDIA官方驱动并重启计算机，最后安装Hanabi动态壁纸。  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.7 | Date: 2025-11-09
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.7u | Date: 2026-10-27

@@ -24,7 +24,8 @@ systemctl enable nvidia-resume.service
 ```
 注：`nvidia-suspend-common`不依赖Debian官方源中的NVIDIA驱动  
 
-然后开启`PreserveVideoMemoryAllocations`NVIDIA模块参数，以允许在挂起后保留视频内存。  
+<!-- 关于此处NVIDIA挂起后无法唤醒的解决方法部分的内容，考虑要不要移动到install-nv中？ -->
+然后启用`PreserveVideoMemoryAllocations`NVIDIA模块，以允许在挂起后保留视频内存。  
 ```sh
 echo 'options nvidia NVreg_PreserveVideoMemoryAllocations=1' > /etc/modprobe.d/nvidia-power-management.conf
 ```
@@ -49,4 +50,4 @@ mv /usr/lib/udev/rules.d/61-gdm.rules /usr/lib/udev/rules.d/61-gdm.rules.bak
 \[5\] [Chapter 36. Direct Rendering Manager Kernel Modesetting (DRM KMS)](https://download.nvidia.com/XFree86/Linux-x86_64/580.82.09/README/kms.html)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.7u | Date: 2026-08-31
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.8 | Date: 2026-10-23

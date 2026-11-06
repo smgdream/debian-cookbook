@@ -1,5 +1,4 @@
 # Deal late no more NVIDIA <!-- 正式标题：NVIDIA驱动的安装与配置，英文非正式标题：HOW TO FUCK NVIDIA -->
-![](images/install-nv/.jpg)
 ![So fuck you NVIDIA](images/install-nv/fuck-nv.jpg)  
 此时无声胜有声  
 

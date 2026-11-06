@@ -59,7 +59,7 @@ systemctl start ntpsec
 
 ### 笔记本合上盖子行为设置
 Debian中默认笔记本合上盖子的行为为挂起计算机，而有时我们需要将其设置为其他行为（如：无动作）。配置方法如下：  
-编辑`/etc/systemd/logind.conf`文件，取消`HandleLidSwitch`行的`#`注释。任何将`HandleLidSwitch`的对应值修改为合上笔记本盖子所需的行为（如：ignore，无操作）。最后重启计算机应用配置（注意：请勿相信网上说的重启`systemd-logind`服务的操作，否则可能导致桌面环境卡死）。  
+编辑`/etc/systemd/logind.conf`文件，取消`HandleLidSwitch`行的`#`注释，将`HandleLidSwitch`的对应值修改为合上笔记本盖子所需的行为（如：`ignore`，无操作）。最后重启计算机应用配置（注意：请勿相信网上说的重启`systemd-logind`服务的操作，否则可能导致桌面环境卡死）。  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.7 | Date: 2025-11-06
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.7u | Date: 2026-10-29

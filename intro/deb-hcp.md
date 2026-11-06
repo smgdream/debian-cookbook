@@ -32,7 +32,7 @@ Debian Trixie支持Intel Lunar Lake架构的CPU及其兼容的主板。有线网
 
 4 测试硬件兼容性二，独显测试。请按照[Debian对各家显卡的支持](../improve/graphics-card.md)中的方法安装显卡驱动。然后检查显示是否正常，并下载游戏测试（如minecraft）。  
 
-NVIDIA显卡的情况较为特殊，在按照前文提到的方法安装完驱动后还应当按照[NVIDIA驱动使用wayland显示服务](../improve/nv-wayland.md)的方法来重新启动wayland（如果不重新启动wayland则无法设置分数缩放，在高分辨率显示器上的显示效果较差。这可能会让人误诊为对NVIDIA独显支持有问题）。然后可能需要重新设置缩放。随后正常检查显示并测试游戏。  
+NVIDIA显卡的情况较为特殊，在按照前文提到的方法安装完驱动后还应当按照[NVIDIA驱动使用wayland显示服务](../improve/nv-wayland.md)的方法来重新启用wayland（如果不重新启用wayland则无法设置分数缩放，在高分辨率显示器上的显示效果较差。这可能会让人误诊为对NVIDIA独显支持有问题）。然后可能需要重新设置缩放。随后正常检查显示并测试游戏。  
 
 5 确认硬件兼容没问题后即可正式在物理机上安装Debian并使用。  
 
@@ -61,4 +61,4 @@ NVIDIA显卡的情况较为特殊，在按照前文提到的方法安装完驱�
 
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.1u | Date: 2026-10-16
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.1u | Date: 2026-10-27

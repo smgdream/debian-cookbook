@@ -1,4 +1,4 @@
-# 呐呐呐，你不会到现在还不会读手册吧？
+# 呐呐呐，你不会到现在还不会读手册吧？<!-- 正式标题：Manual的阅读说明 -->
 没想到你声称自己是个Linux用户却连阅读手册(Manual)这种基本技能都不会，真是个杂鱼~那就让我教教你这条杂鱼怎么阅读手册吧。  
 <!-- 待更杂鱼化 -->
 
@@ -50,7 +50,7 @@ man命令还可以一次性查阅多个手册，如`man dd 3 printf`命令将显
 
 除此之外，依据描述对象的需求，其手册中还可能会有其他的段落，如LIBRARY（库）、OPTIONS（选项）、RETURN VALUE（返回值）、ERRORS（错误）、BUGS、AUTHOR等段落。
 
-man程序还提供了一些选项用于控制其功能和行为。如`--help`参数可用于查看man命令的帮助信息。而`-a`选项则会让man显示所有匹配的对象的手册。例如命令`man -a printf`将令man显示printf(1)和printf(3)的手册。
+man程序还提供了一些选项用于控制其功能和行为。如`--help`选项可用于查看man命令的帮助信息。而`-a`选项则会让man显示所有匹配的对象的手册。例如命令`man -a printf`将令man显示printf(1)和printf(3)的手册。
 
 如果想要将手册保存为文本文件则可以通过重定向来实现，例如`man section page >textfile`。要注意，终端宽度将决定输出文本中每行的换行位置和排版。
 
@@ -227,4 +227,4 @@ Linux man-pages 6.9.1          2024-05-02                        cos(3)
 \[7\] [Merge tag 'strncpy-removal-v7.2-rc1' of git.kernel.org/pub/scm/linux/kernel/git/kees/linux](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=1a3746ccbb0a97bed3c06ccde6b880013b1dddc1)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.4.9u | Date: 2026-09-13
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.4.9u | Date: 2026-10-25

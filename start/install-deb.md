@@ -16,7 +16,7 @@ Debian提供了三种下载ISO映像的方式：常规下载、Bittorrent种子�
 [官方Debian trixie DVD ISO映像下载页面](https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/)  
 [兰州大学镜像站Debian trixie DVD ISO镜像下载页面](https://mirror.lzu.edu.cn/debian-cd/current/amd64/iso-dvd/)  
 
-后续内容主要围绕dvd disk1展开。  
+后续内容主要围绕DVD Disk1展开。  
 
 ## 烧录镜像
 ### Linux
@@ -48,7 +48,8 @@ dd if=debian.iso of=/dev/TARGET_DEV_NAME
 注：图形界面安装程序在部分机器上有小概率出现bug，使用TUI模式安装可以尽量避免安装程序的bug。但下面仍以图形安装程序说明安装步骤，无论是图形界面安装程序还是TUI安装程序其安装过程都相差无几。  
 
 ## 设定语言及键盘映射
-自此正式开始安装过程，笔者建议安装过程全程断网，中途可能遇到的部分问题在“问题处理”段落提供了解决方案。  
+自此正式开始安装过程，笔者建议安装过程全程断网。中途可能遇到的部分问题在“问题处理”段落提供了解决方案。 
+
 **选择语言** 选择一个合适的语言，如：中文(简体)。该语言既是安装界面的语言也是安装后系统的默认语言。笔者建议读者选择其母语，否则安装完Debian后还需要需要一些额外的步骤以完善母语相关的支持（本手册目前未提及这些内容）。  
 ![select lang zh_CN](images/install-deb/select-lang.png)  
 然后 **选择地区** 选择一个合适的地区，如：中国（该地区将决定与地区相关的数据显示格式，如：时间格式）  
@@ -198,4 +199,4 @@ mount /dev/<INSTALLATION_MEDIA_PARTITION_DEVICE_NAME> /cdrom
 \[3\] [Vendors of Debian installation media](https://www.debian.org/CD/vendors/)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.9.9u | Date: 2026-08-31
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.9.9u | Date: 2026-10-28

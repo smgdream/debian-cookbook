@@ -41,7 +41,7 @@ Suites: trixie trixie-updates
 Components: main contrib non-free non-free-firmware
 Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 ```
-说明：updates源用于提前获取下一个小版本更新更新的软件。  
+说明：updates源用于提前获取下一个小版本更新更新的软件。<!-- 在此是否要保留update源 -->  
 
 注：发行版名称（`Suites`字段）可能要依据实际需求稍作修改。如果因为地区网络问题导致更新软件速度较慢可以将URIs对应的值替换为[其他镜像站](https://www.debian.org/mirror/list)的地址（其URL不强求以斜杠结尾）（如：`https://mirrors.cernet.edu.cn/debian/`或`https://mirrors.ustc.edu.cn/debian/`）。  
 

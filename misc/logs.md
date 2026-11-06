@@ -12,9 +12,9 @@
 | `journalctl --system` | 查看系统日志（需以root身份执行） |
 | `journalctl -k` | 查看内核消息（需以root身份执行） |
 
-注：默认情况下，打印的日志按时间升序排序。如需其降序排序则要添加参数`-r`用以将输出逆序。
+注：默认情况下，打印的日志按时间升序排序。如需其降序排序则要添加选项`-r`用以将输出逆序。
 
-journal的日志文件存放在`/var/log/journal`目录中。如需删除journal日志文件可使用`--vacuum-size=nU`参数保留最近的n个数量级代号U字节大小的内容（如16K、8M、4G），更旧日志则删除。除此之外，还可以使用`--vacuum-time=nT`删除最近n个时间单位T (s, m, h, d, w, m, y) 之外的内容，如`3d`将保留最近3天的内容，其他的则删除。
+journal的日志文件存放在`/var/log/journal`目录中。如需删除journal日志文件可使用`--vacuum-size=nU`选项保留最近的n个数量级代号U字节大小的内容（如16K、8M、4G），更旧日志则删除。除此之外，还可以使用`--vacuum-time=nT`删除最近n个时间单位T (s, m, h, d, w, m, y) 之外的内容，如`3d`将保留最近3天的内容，其他的则删除。
 
 ## 其他查看和管理日志的方法
 除了使用journalctl查看日志，我们还可以使用其他命令查看各类日志。  
@@ -27,7 +27,9 @@ journal的日志文件存放在`/var/log/journal`目录中。如需删除journal
 
 我们亦可以进入日志目录以查看可阅读日志，如/var/log，许多程序将其日志保存在此目录中。
 
-如果我们要删除日志可以使用`truncate -s 0 <file>`将日志正确地截断为0字节。  
+如果我们要删除日志可以使用`truncate -s 0 <file>`命令将日志正确地截断为0字节。  
+
+## 参考资料
 
 \[1\] JOURNALCTL(1)  
 \[2\] [systemd/Journal - ArchWiki](https://wiki.archlinux.org/title/Systemd/Journal  )  
@@ -35,4 +37,4 @@ journal的日志文件存放在`/var/log/journal`目录中。如需删除journal
 \[4\] [How to Clear System Log Files in Linux (2026)](https://www.fosslinux.com/111830/how-to-empty-or-clear-system-log-files-in-linux.htm)
 
 ---
-Author: smgdream | Licnese: CC BY-NC-SA 4.0 | Version: 0.4 | Date: 2026-10-16
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.4.1u | Date: 2026-10-27

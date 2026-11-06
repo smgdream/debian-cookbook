@@ -11,4 +11,4 @@
 [Gameing on Linux](https://www.gamingonlinux.com/)  
 
 ---
-License: CC0 1.0 | Version: 0.3.6 | Date: 2026-10-a6
+License: CC0 1.0 | Version: 0.3.6 | Date: 2026-10-16

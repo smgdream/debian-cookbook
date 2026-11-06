@@ -2,8 +2,8 @@
 
 **Debian食用手册**  
 [License: CC BY-NC-SA 4.0](./LICENSE)  
-Version: 0.9.5 Dev
-**注意：此版本为开发版，部分内容尚未更新或完善**
+Version: 0.9.6 Dev
+
 ## 1 适用范围
 
 本手册旨在提供适用于Debian系统的使用说明和配置说明，该手册适合有简单Linux基础的人阅读。  
@@ -11,11 +11,11 @@ Version: 0.9.5 Dev
 限制：本手册内容适用于Debian 13，因本人能力所限，当前手册桌面环境相关内容主要局限于GNOME桌面环境。  
 
 ## 2 微社区
-如果有关于使用Debian和其他Linux相关的的问题或有关于本手册的建议与可在[Discussions](https://github.com/smgdream/debian-cookbook/discussions)讨论区进行讨论和说明，如果要提交勘误和改进建议请提交issue。  
+如果有关于使用Debian和其他Linux相关的的问题或有关于本手册的建议与可在[Discussions](https://github.com/smgdream/debian-cookbook/discussions)讨论区进行讨论和说明，Discussions中还会发布本手册的紧急勘误和手册相关的公告。 
 
 ## 3 贡献说明
 
-本人欢迎各位为本手册添砖加瓦，但必须以CC BY-SA 4.0协议或CC0协议发布。而且本手册要求所有内容不得使用AI生成并且需自然人贡献者验证并保证内容的有效性，内容本身也不得违法或侵权。<!-- 至于为什么贡献者贡献的文章的允许的发布协议不包含CC BY-NC-SA是因为在多人合作中该协议会带来各种各样难以处理的问题所以目前只允许笔者本人使用该协议 -->  
+本人欢迎各位为本手册添砖加瓦，但必须以CC BY-SA 4.0协议或CC0 1.0协议发布。而且本手册要求所有内容不得使用AI生成并且需自然人贡献者署名验证并保证内容的有效性，内容本身也不得违法或侵权。<!-- 至于为什么贡献者贡献的文章的允许的发布协议不包含CC BY-NC-SA是因为在多人合作中该协议会带来各种各样难以处理的问题所以目前只允许笔者本人使用该协议 -->如果要提交勘误和改进建议请提交issue。   
 
 ## 4 内容索引
 
@@ -91,11 +91,11 @@ Version: 0.9.5 Dev
 > [GCC](compile/gcc.md)  
 > [tcc](compile/tcc.md)  
 > [SDL3](compile/sdl3.md)  
-> [Make构建系统的使用方法]()  
+> [Make构建系统的使用方法](compile/make.md)  
 
 <!-- miscellanea -->
 > 7. 知识杂物房  
-> [Debian季报](misc/deb-news.md)  
+> [鱼板季报](misc/deb-news.md)  
 > [系统急救包](misc/os-aid.md)  
 > [过时命令的代替品](misc/new-cmd.md)  
 > [各apt软件源介绍](misc/apt-repo.md)  

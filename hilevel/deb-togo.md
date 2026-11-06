@@ -75,4 +75,4 @@ rm -r /tmp/firmware
 **自此Debian To Go的安装才算真正完成。**  
 
 ---
-Autuor: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7 | Date: 2025-11-06
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7u | Date: 2026-10-27

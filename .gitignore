@@ -3,3 +3,5 @@ docbackup/**
 pool/**
 other/**
 todo-list.txt
+usage/ffmpeg.md
+usage/images/ffmpeg/**

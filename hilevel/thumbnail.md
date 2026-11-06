@@ -45,25 +45,26 @@ apt install ffmpegthumbnailer
 
 然后我们发现只有视频文件缩略图生成是正常的，音频文件无法生成缩略图。这是因为ffmpegthumbnailer对应的thumbnailer文件中的MimeType字段并没有音频文件相关的Mime类型。实际上ffmpegthumbnailer支持生成音频缩略图，所以只要在MimeType字段中添加音频文件相关的Mime类型即可。  
 
-原本的ffmpegthumbnailer对应的thumbnailer文件中`Exec`对应的执行语句有一个`-f`参数，该参数用于中生成视频缩略图时加上胶片打孔的效果，这会增加生成缩略图的耗时并占用更多资源，而且大多数情况下该参数也是没意义的（其中的缘由请看**题外话**段落），所以我们可以将该参数删除。（关于ffmpegthumbnailer.thumbnailer的原始内容见**附加信息**段落）  
+原本的ffmpegthumbnailer对应的thumbnailer文件中`Exec`对应的执行语句有一个`-f`选项，该选项用于在生成视频缩略图时加上胶片打孔的效果，这会增加生成缩略图的耗时并占用更多资源，而且大多数情况下该选项也是没意义的（其中的缘由请看**题外话**段落），所以我们可以将该选项删除。（关于ffmpegthumbnailer.thumbnailer的原始内容见**附加信息**段落）  
+<!-- 此段落这样安排是有意为之的 -->忘记说了ffmpegthumbnailer对应的thumbnailer文件路径为
+`/usr/share/thumbnailers/ffmpegthumbnailer.thumbnailer`   
 
-忘记说了ffmpegthumbnailer对应的thumbnailer文件路径为`/usr/share/thumbnailers/ffmpegthumbnailer.thumbnailer`  
 以下是一个修改后的ffmpegthumbnailer.thumbnailer示例:  
 ```thumbnailer
 [Thumbnailer Entry]
 
 TryExec=ffmpegthumbnailer
 Exec=ffmpegthumbnailer -i %i -o %o -s %s
-MimeType=video/mp4;video/mpeg;video/ogg;video/vnd.avi;video/webm;video/x-flv;video/x-mjpeg;video/x-ms-wmv;video/x-ogm+ogg;video/x-theora+ogg;application/vnd.ms-asf;application/x-matroska;video/x-matroska;application/ogg;audio/flac;audio/mpeg;audio/ogg;
+MimeType=video/mp4;video/mpeg;video/ogg;video/vnd.avi;video/webm;video/x-flv;video/x-mjpeg;video/x-ms-wmv;video/x-ogm+ogg;video/x-theora+ogg;application/vnd.ms-asf;video/matroska;application/x-matroska;video/x-matroska;application/ogg;audio/flac;audio/mpeg;audio/ogg;audio/mp3;audio/x-mp3;audio/mpeg;audio/x-mpeg;audio/x-mpg;
 ```
-说明：删除了Exec字段执行语句参数中的`-f`。删除了部分不常用文件对应的MIME类型。添加了常见音频文件格式对应的MIME类型。  
+说明：删除了Exec字段执行语句中的`-f`选项。删除了部分不常用文件对应的MIME类型。添加了常见音频文件格式对应的MIME类型。  
 
 建议配置完后通过`rm -rv ~/.cache/thumbnails`清空缩略图缓存，如果缩略图缓存占用空间较大也可以通过此命令清理。  
 
 等等，那图片及其他文件的缩略图生成去哪了？这个你不用担心，常用图片类型及部分其他文件类型的缩略图生成由系统预装的其他一些没图形界面的软件负责，正常情况下也不会卸载这些软件。但是对于部分文件类型系统没有预装对应的缩略图生成器，这些文件的缩略图生成器需要用户自行安装。（通过命令`apt list *thumbnailer*`可以查看软件源中存在的缩略图生成器）  
 
 ## 题外话
-也许你照我上面的示例配置好了ffmpegthumbnailer，但你突然发现为什么视频文件仍然有胶片打孔样式。但当你打开缩略图缓存文件一看发现图片并没有打孔样式。自此真相大白，胶片样式是图形文件管理器自己叠上去的。这也就是为何我说大部分情况下`-f`参数没有意义的原因。  
+也许你照我上面的示例配置好了ffmpegthumbnailer，但你突然发现为什么视频文件仍然有胶片打孔样式。但当你打开缩略图缓存文件一看发现图片并没有打孔样式。自此真相大白，胶片样式是图形文件管理器自己叠上去的。这也就是为何我说大部分情况下`-f`选项没有意义的原因。  
 
 ## 附加信息
 
@@ -94,4 +95,4 @@ MimeType=application/mxf;application/ram;application/sdp;application/vnd.apple.m
 \[7\] [Complete List of All MIME Types](https://mime.wcode.net/)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.9.4 | Date: 2026-04-12
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.9.5 | Date: 2026-10-23

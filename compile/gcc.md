@@ -42,13 +42,13 @@ cd build
 	--enable-year2038 \
 	--enable-nls
 ```
-在该命令中所有参数都是可选的，但笔者添加了这些编译参数也是有原因的，以下是对各个参数的说明，你可以通过该下面的说明判断你是否需要该参数以及是否需要调整参数的值。  
+在该命令中所有选项都是可选的，但笔者添加这些编译选项也是有原因的，以下是对各个选项的说明，你可以通过该下面的说明判断你是否需要该选项以及是否需要调整选项的值。  
 
 `--prefix=/opt/gcc`  
 设置gcc的安装路径为`/opt/gcc`，如无此项默认安装路径为`/usr/local`。  
 
 `--enable-languages=c,c++`  
-构建指定程序设计语言的编译器及其运行时库。示例中该参数的值说明了仅构建C和C++的编译器和运行时库。
+构建指定程序设计语言的编译器及其运行时库。示例中该选项的值说明了仅构建C和C++的编译器和运行时库。
 
 `--enable-default-pie`
 启用位置无关可执行文件功能，让程序可以加载在内存中的任意位置，这可以提高攻击难度，令gcc更加安全。  
@@ -57,10 +57,10 @@ cd build
 构建共享版的库。如无此项默认构建共享库。  
 
 `--disable-bootstrap`  
-禁用三段式编译（又称为三回式编译），顾名思义该编译方式需要编译三次才能得到最终的成品gcc。三段式编译是为了验证编译器的有效性与安全性。但禁用三段式编译能大大减少编译耗时。如果缺少该参数则默认使用三段式编译。  
+禁用三段式编译（又称为三回式编译），顾名思义该编译方式需要编译三次才能得到最终的成品gcc。三段式编译是为了验证编译器的有效性与安全性。但禁用三段式编译能大大减少编译耗时。如果缺少该选项则默认使用三段式编译。  
 
 `--disable-werror`  
-禁用编译参数-Werror（如果在编译时使用了参数`-Werror`将会导致将warning当作erorr，一旦遇到warning则直接终止编译）。  
+禁用编译选项-Werror（如果在编译时使用了选项`-Werror`将会导致将warning当作erorr，一旦遇到warning则直接终止编译）。  
 
 `--enable-threads=posix`  
 启用posix多线程支持，如果没有启用posix多线程支持则生成的gcc无法编译posix多线程程序。  
@@ -69,7 +69,7 @@ cd build
 以发布模式对编译结果进行一致性检查，以确保编译出来的程序是正确的。  
 
 `--disable-multilib`  
-禁止构建多架构目标库。如无此项则默认构建多架构目标库。（该参数经常使用）  
+禁止构建多架构目标库。如无此项则默认构建多架构目标库。（该选项经常使用）  
 
 `--disable-fixincludes`  
 禁用头文件修复功能。  
@@ -85,7 +85,7 @@ cd build
 ```sh
 make -j$(nproc)
 ```
-说明：`-j$(nproc)`参数用于使用所有CPU物理线程进行编译。  
+说明：`-j$(nproc)`选项用于使用所有CPU物理线程进行编译，如果不想使用所有线程进行编译则可以将选项更改为`-j<num>`，`<num>`即为要使用的线程数。  
 
 **可选:** 如果需要测试编译出来的gcc需要安装`dejagnu`并执行以下命令。  
 ```sh
@@ -129,4 +129,4 @@ cd .. && rm -r build # optional
 \[9\] [16.4 DESTDIR: Support for Staged Installs](https://www.gnu.org/software/make/manual/html_node/DESTDIR.html)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.1 | Date: 2025-11-07
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.1u | Date: 2026-10-20

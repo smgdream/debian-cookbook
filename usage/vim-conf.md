@@ -18,7 +18,7 @@
 | `set encoding=utf-8` | 使用UTF-8编码 |
 | `set showmatch` | （默认）高亮与当前括号匹配的另一个括号 |
 | `filetype on` | 自动检测文件类型 |
-| `filetype indent no` | 自动检测文件类型使用相应缩进规则 |
+| `filetype indent on` | 自动检测文件类型使用相应缩进规则 |
 | `filetype plugin on` | 自动检测文件类型使用相应插件 |
 | `colorscheme THEME_NAME` | 使用名为THEME_NAME的主题 |
 
@@ -118,4 +118,4 @@ autocmd EVENTS PATTERN COMMAND
 \[10\] [使用 oh-my-bash 和 Nightfly 美化 Bash 和 Vim](https://cn.linux-console.net/?p=16191)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.2 | Date: 2026-08-31
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.2u | Date: 2026-10-27

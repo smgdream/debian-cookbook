@@ -75,7 +75,7 @@ apt install gnome-shell-extension-status-icons
 ```sh
 apt install gnome-shell-extension-blur-my-shell
 ```
-注：通过apt安装的Blur my shell版本为67（可以在Gnome48上用），而68（当前的最新版本）才正式支持Gnome48，而68版提供了完整的中文设置界面支持。但需要去扩展商店安装或手动安装。
+注：通过apt安装的Blur my shell版本为67（可以在Gnome48上用），而68才正式支持Gnome48，v68提供了完整的中文设置界面支持。但需要去扩展商店安装或手动安装。
 
 **其他扩展推荐**  
 | 扩展名称 | 是否在Debian源中 | 描述 |

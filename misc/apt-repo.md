@@ -43,7 +43,7 @@ Components: main contrib non-free-firmware non-free
 
 注：sid没有对应安全源。  
 
-Debian的次版本更新频率约为一到两个月一次，如果Debian系统中的软件被发现了安全漏洞，而等到下个Debian小版本更新才能获得修复的话。如果软件被发现了严重漏洞而不能及时获得安全修复的话，那使用这些软件的用户早就被渗成筛子了。而安全源则可以在在发现漏洞并编写好修复补丁后可以及时将修复完漏洞的软件版本及时推送给Debian用户。  
+Debian的次版本更新频率约为一到两个月一次，如果Debian系统中的软件被发现了安全漏洞，而等到下个Debian小版本更新才能获得修复的话，那使用这些软件的用户早就被渗成筛子了。而安全源则可以在在发现漏洞并编写好修复补丁后可以及时将修复完漏洞的软件版本推送给Debian用户。  
 
 通常获得安全修复自然是越及时越好（特别是对于联网的生产环境来说）。因为安全源的镜像通常不会及时和官方安全源同步而是定时同步，所以为了及时获得安全修复，安全源应当直接使用Debian官方源（其URL为`https://security.debian.org/debian-security/`）。但如果因为当地网络问题或组织规定导致难以使用官方安全源的话，那也就只能使用镜像源了。  
 
@@ -177,4 +177,4 @@ Experimental源实际上是一个特殊的Debian的测试版，其甚至不是�
 \[28\] [DebianExperimental - Debian Wiki](https://wiki.debian.org/DebianExperimental)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.1u | Date: 2026-09-04
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.1u | Date: 2026-10-27

@@ -38,9 +38,9 @@ cmake --install build --prefix <DIRECTORY>
 `cmake --install build --prefix <DIRECTORY>`  
 从构建目录bulid中将SDL3安装到指定目录`DIRECTORY`。后续即可使用该目录中SDL3头文件和动态库。  
 
-注1：在Windows中使用MinGW编译SDL，如果没有安装ninja则需要添加参数`-G "MinGW Makefiles"`将生成器指定为MinGW Makefiles。  
+注1：在Windows中使用MinGW编译SDL，如果没有安装ninja则需要添加选项`-G "MinGW Makefiles"`将生成器指定为MinGW Makefiles。  
 
-注2：如果不设置`-DCMAKE_BUILD_TYPE=Release`参数则默认的构建模式为RelWithDebInfo，该模式将保留部分调试信息，构建出来的文件也自然会大一些。  
+注2：如果不设置`-DCMAKE_BUILD_TYPE=Release`选项，默认的构建模式为`RelWithDebInfo`，该模式将保留部分调试信息，构建出来的文件较大。  
 
 
 如需进行清理工作删除build目录即可。  
@@ -50,4 +50,4 @@ cmake --install build --prefix <DIRECTORY>
 \[2\] docs/README-cmake.md  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.3 | Date: 2025-11-07
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.3u | Date: 2026-10-20

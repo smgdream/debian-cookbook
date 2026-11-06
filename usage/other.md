@@ -1,13 +1,13 @@
 # 其他软件使用说明
 
 ## Kdenlive
-Kdenlive是一个开源的功能较为完善的非线性视频编辑软件。其UI界面使用了QT框架。  
+[Kdenlive](https://kdenlive.org/)是一个开源的功能较为完善的非线性视频编辑软件。其UI界面使用了QT框架。  
 
 ### 注意事项
 
 对于Kdenlive 25.12及更新版本默认在启动时会显示项目的导览（欢迎）界面，在该界面中可设置剪辑项目的格式。如果没有显示该界面请检查 *设置->配置Kdenlive->系统环境->启动时显示欢迎屏幕* 选项是否已勾选。  
 
-而Kdenlive 25.12之前的版本没有项目导览界面，在开始对项目的操作之前务必确保已将项目参数设置为所需的参数。可在 *项目->项目设置* 中更改当前项目的参数，亦可在 *设置->配置Kdenlive->项目默认值* 菜单中设置默认项目参数。  
+而Kdenlive 25.12之前的版本没有项目导览界面，在开始对项目的操作之前务必确保已将项目设置设置为所需的设置。可在 *项目->项目设置* 中更改当前项目的设置，亦可在 *设置->配置Kdenlive->项目默认值* 菜单中设置默认项目设置。  
 
 ### 新建轨道
 右键任意轨道的轨道头即可新建相应类型（视频/音频）的新轨道。  
@@ -29,8 +29,19 @@ Kdenlive是一个开源的功能较为完善的非线性视频编辑软件。其
 ![](images/other/kdenlive-hwrender-4.png)  
 
 ## REAPER
-<!-- todo IME支持 -->
-<!-- todo 非拉丁语言显示 -->
+[REAPER](https://www.reaper.fm/)是一个跨平台的数字音频工作站(Digital Audio Wortstation)，其功能专业，程序体积小巧，且是目前市面上唯一对视障者友好的DAW。要注意REAPER是一个付费商业软件，但支持试用，其试用没有任何功能限制。
+
+### 渲染非拉丁字符
+如需REAPER支持显示非拉丁字符需要修改libSwell.colortheme配置文件，将渲染文本所使用的字体修改为包含相应字符字形的字体。添加简中显示支持的方法如下：
+
+编辑REAPER程序目录中的libSwell.colortheme文件将`default_font_face`项的值修改为`Noto Sans CJK SC`。
+```
+default_font_face Noto Sans CJK SC
+```
+
+### IME支持
+自7.81开始REAPER合并了社区成员开发的Linux IME支持补丁(by wastee, 啦哆咪)
+
 ### 隐藏空白TCP区域的插入轨道按钮
 
 隐藏从7.46开始出现的空白TCP区域显示的插入轨道按钮的方法：  
@@ -39,9 +50,9 @@ Kdenlive是一个开源的功能较为完善的非线性视频编辑软件。其
 
 ### 导入导出视频
 <!-- 待微调行文 -->
-如果REAPER无法导入导出除avi、mov以外格式的视频需另外安装FFmpeg。  
+如果REAPER无法导入导出除avi、mov以外格式的视频需要另外安装FFmpeg。  
 
-对于REAPER 7.66及更新版本，其支持FFmpeg 5.0-8.1版本。故只要通过包管理器安装了符合要求的FFmepg即可使用视频的导入导出功能。如果不想使用包管理器安装的版本或想使用比源仓库中更新的版本可在[BtbN](https://github.com/BtbN/FFmpeg-Builds/releases)上下载适用于Linux的FFmpeg GPL版<!-- 静态 -->share构建，然后将压缩包的lib目录中的`lib*.so.*`复制到REAPER程序目录的Plugins目录。 
+对于REAPER 7.66及更新版本，其支持FFmpeg 5.0-8.1，自REAPER 7.80开始还添加了对FFmpeg 9.x的支持。故只要通过包管理器安装了符合要求的FFmepg即可使用视频的导入导出功能。如果不想使用包管理器安装的版本或想使用比源仓库中更新的版本可在[BtbN](https://github.com/BtbN/FFmpeg-Builds/releases)上下载适用于Linux的FFmpeg GPL版<!-- 静态 -->share构建，然后将压缩包的lib目录中的`lib*.so.*`复制到REAPER程序目录的Plugins目录。 
 
 注：BtbN会删除其过旧的FFmpeg构建，如有需要请妥善保存构建。<!-- FFmpeg 4.4的构建就这么被删了，我也没有专门保存(我#$%&*^...口吐芬芳) -->  
 
@@ -51,9 +62,10 @@ REAPER 7.66及更新版本在安装了新版本的FFmepg后可以通过FFmpeg导
 
 ![](images/other/rp_render.png)  
 
-渲染时将输出格式设为FFmpeg/libav即可使用FFmpeg渲染导出，随后可根据需要选择合适的视频容器格式、音视频编码格式。如果需要使用硬件编码则要在视频的options处添加合适的硬件编码参数，如：`-c:v hevc_nvenc`。  
+渲染时将输出格式设为FFmpeg/libav即可使用FFmpeg渲染导出，随后可根据需要选择合适的视频容器格式、音视频编码格式。如果需要使用硬件编码则要在视频的options处添加合适的硬件编码选项，如：`-c:v hevc_nvenc`。  
 
-<!-- todo更全面的黑暗模式 -->
+### 暗色模式
+REAPER 7.81完善了各平台暗色模式的支持。在Linux中若要使用完整的暗色模式需要使用一个合适的暗色libSwell.colortheme配置（如[libSwell-user.colortheme by FeedTheCat](https://stash.reaper.fm/v/49893/libSwell-user.colortheme)）并选用一个暗色主题。
 
 ## Helvum
 Helvum是由pipewire团队开发的pipewire音频路由设置工具。  
@@ -66,6 +78,7 @@ Helvum是由pipewire团队开发的pipewire音频路由设置工具。
 在已有线路的一端拉到另一端即可断开当前线路的音频连接。  
 
 ## DeaDBeeF
+[DeaDBeeF](https://deadbeef.sourceforge.io/)是一个强大的跨平台音乐播放器，其支持多种音频格式，提供了详细的音频播放设置选项，亦支持不少社区开发的插件。
 
 ### 通过ALSA输出播放mp3音频
 使用ALSA输出方式可能无法播放mp3文件，问题的解决方式如下：  
@@ -85,6 +98,9 @@ Helvum是由pipewire团队开发的pipewire音频路由设置工具。
 \[4\] [ddb_waveform_seekbar/README.md at master · cboxdoerfer/ddb_waveform_seekbar](https://github.com/cboxdoerfer/ddb_waveform_seekbar/blob/master/README.md)  
 \[5\] [REAPER | Old Versions](https://www.reaper.fm/download-old.php?ver=7x)  
 \[6\] [SOLVED: Reaper cannot find ffmpeg on a clean Ubuntu 22.10 install](https://forum.cockos.com/showthread.php?t=273801&page=2)  
+\[7\] [Purchase a REAPER License](https://www.reaper.fm/purchase.php) 
+\[8\] [教你在 REAPER v7.81 全平台启用深色模式](https://club.reaget.com/t/topic/17175)   
+
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.6u | Date: 2026-09-29
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.8 | Date: 2026-10-30

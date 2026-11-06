@@ -115,7 +115,7 @@ apt install libgl-dev
 #### apt安装
 安装命令：  
 ```sh
-apt install vulkan-dev
+apt install libvulkan-dev
 ```
 
 #### 离线安装
@@ -184,12 +184,12 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
 ### 离线安装
-从[Other Rust Installation Methods页面](https://forge.rust-lang.org/infra/other-installation-methods.html)下载适用于linux系统的对应机器架构的最新稳定版独立安装包。然后使用`tar -xvf rust-*.tar.xz`解压安装包，然后进入安装包目录以root用户执行`./install.sh`安装脚本即可完成rust开发环境的安装（可通过设置安装脚本的参数来调整rust的安装，有关参数的详细信息可通过`./install.sh --help`查看）。  
+从[Other Rust Installation Methods页面](https://forge.rust-lang.org/infra/other-installation-methods.html)下载适用于linux系统的对应机器架构的最新稳定版独立安装包。然后使用`tar -xvf rust-*.tar.xz`解压安装包，然后进入安装包目录以root用户执行`./install.sh`安装脚本即可完成rust开发环境的安装（可通过设置安装脚本的选项来调整rust的安装，有关选项的详细信息可通过`./install.sh --help`查看）。  
 
 ## 安装Docker
 安装Docker首先需要下载并安装软件源密钥。  
 ```sh
-wget -nv https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+wget -nv https://download.docker.com/linux/debian/gpg -O /etc/apt/keyrings/docker.asc
 chmod +r /etc/apt/keyrings/docker.asc
 ```
 注：在部分不稳定网络环境下wget命令可能会执行出错，如果出错可以尝试多次执行wget命令。  
@@ -236,4 +236,4 @@ apt install qemu-system
 \[6\] [Install Docker Engine on Debian](https://docs.docker.com/engine/install/debian/)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.4u | Date: 2026-10-16
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.8.5u | Date: 2026-10-27

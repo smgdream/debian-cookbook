@@ -3,7 +3,6 @@
 
 ## Gnome Shell Extention - Hanabi（花火）
 Hanabi是一个Gnome扩展，该动态壁纸软件是对gnome支持最完善的动态壁纸软件。其可以让Overview窗口和Application picker界面上方的窗口也具有动态壁纸效果，甚至搭配支持gnome-shell组件透明化的gnome扩展使用还能透过半透明的组件看到底下的动态效果。<!-- 能否使用GIF动图 -->  
-![](images/live-wp/.png)
 ![](images/live-wp/hanabi-1.png)
 ![](images/live-wp/hanabi-2.png)
 ![](images/live-wp/hanabi-3.png)

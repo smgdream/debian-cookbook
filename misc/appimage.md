@@ -20,7 +20,7 @@ chmod +x <application>.AppImage
 ```
 然后在前的工作目录中将会出现一个`squashfs-root`目录，该目录即为AppImage的解压目录。`squashfs-root`目录中存在一个`AppRun`脚本/程序，该脚本即为主程序的启动脚本。之后我们可以将`squashfs-root`重命名为一个合适的名字然后移动到一个合适的位置并为其编写一个desktop启动器配置指向AppRun。  
 
-AppImage包除了提供程序本身的参数以外基本上还会提供一套于程序本身无关的appimage选项参数。通过`--appimage-help`参数即可查看AppImage提供的选项参数。  
+AppImage包除了提供程序本身的选项以外，通常还会提供一套于程序本身无关的appimage选项。通过`--appimage-help`选项即可查看AppImage提供的选项。  
 
 示例  
 ```sh
@@ -38,14 +38,14 @@ AppImage包除了提供程序本身的参数以外基本上还会提供一套于
 
 ## 运行AppImage可能会遇到的问题
 
-部分使用了Web技术制作UI的程序的AppImage分发版可能无法直接运行（常见于国产闭源软件的AppImage构建）。对于这类AppImage程序，若要令其正确运行需添加运行参数`--no-sandbox`。如: `./xxmusic.AppImage --no-sandbox`。如果要解压运行此类AppImage，则要为其AppRun脚本中运行主程序的命令加上参数`--no-sandbox`。 
+部分使用了Web技术制作UI的程序的AppImage分发可能无法直接运行（常见于国产闭源软件的AppImage构建）。对于这类AppImage程序，若要令其正常运行需添加`--no-sandbox`选项。如: `./xxmusic.AppImage --no-sandbox`。如果要解压运行此类AppImage，则要为其AppRun脚本中运行主程序的命令加上选项`--no-sandbox`。 
 
 ## 附加信息
-根据AppImage的官方文档AppImage分为两种类型，分别称为Type 1和Type 2，如今笔者遇到的AppImage都是Type 2。Type 2可以通过--appimage-extract参数来解压，而Type 1则需用mount来挂载。网上关于Type 1的资料少得可怜，官方文档亦是如此。根据官方文档的零星几处描述，推测其是早期的AppImage打包形式，其不包含AppImage运行时，可能就是一个不可执行的归档，需要通过专门的加载器运行。  
+根据AppImage的官方文档AppImage分为两种类型，分别称为Type 1和Type 2，如今笔者遇到的AppImage都是Type 2。Type 2可以通过`--appimage-extract`选项来解压，而Type 1则需用mount来挂载。网上关于Type 1的资料少得可怜，官方文档亦是如此。根据官方文档的零星几处描述，推测其是早期的AppImage打包形式，其不包含AppImage运行时，可能就是一个不可执行的归档，需要通过专门的加载器运行。  
 
 ## 参考资料
 \[1\] [AppImage Linux apps that run anywhere](https://appimage.org/)  
 \[2\] [Welcome to the AppImage documention](https://docs.appimage.org/)
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.2u | Date: 2026-10-16
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.5.3 | Date: 2026-10-23

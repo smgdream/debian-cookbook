@@ -1,19 +1,73 @@
-# Debian季报 26年秋
-第1期 2026年10月日 总编辑：smgdream
+# 鱼板季报 26年秋
+第1期 2026年11月6日 总编辑：smgdream
 
-## MiniDebConf Beijing 2026即将召开
-2026北京迷你Debian会议（MiniDebConf Beijing 2026）将于10月24日在北京市海淀区中关村南四街4号中国科学院软件研究所5号楼四层大报告厅举办。此会议是首次在中国大陆举办的Debian官方会议。
+## eMudhra证书因私钥过于简单而被破解
+2026年10月17日，印度证书颁发机构eMudhra签发的16张<sup>注1</sup>SSL中间证书被发现其私钥极为简单，P-384的密钥本应是一个384个二进制位的随机值，但eMudhra的私钥仅最低8位有实际值其他位均置为0。此问题已于10月21日公布，这16张证书的8个私钥均被破解并公之于众。此问题将导致任何人都可以使用该证书为任意域名签发伪造的有效SSL叶子证书，这将导致攻击者或中间人可以将自己的服务器伪造成对应域名的“合法”服务器，进而冒充目标网站执行一系列非法操作。
 
-如需参会<sup>注</sup>请于10月18日前前往[会议官网](https://beijing2026.mini.debconf.org/)注册账号并报名，日程安排可参见[Schedule页面](https://beijing2026.mini.debconf.org/schedule/)。欲了解更多相关信息请访问会议官网。
+目前大多数仍在维护的电脑操作系统已提供相应热更新或安全更新以吊销相应证书，用户只需连接网络获取热更新或安装相应安全更新即可让操作系统吊销eMudhra证书。google Chrome和Firefox浏览器已及时通过热更新或新安全修复版本的方式吊销了相应证书。除此之外，许多软件使用的是其内置的独立证书，这些软件应尽快更新到最新版本或安全修复小版本<sup>注2</sup>。但对于手机系统，建议在手机安全设置中禁用相应的eMudhra证书和AAA证书，否则需要等待手机厂商推送相应的安全更新。
 
-在此预祝MiniDebConf Beijing 2026顺利举行。
+Microsoft Edge浏览器的情况则较为特殊，Edge浏览器使用其独立的内置证书，而截至目前，最新的Edge 157 Beta其仍未移除相应的内置证书。但Windows平台和Mac平台的Edge提供了证书验证服务，联网后将自动吊销相应的内置证书。但对于Linux平台的Edge，其尚未包含证书验证服务，需要[手动配置CADistrustedCertificates组织策略将相应证书添加到不信任列表中](https://forums.debiancn.org/t/topic/6928)。  
 
-注：外国友人如需参会请提前与主办方联系。
+**特别提醒**，此事件所影响的证书的最久要到2040年4月末才过期，部分设备和软件可能在短期内不会获得更新，甚至永远不会获得更新，此事件的影响将会持续很久很久，请悉知。
+
+注1：实际上是8份证书，对应8个私钥，但每份证书都有eMudhra自己签发的版本和Sectigo（原Comodo CA）交叉签发AAA版，所以共有16份证书。  
+注2：部分受影响的软件及其修复后的版本的列表可见：https://emudhra.we-have-a-problem.com/#developers
 
 smgdream报道
 
+### 相关资料
+[eMudhra Intermediate CA Compromise](https://emudhra.we-have-a-problem.com/)  
+[印度eMudhra中间证书私钥存在严重缺陷：Chrome、Firefox迅速阻断，Go、Python、Rust均需更新](https://www.ithome.com/1/015/849.htm)  
+[[原创]eMudhra-CA-利用-密码应用-看雪安全社区](https://bbs.kanxue.com/thread-293329.htm)  
+[Changes to Microsoft Edge browser TLS server certificate verification](https://learn.microsoft.com/deployedge/microsoft-edge-security-cert-verification)  
+<!-- [一文读懂 SSL 证书：从原理到网关部署全解析](https://zhuanlan.zhihu.com/p/717868894) -->
+
+ 
+
+## Linux 7.3稳定版发布
+2026年10月19日 Linux 7.3正式发布，此版本一些值得注意的更新为：改进任务调度，改进显存不足时的显存管理策略，改进Ext4和Btrfs文件系统的性能，NTFS3和NTFS文件系统驱动获得一些功能改进，初步支持M3 Pro、M3 Max、M3 Ultra Soc，添加对2026版Steam手柄的支持，AMD Zen6平台和Qualcomm Snapdragon x2系列的支持稳步推进中。除此之外Linux 7.3还有许多变更，相关资料中列出了参考资料。
+
+### 相关资料
+[Linux 7.3 changelog KernelNewbies](https://kernelnewbies.org/Linux_7.3)  
+[ChangeLog-7.3](https://cdn.kernel.org/pub/linux/kernel/v7.x/ChangeLog-7.3)  
+## MirrorZ教育网联合镜像站正式发布
+2026年8月22日，教育网联合镜像站正式发布。[教育网联合镜像站（MirrorZ）](https://mirrors.cernet.edu.cn/)整合了国内多个高校和科研机构的开源镜像资源，提供了一个统一的镜像资源获取入口。
+
+MirrorZ本身不存储软件资源，其提供的是一个智能302重定向服务，当用户通过MirrorZ使用镜像服务时，其请求将会被重定向到到一个合适的镜像站，如此一来既可提升用户的镜像服务使用体验，亦充分利用资源，平衡了高校的镜像服务压力。
+
+[教育网联合镜像站正式发布](https://servers.ustclug.org/2026/08/mirrorz/)  
+[MirrorZ讲稿](https://os.nju.edu.cn/media/2026/slides/01-MirrorZ%E6%95%99%E8%82%B2%E7%BD%91%E8%81%94%E5%90%88%E9%95%9C%E5%83%8F%E7%AB%99.pdf)  
+[MirrorZ Help](https://help.mirrors.cernet.edu.cn/)  
+[教育网联合镜像站今日正式发布](https://mp.weixin.qq.com/s/ipei4VrTTII0DgZqzMIzyw)  
+
+
+## MiniDebConf Beijing 2026圆满结束
+10月24日在北京中国科学院软件研究所举行的2026北京迷你Debian会议（MiniDebConf Beijing 2026）<sup>注1</sup>已圆满结束。  
+
+<!-- 待添加会议内容 -->
+截至本季报道条目冻结时会议主办方仍未上传会议录播，以下是此报道撰写者自己截取的部分会议直播快照：  
+
+![](images/deb-news/conf0.png)  
+![](images/deb-news/conf1.png)  
+![](images/deb-news/conf2.png)  
+![](images/deb-news/conf3.png)  
+![](images/deb-news/conf4.png)  
+![](images/deb-news/conf5.png)  
+
+注1：这是久违21年的内地Debian会议，上一次还是2005年中国开源软件周在北京举办的“Debian小型会议”。
+
+smgdream报道
+
+### 相关资料
+
 [MiniDebConf Beijing 2026](https://beijing2026.mini.debconf.org/)  
-[MiniDebConf 北京 (Beijing) 2026 报名已开放： 2026-10-24 中科院软件所](https://www.v2ex.com/t/1235184)  
+[Asia Debian Mini-Conf: CfP and Registrations Reminder](https://lists.debian.org/debian-devel-announce/2005/01/msg00008.html)  
+[亞洲 Debian 小型會議 & CodeFest 報導](https://web-archive-2025.openfoundry.org/en/foss-news/201--debian-a-codefest-.html)  
+<!--
+[第一届开源软件周(2005)](https://web.archive.org/web/20050308130906/http://www.chinaossweek.org/hyyc.php?t_id=1)  
+[2005年中国开源软件周即将隆重开幕](https://tech.sina.com.cn/it/2005-03-03/1341541207.shtml)  
+-->
+
 
 
 ## Debian 13.7发布
@@ -67,6 +121,7 @@ smgdream报道
 
 smgdream报道
 
+### 相关资料
 [Linux 7.2](https://lore.kernel.org/lkml/CAHk-=wjk5StpAmUKHacj=GPKwA88y_YRHK=i_YAJFgmxn1=k4w@mail.gmail.com/)  
 [Linux_7.2 - Linux Kernel Newbies](https://kernelnewbies.org/Linux_7.2)  
 [Linux 7.2 Features: Cache Aware Scheduling, USB4STREAM, AMD ISP4, AMDGPU HDMI 2.1 FRL](https://www.phoronix.com/review/linux-72-features)  
@@ -81,7 +136,7 @@ smgdream报道
 ### 相关资料
 [Updated Debian 13: 13.6 released](https://www.debian.org/News/2026/20260711)  
 [SecureBoot/CAChanges - Debian Wiki](https://wiki.debian.org/SecureBoot/CAChanges#What_should_I_do.3F)  
-[更新固件 - UEFI安全启动证书更新](fwupd.md)  
+[更新固件 UEFI安全启动证书更新](fwupd.md)  
 
 ## Debian 12.15发布
 Debian项目组于2026年7月11日发布了Debian 12.15。该版本包含了大量的安全修复，包括Linux内核的许多重要漏洞修复，建议各位Debian用户将系统更新至此版本或更新版本。在此版本之后Debian 12将进入LTS阶段，如果条件允许建议将系统更新至Debian 13。
@@ -122,4 +177,4 @@ This resolution therefore affirms that generative AI is neither exempt from nor 
 Copyright © 2026 SPI and others;
 
 ---
-License: CC0 1.0 | Date: 2026-09-20
+License: CC0 1.0 | Date: 2026-11-06

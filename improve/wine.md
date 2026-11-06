@@ -89,7 +89,7 @@ Wine Mono用于让wine支持运行.NET Framework 应用程序，Gecko是wine独�
 | 9.2 | 9.0.0 |
 | 8.19 | 8.1.0 |
 
-注：对于介于两个表项之间的版本则向下“取整”至最接近的版本，如10.18“取整”到10.17其需安装mono 10.3.0，而对于11.0“取整”到11.0-rc4，其需安装mono 10.4.1。完整表格见[Wine Mono](https://gitlab.winehq.org/wine/wine/-/wikis/Wine-Mono#versions)  
+注：对于介于两个表项之间的版本则向下“取整”至最接近的版本，如10.18“取整”到10.17其需安装mono 10.3.0，而对于11.0“取整”到11.0-rc4，其需安装mono 10.4.1。完整表格见[Wine Mono](https://gitlab.winehq.org/wine/wine/-/wikis/Wine-Mono#versions)。  
 
 然后前往[Wine Mono下载页](https://dl.winehq.org/wine/wine-mono/)下载合适的wine mono 版本。其中提供了tar包和msi两种格式的安装包，tar包用于为所有Wine全局安装Mono（安装完毕后创建的wine实例才有mono），msi包用于为已创建的wine实例单独安装Mono。这两种包的安装方式如下：  
 
@@ -115,7 +115,7 @@ wine msiexec /i </PATH/TO/MONO_MSI>
 | wine-8.6 - 当前最新版本 | 2.47.4 |
 | wine-7.13 - wine-8.5 | 2.47.3 |
 
-注：完整表格见[Gecko](https://gitlab.winehq.org/wine/wine/-/wikis/Gecko#installing)  
+注：完整表格见[Gecko](https://gitlab.winehq.org/wine/wine/-/wikis/Gecko#installing)。  
 
 然后前往[Gecko下载页](https://dl.winehq.org/wine/wine-gecko/)下载合适版本的Gecko版本。其中提供了两种架构`x86`和`x86_64`的Gecko构建，如果开启了32位架构支持或确定当前Wine构建支持WoW64则两种架构都需要安装，否则只需安装`x86_64`架构的Gecko。Gecko也提供了tar包和msi包两种安装包，tar包用于为所有Wine全局安装Gecko（安装完毕后创建的wine实例才有Gecko），msi包用于为已创建的wine实例单独安装Gecko。这两种包的安装方法如下：  
 
@@ -207,7 +207,7 @@ wine msiexec /i <MSI_FILE>
 
 设置为临时环境变量  
 ```sh
-exprot WINEPREFIX=<WINE_INSTANCE_PATH>
+export WINEPREFIX=<WINE_INSTANCE_PATH>
 wine <PROGRAM> [ARGS...]
 ```
 设置为临时变量  
@@ -251,4 +251,4 @@ WINEPREFIX=<WINE32_INSTANCE_PATH> WINEARCH=win32 wineboot -i
 \[13\] [WINEDEBUG channels - Wine User's Guide - Wine Wiki](https://gitlab.winehq.org/wine/wine/-/wikis/Wine-User's-Guide#winedebug-channels)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.2u | Date: 2026-06-17
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.2u | Date: 2026-10-27

@@ -64,7 +64,7 @@ make bzImage -j$(nproc)
 # 仅编译内核模块
 make modules -j$(nproc)
 ```
-说明：`-jN`参数用于说明使用N个CPU物理线程进行编译，`nproc`命令用于获取CPU的总物理线程数，故`-j$(nproc)`参数用于使用所有CPU物理线程进行编译。  
+说明：`-jN`选项用于说明使用N个CPU物理线程进行编译，`nproc`命令用于获取CPU的总物理线程数，故`-j$(nproc)`选项用于使用所有CPU物理线程进行编译。  
 
 注：`make help`命令可用于查看编译Linux相关的帮助信息。  
 
@@ -85,20 +85,20 @@ make install
 ```sh
 make modules_install INSTALL_MOD_STRIP=1
 ```
-说明：`bzImage`默认剥离调试符号信息，但内核模块默认不剥离调试符号信息。保留调试符号信息将会大大增加程序文件的体积（保留调试符号的文件体积是不保留调试符号文件的体积的数倍）。所以为了减少程序的体积通常都会剥离调试符号，除非你要进行调试工作。而`INSTALL_MOD_STRIP=1`参数用于指明在安装的过程中剥离调试符号。
+说明：`bzImage`默认剥离调试符号信息，但内核模块默认不剥离调试符号信息。保留调试符号信息将会大大增加程序文件的体积（保留调试符号的文件体积是不保留调试符号文件的体积的数倍）。所以为了减少程序的体积通常都会剥离调试符号，除非你要进行调试工作。而`INSTALL_MOD_STRIP=1`变量用于指明在安装的过程中剥离调试符号。
 
 如果要为其他机器安装Linux内核模块则执行以下命令。  
 ```sh
 make modules_install INSTALL_MOD_STRIP=1 INSTALL_MOD_PATH=</PATH/TO/ROOTDIR>
 ```
-说明：`INSTALL_MOD_PATH`参数用于指定内核模块安装路径（通常是目标机器的根目录），其默认值为`/`。  
+说明：`INSTALL_MOD_PATH`变量用于指定内核模块安装路径（通常是目标机器的根目录），其默认值为`/`。  
 
 ### 安装Linux内核头文件
 安装Linux内核头文件的命令如下:  
 ```sh
 make headers_install
 ```
-该命令有两个可选的参数。`INSTALL_HDR_PATH`用于指定安装路径（示例: `INSTALL_HDR_PATH=/usr`），其默认值为`./usr`。`ARCH`参数用于指定目标机器的架构（示例: `ARCH=i386`），其默认值为当前架构。
+该命令有两个可选的变量。`INSTALL_HDR_PATH`用于指定安装路径（示例: `INSTALL_HDR_PATH=/usr`），其默认值为`./usr`。`ARCH`变量用于指定目标机器的架构（示例: `ARCH=i386`），其默认值为当前架构<!-- 尚未验证当前架构是指宿主机架构还是目标机器架构 -->。
 
 ## 清理工作
 清理编译目录的命令如下:  
@@ -123,4 +123,4 @@ make distclean
 \[8\] [Kbuild — The Linux Kernel  documentation](https://www.kernel.org/doc/html/latest/kbuild/kbuild.html)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.3u | Date: 2025-12-26
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.7.4 | Date: 2026-10-20

@@ -45,7 +45,7 @@ AVD亦是兼容CVE的漏洞数据库，其不单提供了[CVE漏洞列表](https
 
 对于Debian用户及其他常见Linux发行版用户应当要正确配置安全源<sup>注2</sup>并及时进行安全更新。不建议使用停止支持的系统版本。
 
-注2：Debian用户可参考[Debian初步配置](../init-conf.md)中配置安全源段落的内容进行安全源的配置。  
+注2：Debian用户可参考[Debian初步配置](../start/init-conf.md)中配置安全源段落的内容进行安全源的配置。  
 
 ## 参考资料
 \[1\] [「 网络安全常用术语解读 」通用漏洞披露CVE详解 - 知乎](https://zhuanlan.zhihu.com/p/702314942)  
@@ -63,4 +63,4 @@ AVD亦是兼容CVE的漏洞数据库，其不单提供了[CVE漏洞列表](https
 \[13\] [CVE-2026-9592](https://www.cve.org/CVERecord?id=CVE-2026-9592)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.0u | Date: 2026-09-28
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.0u | Date: 2026-10-27

@@ -11,7 +11,7 @@
 | [腾讯会议](https://meeting.tencent.com/download/) | √ | - | - |
 | [钉钉](https://www.dingtalk.com/download) | Δ | - | 存在轻度功能阉割<br> 注：钉钉对Debian Trixie的支持存在问题无法直接运行。<br> 解决方法：下载[execstack](http://archive.ubuntu.com/ubuntu/pool/universe/p/prelink/execstack_0.0.20131005-1.1ubuntu1_amd64.deb)并安装，然后执行命令`execstack -c '/opt/apps/com.alibabainc.dingtalk/files/<VER>/dingtalk_dll.so'`（`<VER>`与钉钉版本号相关，不同钉钉版本的目录名有所不同，请根据实际情况修改命令中的该目录名称），之后即可正常启动钉钉。另外钉钉的deb包控制文件中的依赖配置可能没有写全，如果遇到该情况，可查看终端的库缺失信息并安装相关的依赖库。 |
 | [迅雷](https://archive2.kylinos.cn/DEB/KYLIN_DEB/pool/all/com.xunlei.download_1.0.0.5_amd64.deb) | √ | Δ | 需安装依赖`libdbus-glib-1-2`，Linux版存在核心功能阉割（无法使用迅雷云盘相关功能） |
-| [QQ音乐](https://y.qq.com/download/download.html) | √ | ΔΔ | Linux版存在核心功能阉割（无法下载音乐）。<br> QQ音乐原生Linux可能无法直接运行，需要添加`--no-sandbox`运行参数。(这个bug已经相当久没修复了，其他一样是electron开发的应用不加`--no-sandbox`也能跑，怎么就QQ音乐就不行了？盯~ 注重权限管理且对硬盘占用不敏感的用户可出门左转[flatpak qqmusic](https://flathub.org/zh-Hans/apps/com.qq.QQmusic))<br> 如果要在wine中运行QQ音乐建议使用安装版（而非便携版），否则可能会出现各种各样的bug，导致难以使用QQ音乐。 |
+| [QQ音乐](https://y.qq.com/download/download.html) | √ | ΔΔ | Linux版存在核心功能阉割（无法下载音乐）。<br> QQ音乐原生Linux可能无法直接运行，需要添加`--no-sandbox`选项。(这个bug已经相当久没修复了，其他一样是electron开发的应用不加`--no-sandbox`也能跑，怎么就QQ音乐就不行了？盯~ 注重权限管理且对硬盘占用不敏感的用户可出门左转[flatpak qqmusic](https://flathub.org/zh-Hans/apps/com.qq.QQmusic))<br> 如果要在wine中运行QQ音乐建议使用安装版（而非便携版），否则可能会出现各种各样的bug，导致难以使用QQ音乐。 |
 | TIM | X | - | - |
 
 注：`√`完美支持，`Δ`存在问题（`Δ`轻微问题基本不影响使用，`ΔΔ`有些问题勉强能用，`ΔΔΔ`存在严重问题仅能启动），`X`不支持，`-`略。
@@ -25,4 +25,4 @@
 \[2\] [linux版qq音乐安装后无法打开解决办法](https://www.bilibili.com/opus/962937083753660424)  
 
 ---
-Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.3u | Date: 2026-06-26
+Author: smgdream | License: CC BY-NC-SA 4.0 | Version: 0.6.4 | Date: 2026-10-23
